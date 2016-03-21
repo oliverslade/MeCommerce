@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeCommerce", "MeCommerce\MeCommerce.csproj", "{F825409D-33D6-4BEE-9E42-ED1A934FE9B3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeCommerce.Tests", "MeCommerce.Tests\MeCommerce.Tests.csproj", "{8C686FDD-D315-40DD-95E3-6794836BA8DE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataModels", "DataModels\DataModels.csproj", "{FC30BDFC-3F74-4323-B5B6-9048C5779EBD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F825409D-33D6-4BEE-9E42-ED1A934FE9B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F825409D-33D6-4BEE-9E42-ED1A934FE9B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F825409D-33D6-4BEE-9E42-ED1A934FE9B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F825409D-33D6-4BEE-9E42-ED1A934FE9B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C686FDD-D315-40DD-95E3-6794836BA8DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C686FDD-D315-40DD-95E3-6794836BA8DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C686FDD-D315-40DD-95E3-6794836BA8DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C686FDD-D315-40DD-95E3-6794836BA8DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC30BDFC-3F74-4323-B5B6-9048C5779EBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC30BDFC-3F74-4323-B5B6-9048C5779EBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC30BDFC-3F74-4323-B5B6-9048C5779EBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC30BDFC-3F74-4323-B5B6-9048C5779EBD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

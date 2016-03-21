@@ -1,0 +1,94 @@
+﻿@using MeCommerce.ViewModels
+@model MeCommerce.ViewModels.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+}
+
+<h2 class="text-center">@ViewBag.Title</h2>
+
+@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    <h4 class="text-center">Create a new account</h4>
+    <hr />
+    @Html.ValidationSummary("", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(m => m.Email, new { @class = "col-md-4 control-label" })
+        <div class="col-md-6">
+            @Html.TextBoxFor(m => m.Email, new { @class = "log-in-fields" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Password, new { @class = "col-md-4 control-label" })
+        <div class="col-md-6">
+            @Html.PasswordFor(m => m.Password, new { @class = "log-in-fields" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-4 control-label" })
+        <div class="col-md-6">
+            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "log-in-fields" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.HouseName, new { @class = "col-md-4 control-label" })
+        <div class="col-md-6">
+            @Html.TextBoxFor(m => m.HouseName, new { @class = "log-in-fields" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.AddressLine1, new { @class = "col-md-4 control-label" })
+        <div class="col-md-6">
+            @Html.TextBoxFor(m => m.AddressLine1, new { @class = "log-in-fields" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.AddressLine2, new { @class = "col-md-4 control-label" })
+        <div class="col-md-6">
+            @Html.TextBoxFor(m => m.AddressLine2, new { @class = "log-in-fields" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.AddressLine3, new {@class = "col-md-4 control-label"})
+        <div class="col-md-6">
+            @Html.TextBoxFor(m => m.AddressLine3, new {@class = "log-in-fields"})
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Town, new {@class = "col-md-4 control-label"})
+        <div class="col-md-6">
+            @Html.TextBoxFor(m => m.Town, new {@class = "log-in-fields"})
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.County, new {@class = "col-md-4 control-label"})
+        <div class="col-md-6">
+            @Html.TextBoxFor(m => m.County, new {@class = "log-in-fields"})
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Postcode, new {@class = "col-md-4 control-label"})
+        <div class="col-md-6">
+            @Html.TextBoxFor(m => m.Postcode, new {@class = "log-in-fields"})
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.ContactNumber, new { @class = "col-md-4 control-label" })
+        <div class="col-md-6">
+            @Html.TextBoxFor(m => m.ContactNumber, new { @class = "log-in-fields" })
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-5 col-md-10">
+            <input type="submit" class="button-style" value="Register" />
+        </div>
+    </div>
+}
+
+<section id="socialLoginForm">
+    @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
+</section>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

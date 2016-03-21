@@ -1,0 +1,5 @@
+C:\Users\Oliver Slade\Desktop\MeCommerce\DataModels\bin\Debug\DataModels.dll
+C:\Users\Oliver Slade\Desktop\MeCommerce\DataModels\bin\Debug\DataModels.pdb
+C:\Users\Oliver Slade\Desktop\MeCommerce\DataModels\obj\Debug\DataModels.csprojResolveAssemblyReference.cache
+C:\Users\Oliver Slade\Desktop\MeCommerce\DataModels\obj\Debug\DataModels.dll
+C:\Users\Oliver Slade\Desktop\MeCommerce\DataModels\obj\Debug\DataModels.pdb

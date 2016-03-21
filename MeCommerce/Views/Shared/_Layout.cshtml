@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - MeCommerce, Oliver Slade</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+
+<body>
+    <main class="cd-main-content">
+        <div class="navbar">
+            <div class="nav-box">
+                <div class="navbar-header">
+                    <a class="hamburger">
+                        <div class="navIcon">
+                            <div class="naviconUpper"></div>
+                            <div class="innerNavicon"></div>
+                            <div class="naviconLower"></div>
+                        </div>
+                    </a>
+                    <a href='@Url.Action("Index", "Home")'>
+                        <img class="logo" src="~/Icons/logo.png" />
+                    </a>
+                    @*<img src="~/Icons/logo.png" />
+                        @Html.ActionLink("MeCommerce", "Index", "Home", new { area = "" }, new { @class = "navbar-brand logo" })*@
+                </div>
+                <ul class="nav navbar-nav navbar-text-style">
+                    <li>@Html.ActionLink("Example 1", "About", "Home")</li>
+                    <li>@Html.ActionLink("Example 2", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Example 3", "About", "Home")</li>
+                    <li>@Html.ActionLink("Example 4", "About", "Home")</li>
+                    <li>@Html.ActionLink("Example 5", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Example 6", "Contact", "Home")</li>
+                </ul>
+                <ul class="navbar-nav nav navbar-right">
+                    <li><img class="cart-icon" src="~/Icons/cart.svg"></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - MeCommerce, Oliver Slade</p>
+            </footer>
+        </div>
+    </main>
+
+    <div class="cd-panel from-left cd-acc">
+        <header class="cd-panel-header">
+            @Html.Partial("_LoginPartial")
+            <a class="cd-panel-close">Close</a>
+        </header>
+
+        <div class="cd-panel-container">
+            <div class="cd-panel-content">
+
+                <div id="default">
+                    <h3>My Store</h3>
+                    <hr />
+                    <h5>Sign in or Register to manage your account.</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="cd-panel from-right cd-basket">
+        <header class="cd-panel-header">
+            <h3 class="text-center basket-header">Basket</h3>
+            <a class="cd-panel-close">Close</a>
+        </header>
+
+        <div class="cd-panel-container">
+            <div class="cd-panel-content">
+                <h5>Your basket is empty :(</h5>
+            </div>
+        </div>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+</body>
+</html>
+
+<script>
+    jQuery(document).ready(function ($) {
+        $('.hamburger').on('click', function (event) {
+            event.preventDefault();
+            $('.cd-acc').addClass('is-visible');
+        });
+
+        $('.cart-icon').on('click', function (event) {
+            event.preventDefault();
+            $('.cd-basket').addClass('is-visible');
+        });
+
+        $('.cd-panel').on('click', function (event) {
+            if ($(event.target).is('.cd-panel') || $(event.target).is('.cd-panel-close')) {
+                $('.cd-panel').removeClass('is-visible');
+                event.preventDefault();
+            }
+        });
+    });
+</script>
