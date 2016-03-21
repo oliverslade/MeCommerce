@@ -50,7 +50,6 @@ C:\Users\Oliver Slade\Desktop\MeCommerce\MeCommerce\bin\Microsoft.Owin.Security.
 C:\Users\Oliver Slade\Desktop\MeCommerce\MeCommerce\bin\Microsoft.Owin.Security.Google.xml
 C:\Users\Oliver Slade\Desktop\MeCommerce\MeCommerce\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\Oliver Slade\Desktop\MeCommerce\MeCommerce\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-C:\Users\Oliver Slade\Desktop\MeCommerce\MeCommerce\obj\Debug\MeCommerce.csprojResolveAssemblyReference.cache
 C:\Users\Oliver Slade\Desktop\MeCommerce\MeCommerce\obj\Debug\MeCommerce.Migrations.InitialCreate.resources
 C:\Users\Oliver Slade\Desktop\MeCommerce\MeCommerce\obj\Debug\MeCommerce.Migrations.UserModel.resources
 C:\Users\Oliver Slade\Desktop\MeCommerce\MeCommerce\obj\Debug\MeCommerce.Migrations.UserModelContact.resources
