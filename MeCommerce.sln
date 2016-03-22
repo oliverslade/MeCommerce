@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeCommerce.Tests", "MeComme
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataModels", "DataModels\DataModels.csproj", "{FC30BDFC-3F74-4323-B5B6-9048C5779EBD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repository", "Repository\Repository.csproj", "{BBC9C7CA-C18D-45F9-812E-2CD072435FFE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{FC30BDFC-3F74-4323-B5B6-9048C5779EBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FC30BDFC-3F74-4323-B5B6-9048C5779EBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FC30BDFC-3F74-4323-B5B6-9048C5779EBD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBC9C7CA-C18D-45F9-812E-2CD072435FFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBC9C7CA-C18D-45F9-812E-2CD072435FFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBC9C7CA-C18D-45F9-812E-2CD072435FFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBC9C7CA-C18D-45F9-812E-2CD072435FFE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
