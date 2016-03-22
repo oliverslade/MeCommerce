@@ -2,12 +2,12 @@ namespace DataModels
 {
     using System.Collections.Generic;
 
-    public partial class ShoppingCart
+    public class ShoppingCart
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public ShoppingCart()
         {
-            this.ShoppingCartItems = new HashSet<ShoppingCartItem>();
+            ShoppingCartItems = new HashSet<ShoppingCartItem>();
         }
 
         public int CartId { get; set; }

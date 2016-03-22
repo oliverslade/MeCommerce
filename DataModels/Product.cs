@@ -1,16 +1,15 @@
 namespace DataModels
 {
-    using System;
     using System.Collections.Generic;
 
-    public partial class Product
+    public class Product
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Product()
         {
-            this.BrowsingHistories = new HashSet<BrowsingHistory>();
-            this.OrderLines = new HashSet<OrderLine>();
-            this.ShoppingCartItems = new HashSet<ShoppingCartItem>();
+            BrowsingHistories = new HashSet<BrowsingHistory>();
+            OrderLines = new HashSet<OrderLine>();
+            ShoppingCartItems = new HashSet<ShoppingCartItem>();
         }
 
         public int ProductId { get; set; }
@@ -20,7 +19,7 @@ namespace DataModels
         public string LongDescription { get; set; }
         public int Price { get; set; }
         public int StockLevel { get; set; }
-        public Nullable<bool> IsActive { get; set; }
+        public bool IsActive { get; set; }
         public int CategoryId { get; set; }
         public int BrandId { get; set; }
 

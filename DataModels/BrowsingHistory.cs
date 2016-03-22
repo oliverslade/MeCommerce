@@ -1,6 +1,6 @@
 namespace DataModels
 {
-    public partial class BrowsingHistory
+    public class BrowsingHistory
     {
         public int BrowsingHistoryId { get; set; }
         public int ProductId { get; set; }

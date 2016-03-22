@@ -2,12 +2,12 @@ namespace DataModels
 {
     using System.Collections.Generic;
 
-    public partial class Order
+    public class Order
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Order()
         {
-            this.OrderLines = new HashSet<OrderLine>();
+            OrderLines = new HashSet<OrderLine>();
         }
 
         public int OrderId { get; set; }

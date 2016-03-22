@@ -1,6 +1,6 @@
 namespace DataModels
 {
-    public partial class OrderLine
+    public class OrderLine
     {
         public int OrderLineId { get; set; }
         public int ProductId { get; set; }

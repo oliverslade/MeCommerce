@@ -2,12 +2,12 @@ namespace DataModels
 {
     using System.Collections.Generic;
 
-    public partial class Device
+    public class Device
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Device()
         {
-            this.BrowsingHistories = new HashSet<BrowsingHistory>();
+            BrowsingHistories = new HashSet<BrowsingHistory>();
         }
 
         public int DeviceId { get; set; }

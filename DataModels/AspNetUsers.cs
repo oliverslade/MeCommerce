@@ -3,17 +3,17 @@ namespace DataModels
     using System;
     using System.Collections.Generic;
 
-    public partial class AspNetUsers
+    public class AspNetUsers
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public AspNetUsers()
         {
-            this.BrowsingHistories = new HashSet<BrowsingHistory>();
-            this.Orders = new HashSet<Order>();
-            this.ShoppingCarts = new HashSet<ShoppingCart>();
-            this.AspNetUserClaims = new HashSet<AspNetUserClaims>();
-            this.AspNetUserLogins = new HashSet<AspNetUserLogins>();
-            this.AspNetRoles = new HashSet<AspNetRoles>();
+            BrowsingHistories = new HashSet<BrowsingHistory>();
+            Orders = new HashSet<Order>();
+            ShoppingCarts = new HashSet<ShoppingCart>();
+            AspNetUserClaims = new HashSet<AspNetUserClaims>();
+            AspNetUserLogins = new HashSet<AspNetUserLogins>();
+            AspNetRoles = new HashSet<AspNetRoles>();
         }
 
         public int Id { get; set; }

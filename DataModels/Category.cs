@@ -2,12 +2,12 @@ namespace DataModels
 {
     using System.Collections.Generic;
 
-    public partial class Category
+    public class Category
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Category()
         {
-            this.Products = new HashSet<Product>();
+            Products = new HashSet<Product>();
         }
 
         public int CategoryId { get; set; }

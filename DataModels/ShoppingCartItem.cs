@@ -1,6 +1,6 @@
 namespace DataModels
 {
-    public partial class ShoppingCartItem
+    public class ShoppingCartItem
     {
         public int ShoppingCartItemsId { get; set; }
         public int ProductId { get; set; }

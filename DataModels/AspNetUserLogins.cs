@@ -1,9 +1,6 @@
 namespace DataModels
 {
-    using System;
-    using System.Collections.Generic;
-
-    public partial class AspNetUserLogins
+    public class AspNetUserLogins
     {
         public string LoginProvider { get; set; }
         public string ProviderKey { get; set; }

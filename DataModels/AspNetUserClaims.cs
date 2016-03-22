@@ -1,9 +1,6 @@
 namespace DataModels
 {
-    using System;
-    using System.Collections.Generic;
-
-    public partial class AspNetUserClaims
+    public class AspNetUserClaims
     {
         public int Id { get; set; }
         public int UserId { get; set; }
