@@ -11,7 +11,7 @@ namespace DataModels
         }
 
         public int CartId { get; set; }
-        public string UserId { get; set; }
+        public int UserId { get; set; }
         public int TotalPrice { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -6,6 +6,6 @@ namespace DataModels
         public int ProductId { get; set; }
         public System.DateTime DateTime { get; set; }
         public int DeviceId { get; set; }
-        public string UserId { get; set; }
+        public int UserId { get; set; }
     }
 }
