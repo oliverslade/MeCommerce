@@ -22,6 +22,5 @@ C:\Users\Oliver Slade\Desktop\MeCommerce\DataModels\bin\Debug\Microsoft.Owin.Sec
 C:\Users\Oliver Slade\Desktop\MeCommerce\DataModels\bin\Debug\Microsoft.Owin.Security.Cookies.xml
 C:\Users\Oliver Slade\Desktop\MeCommerce\DataModels\bin\Debug\Microsoft.Owin.Security.OAuth.xml
 C:\Users\Oliver Slade\Desktop\MeCommerce\DataModels\bin\Debug\Newtonsoft.Json.xml
-C:\Users\Oliver Slade\Desktop\MeCommerce\DataModels\obj\Debug\DataModels.csprojResolveAssemblyReference.cache
 C:\Users\Oliver Slade\Desktop\MeCommerce\DataModels\obj\Debug\DataModels.dll
 C:\Users\Oliver Slade\Desktop\MeCommerce\DataModels\obj\Debug\DataModels.pdb

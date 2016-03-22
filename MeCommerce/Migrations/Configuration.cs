@@ -1,5 +1,4 @@
 using DataModels;
-using MeCommerce.ViewModels;
 
 namespace MeCommerce.Migrations
 {
