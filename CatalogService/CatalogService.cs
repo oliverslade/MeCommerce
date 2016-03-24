@@ -23,7 +23,7 @@ namespace CatalogService
             _userRepository = userRepository;
             _mapper = new MapperConfiguration(cfg =>
             {
-                // To domain models.
+                // To domain models
                 cfg.CreateMap<Product, DataModels.Product>();
                 cfg.CreateMap<Brand, DataModels.Brand>();
                 cfg.CreateMap<Category, DataModels.Category>();
@@ -31,7 +31,7 @@ namespace CatalogService
                 cfg.CreateMap<Device, DataModels.Device>();
                 cfg.CreateMap<BrowsingHistory, DataModels.BrowsingHistory>();
 
-                // To data models.
+                // To data models
                 cfg.CreateMap<DataModels.Product, Product>();
                 cfg.CreateMap<DataModels.Brand, Brand>();
                 cfg.CreateMap<DataModels.Category, Category>();
