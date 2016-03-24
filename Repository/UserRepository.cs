@@ -34,12 +34,12 @@ namespace Repository
             return _context.AspNetUsers.FirstOrDefault(u => u.Id == id);
         }
 
-        public AspNetUsers RetrieveUserByUsername(string username)
+        public AspNetUsers GetUserByUsername(string username)
         {
             return _context.AspNetUsers.FirstOrDefault(u => u.UserName == username);
         }
 
-        public AspNetUsers RetrieveUserByEmailAddress(string emailAddress)
+        public AspNetUsers GetUserByEmailAddress(string emailAddress)
         {
             return _context.AspNetUsers.FirstOrDefault(u => u.Email == emailAddress);
         }

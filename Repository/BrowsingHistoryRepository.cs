@@ -10,7 +10,7 @@ namespace Repository
 
         public IEnumerable<BrowsingHistory> GetUsersBrowsingHistories(int userId)
         {
-            return _context.BrowsingHistory.Where(x => x.UserId == userId);
+            return _context.BrowsingHistory.Where(x => x.User.Id == userId);
         }
 
         public void CreateBrowsingHistoryEntry(BrowsingHistory bhe)
