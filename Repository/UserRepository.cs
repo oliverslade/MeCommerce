@@ -30,6 +30,8 @@ namespace Repository
             }).CreateMapper();
         }
 
+        #region User Repository
+
         public void CreateUser(AspNetUsers user)
         {
             _context.AspNetUsers.Add(user);
@@ -70,6 +72,10 @@ namespace Repository
             _context.SaveChanges();
         }
 
+        #endregion User Repository
+
+        #region Cart Repository
+
         public ShoppingCart GetUserCart(int userId)
         {
             return _context.ShoppingCart.FirstOrDefault(x => x.User.Id == userId);
@@ -101,6 +107,10 @@ namespace Repository
             _context.ShoppingCart.Remove(existing);
             _context.SaveChanges();
         }
+
+        #endregion Cart Repository
+
+        #region Order and Order Line Repository
 
         public void CreateOrder(Order order)
         {
@@ -167,6 +177,10 @@ namespace Repository
             _context.SaveChanges();
         }
 
+        #endregion Order and Order Line Repository
+
+        #region Browsing History Repository
+
         public IEnumerable<BrowsingHistory> GetUsersBrowsingHistories(int userId)
         {
             return _context.BrowsingHistory.Where(x => x.User.Id == userId);
@@ -177,5 +191,7 @@ namespace Repository
             _context.BrowsingHistory.Add(bhe);
             _context.SaveChanges();
         }
+
+        #endregion Browsing History Repository
     }
 }

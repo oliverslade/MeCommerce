@@ -5,6 +5,8 @@ namespace Interfaces.Repositories
 {
     public interface IUserRepository
     {
+        #region IUserRepository
+
         void CreateUser(AspNetUsers user);
 
         IEnumerable<AspNetUsers> GetAllUsers();
@@ -19,6 +21,10 @@ namespace Interfaces.Repositories
 
         void DeleteUser(AspNetUsers user);
 
+        #endregion IUserRepository
+
+        #region IShoppingCartRepository
+
         ShoppingCart GetUserCart(int userId);
 
         void CreateBasket(ShoppingCart cart);
@@ -28,6 +34,10 @@ namespace Interfaces.Repositories
         void DeleteShoppingCartItem(int productId);
 
         void DeleteCartByUserId(int userId);
+
+        #endregion IShoppingCartRepository
+
+        #region IOrder and IOrderLineRepository
 
         void CreateOrder(Order order);
 
@@ -51,8 +61,14 @@ namespace Interfaces.Repositories
 
         void DeleteOrderLineById(OrderLine orderLine);
 
+        #endregion IOrder and IOrderLineRepository
+
+        #region IBrowsingHistoryRepository
+
         IEnumerable<BrowsingHistory> GetUsersBrowsingHistories(int userId);
 
         void CreateBrowsingHistoryEntry(BrowsingHistory bhe);
+
+        #endregion IBrowsingHistoryRepository
     }
 }

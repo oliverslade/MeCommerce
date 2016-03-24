@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using DomainModels;
-using Interfaces.Repositories;
 using Interfaces.Services;
 using System;
 using System.Collections.Generic;

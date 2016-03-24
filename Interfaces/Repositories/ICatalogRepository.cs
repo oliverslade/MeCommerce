@@ -5,6 +5,8 @@ namespace Interfaces.Repositories
 {
     public interface ICatalogRepository
     {
+        #region IProductRepository
+
         IEnumerable<Product> GetAllProducts();
 
         Product GetProductById(int id);
@@ -23,6 +25,10 @@ namespace Interfaces.Repositories
 
         void DeleteProductBySku(string sku);
 
+        #endregion IProductRepository
+
+        #region ICategoryRepository
+
         void CreateCategory(Category category);
 
         IEnumerable<Category> GetAllCategories();
@@ -34,6 +40,10 @@ namespace Interfaces.Repositories
         void UpdateCategoryByName(Category category);
 
         void DeleteCategoryById(Category category);
+
+        #endregion ICategoryRepository
+
+        #region IBrandRepository
 
         void CreateBrand(Brand brand);
 
@@ -48,5 +58,7 @@ namespace Interfaces.Repositories
         void UpdateBrandByName(Brand brand);
 
         void DeleteBrandById(Brand brand);
+
+        #endregion IBrandRepository
     }
 }

@@ -35,6 +35,8 @@ namespace Repository
             }).CreateMapper();
         }
 
+        #region Product Repository
+
         public IEnumerable<Product> GetAllProducts()
         {
             return _context.Products.ToList();
@@ -85,6 +87,10 @@ namespace Repository
             _context.SaveChanges();
         }
 
+        #endregion Product Repository
+
+        #region Category Repository
+
         public void CreateCategory(Category category)
         {
             _context.Categories.Add((category));
@@ -119,6 +125,10 @@ namespace Repository
             _context.Categories.Remove(existing);
             _context.SaveChanges();
         }
+
+        #endregion Category Repository
+
+        #region Brand Repository
 
         public void CreateBrand(Brand brand)
         {
@@ -161,5 +171,7 @@ namespace Repository
             _context.Brands.Remove(existing);
             _context.SaveChanges();
         }
+
+        #endregion Brand Repository
     }
 }
