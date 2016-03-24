@@ -15,6 +15,5 @@ C:\Users\Oliver Slade\Desktop\MeCommerce\DomainModels\bin\Debug\Microsoft.AspNet
 C:\Users\Oliver Slade\Desktop\MeCommerce\DomainModels\bin\Debug\SimpleInjector.xml
 C:\Users\Oliver Slade\Desktop\MeCommerce\DomainModels\bin\Debug\SimpleInjector.Integration.Web.xml
 C:\Users\Oliver Slade\Desktop\MeCommerce\DomainModels\bin\Debug\SimpleInjector.Integration.Web.Mvc.xml
-C:\Users\Oliver Slade\Desktop\MeCommerce\DomainModels\obj\Debug\DomainModels.csprojResolveAssemblyReference.cache
 C:\Users\Oliver Slade\Desktop\MeCommerce\DomainModels\obj\Debug\DomainModels.dll
 C:\Users\Oliver Slade\Desktop\MeCommerce\DomainModels\obj\Debug\DomainModels.pdb
