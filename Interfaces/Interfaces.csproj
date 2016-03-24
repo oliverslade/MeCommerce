@@ -47,11 +47,16 @@
     <Compile Include="Repositories\IProductRepository.cs" />
     <Compile Include="Repositories\IShoppingBasketRepository.cs" />
     <Compile Include="Repositories\IUserRepository.cs" />
+    <Compile Include="Services\ICatalogService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataModels\DataModels.csproj">
       <Project>{FC30BDFC-3F74-4323-B5B6-9048C5779EBD}</Project>
       <Name>DataModels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DomainModels\DomainModels.csproj">
+      <Project>{111E34BE-1D29-4420-A80A-80B8BCD9D7A7}</Project>
+      <Name>DomainModels</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

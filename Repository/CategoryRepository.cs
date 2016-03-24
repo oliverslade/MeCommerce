@@ -40,14 +40,14 @@ namespace Repository
             return _context.Categories.FirstOrDefault(c => c.CategoryId == id);
         }
 
-        public Category RetrieveCategoryByName(string name)
+        public Category GetCategoryByName(string name)
         {
             return _context.Categories.FirstOrDefault(c => c.Name.Equals(name, StringComparison.OrdinalIgnoreCase));
         }
 
         public void UpdateCategoryByName(Category category)
         {
-            var existing = RetrieveCategoryByName(category.Name);
+            var existing = GetCategoryByName(category.Name);
             _mapper.Map(category, existing);
             _context.SaveChanges();
         }

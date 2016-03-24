@@ -9,7 +9,7 @@ namespace Interfaces.Repositories
 
         Category GetCategoryById(int id);
 
-        Category RetrieveCategoryByName(string name);
+        Category GetCategoryByName(string name);
 
         void CreateCategory(Category category);
 
