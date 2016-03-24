@@ -54,13 +54,5 @@ namespace Interfaces.Services
         Brand GetBrandByName(string name);
 
         #endregion Brand Interfaces
-
-        #region Browsing History Interfaces
-
-        IEnumerable<BrowsingHistory> GetUsersBrowsingHistories(int userId);
-
-        void CreateBrowsingHistoryEntry(BrowsingHistory bhe);
-
-        #endregion Browsing History Interfaces
     }
 }
