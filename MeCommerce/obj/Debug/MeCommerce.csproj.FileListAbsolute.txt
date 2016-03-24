@@ -20,6 +20,9 @@ C:\Users\Oliver Slade\Desktop\MeCommerce\MeCommerce\bin\Microsoft.Owin.Security.
 C:\Users\Oliver Slade\Desktop\MeCommerce\MeCommerce\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\Oliver Slade\Desktop\MeCommerce\MeCommerce\bin\Newtonsoft.Json.dll
 C:\Users\Oliver Slade\Desktop\MeCommerce\MeCommerce\bin\Owin.dll
+C:\Users\Oliver Slade\Desktop\MeCommerce\MeCommerce\bin\SimpleInjector.dll
+C:\Users\Oliver Slade\Desktop\MeCommerce\MeCommerce\bin\SimpleInjector.Integration.Web.dll
+C:\Users\Oliver Slade\Desktop\MeCommerce\MeCommerce\bin\SimpleInjector.Integration.Web.Mvc.dll
 C:\Users\Oliver Slade\Desktop\MeCommerce\MeCommerce\bin\System.Web.Helpers.dll
 C:\Users\Oliver Slade\Desktop\MeCommerce\MeCommerce\bin\System.Web.Mvc.dll
 C:\Users\Oliver Slade\Desktop\MeCommerce\MeCommerce\bin\System.Web.Optimization.dll
@@ -31,6 +34,9 @@ C:\Users\Oliver Slade\Desktop\MeCommerce\MeCommerce\bin\WebGrease.dll
 C:\Users\Oliver Slade\Desktop\MeCommerce\MeCommerce\bin\DataModels.pdb
 C:\Users\Oliver Slade\Desktop\MeCommerce\MeCommerce\bin\Antlr3.Runtime.pdb
 C:\Users\Oliver Slade\Desktop\MeCommerce\MeCommerce\bin\Newtonsoft.Json.xml
+C:\Users\Oliver Slade\Desktop\MeCommerce\MeCommerce\bin\SimpleInjector.xml
+C:\Users\Oliver Slade\Desktop\MeCommerce\MeCommerce\bin\SimpleInjector.Integration.Web.xml
+C:\Users\Oliver Slade\Desktop\MeCommerce\MeCommerce\bin\SimpleInjector.Integration.Web.Mvc.xml
 C:\Users\Oliver Slade\Desktop\MeCommerce\MeCommerce\bin\System.Web.Helpers.xml
 C:\Users\Oliver Slade\Desktop\MeCommerce\MeCommerce\bin\System.Web.Mvc.xml
 C:\Users\Oliver Slade\Desktop\MeCommerce\MeCommerce\bin\System.Web.Optimization.xml

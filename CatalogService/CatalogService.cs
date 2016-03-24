@@ -1,4 +1,6 @@
-﻿using DomainModels;
+﻿using AutoMapper;
+using DomainModels;
+using Interfaces.Repositories;
 using Interfaces.Services;
 using System;
 using System.Collections.Generic;
@@ -7,6 +9,8 @@ namespace CatalogService
 {
     public class CatalogService : ICatalogService
     {
+        private readonly IMapper _mapper;
+
         public IEnumerable<Product> GetAllProducts()
         {
             throw new NotImplementedException();

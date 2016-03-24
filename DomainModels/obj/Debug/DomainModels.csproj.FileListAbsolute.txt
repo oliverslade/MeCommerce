@@ -5,9 +5,15 @@ C:\Users\Oliver Slade\Desktop\MeCommerce\DomainModels\bin\Debug\EntityFramework.
 C:\Users\Oliver Slade\Desktop\MeCommerce\DomainModels\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\Oliver Slade\Desktop\MeCommerce\DomainModels\bin\Debug\Microsoft.AspNet.Identity.Core.dll
 C:\Users\Oliver Slade\Desktop\MeCommerce\DomainModels\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Oliver Slade\Desktop\MeCommerce\DomainModels\bin\Debug\SimpleInjector.dll
+C:\Users\Oliver Slade\Desktop\MeCommerce\DomainModels\bin\Debug\SimpleInjector.Integration.Web.dll
+C:\Users\Oliver Slade\Desktop\MeCommerce\DomainModels\bin\Debug\SimpleInjector.Integration.Web.Mvc.dll
 C:\Users\Oliver Slade\Desktop\MeCommerce\DomainModels\bin\Debug\EntityFramework.xml
 C:\Users\Oliver Slade\Desktop\MeCommerce\DomainModels\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Oliver Slade\Desktop\MeCommerce\DomainModels\bin\Debug\Microsoft.AspNet.Identity.Core.xml
 C:\Users\Oliver Slade\Desktop\MeCommerce\DomainModels\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\Oliver Slade\Desktop\MeCommerce\DomainModels\bin\Debug\SimpleInjector.xml
+C:\Users\Oliver Slade\Desktop\MeCommerce\DomainModels\bin\Debug\SimpleInjector.Integration.Web.xml
+C:\Users\Oliver Slade\Desktop\MeCommerce\DomainModels\bin\Debug\SimpleInjector.Integration.Web.Mvc.xml
 C:\Users\Oliver Slade\Desktop\MeCommerce\DomainModels\obj\Debug\DomainModels.dll
 C:\Users\Oliver Slade\Desktop\MeCommerce\DomainModels\obj\Debug\DomainModels.pdb
