@@ -7,13 +7,13 @@ namespace MeCommerce.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class UserModelContact : IMigrationMetadata
+    public sealed partial class update : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(UserModelContact));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(update));
         
         string IMigrationMetadata.Id
         {
-            get { return "201603191552114_UserModelContact"; }
+            get { return "201603241227436_update"; }
         }
         
         string IMigrationMetadata.Source

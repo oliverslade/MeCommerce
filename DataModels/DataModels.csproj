@@ -94,7 +94,6 @@
     <Compile Include="BrowsingHistory.cs" />
     <Compile Include="Category.cs" />
     <Compile Include="Device.cs" />
-    <Compile Include="IdentityModels.cs" />
     <Compile Include="MeCommerceDbContext.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="OrderLine.cs" />

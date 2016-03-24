@@ -1,18 +1,15 @@
-using DataModels;
-
 namespace MeCommerce.Migrations
 {
     using System.Data.Entity.Migrations;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<ApplicationDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<MeCommerce.ViewModels.ApplicationDbContext>
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
-            ContextKey = "MeCommerce.Models.ApplicationDbContext";
+            AutomaticMigrationsEnabled = true;
         }
 
-        protected override void Seed(ApplicationDbContext context)
+        protected override void Seed(MeCommerce.ViewModels.ApplicationDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 
