@@ -66,6 +66,10 @@
       <Project>{fc30bdfc-3f74-4323-b5b6-9048c5779ebd}</Project>
       <Name>DataModels</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Interfaces\Interfaces.csproj">
+      <Project>{5BAF3E78-6CEB-427B-89B8-039C4570A163}</Project>
+      <Name>Interfaces</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

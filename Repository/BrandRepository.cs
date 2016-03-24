@@ -1,12 +1,13 @@
 ﻿using AutoMapper;
 using DataModels;
+using Interfaces.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Repository
 {
-    public class BrandRepository
+    public class BrandRepository : IBrandRepository
     {
         private readonly MeCommerceDbContext _context = new MeCommerceDbContext();
 

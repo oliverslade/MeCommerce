@@ -5,9 +5,11 @@ C:\Users\Oliver Slade\Desktop\MeCommerce\Repository\bin\Debug\AutoMapper.dll
 C:\Users\Oliver Slade\Desktop\MeCommerce\Repository\bin\Debug\DataModels.dll
 C:\Users\Oliver Slade\Desktop\MeCommerce\Repository\bin\Debug\EntityFramework.dll
 C:\Users\Oliver Slade\Desktop\MeCommerce\Repository\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Oliver Slade\Desktop\MeCommerce\Repository\bin\Debug\Interfaces.dll
 C:\Users\Oliver Slade\Desktop\MeCommerce\Repository\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
 C:\Users\Oliver Slade\Desktop\MeCommerce\Repository\bin\Debug\Microsoft.AspNet.Identity.Core.dll
 C:\Users\Oliver Slade\Desktop\MeCommerce\Repository\bin\Debug\DataModels.pdb
+C:\Users\Oliver Slade\Desktop\MeCommerce\Repository\bin\Debug\Interfaces.pdb
 C:\Users\Oliver Slade\Desktop\MeCommerce\Repository\bin\Debug\AutoMapper.xml
 C:\Users\Oliver Slade\Desktop\MeCommerce\Repository\bin\Debug\EntityFramework.xml
 C:\Users\Oliver Slade\Desktop\MeCommerce\Repository\bin\Debug\EntityFramework.SqlServer.xml

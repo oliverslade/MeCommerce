@@ -1,10 +1,11 @@
 ﻿using AutoMapper;
 using DataModels;
+using Interfaces.Repositories;
 using System.Linq;
 
 namespace Repository
 {
-    public class ShoppingBasketRepository
+    public class ShoppingBasketRepository : IShoppingBasketRepository
     {
         private readonly MeCommerceDbContext _context = new MeCommerceDbContext();
 
