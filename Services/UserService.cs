@@ -4,6 +4,7 @@ using Interfaces.Repositories;
 using Interfaces.Services;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Services
 {
@@ -29,75 +30,95 @@ namespace Services
                 cfg.CreateMap<OrderLine, DataModels.OrderLine>();
 
                 // To data models
-                cfg.CreateMap<DataModels.Product, Product>();
-                cfg.CreateMap<DataModels.Brand, Brand>();
-                cfg.CreateMap<DataModels.Category, Category>();
+                cfg.CreateMap<DataModels.AspNetUsers, AspNetUsers>();
+                cfg.CreateMap<DataModels.BrowsingHistory, BrowsingHistory>();
+                cfg.CreateMap<DataModels.Device, Device>();
+                cfg.CreateMap<DataModels.ShoppingCart, ShoppingCart>();
+                cfg.CreateMap<DataModels.ShoppingCartItem, ShoppingCartItem>();
+                cfg.CreateMap<DataModels.Order, Order>();
+                cfg.CreateMap<DataModels.OrderLine, OrderLine>();
             }).CreateMapper();
         }
 
+        #region User Logic
+
         public AspNetUsers GetUser(int id)
         {
-            throw new NotImplementedException();
+            return _mapper.Map(_userRepository.GetUser(id), new AspNetUsers());
         }
 
         public void UpdateUser(AspNetUsers user)
         {
-            throw new NotImplementedException();
+            _userRepository.UpdateUser(_mapper.Map(user, new DataModels.AspNetUsers()));
         }
+
+        #endregion User Logic
+
+        #region ShoppingCart Logic
 
         public ShoppingCart GetUserCart(int userId)
         {
-            throw new NotImplementedException();
+            return _mapper.Map(_userRepository.GetUserCart(userId), new ShoppingCart());
         }
 
         public void CreateBasket(ShoppingCart cart)
         {
-            throw new NotImplementedException();
+            _userRepository.CreateBasket(_mapper.Map(cart, new DataModels.ShoppingCart()));
         }
 
         public void UpdateBasket(ShoppingCart cart)
         {
-            throw new NotImplementedException();
+            _userRepository.UpdateBasket(_mapper.Map(cart, new DataModels.ShoppingCart()));
         }
 
         public void DeleteShoppingCartItem(int productId)
         {
-            throw new NotImplementedException();
+            _userRepository.DeleteShoppingCartItem(productId);
         }
 
         public void DeleteCartByUserId(int userId)
         {
-            throw new NotImplementedException();
+            _userRepository.DeleteCartByUserId(userId);
         }
+
+        #endregion ShoppingCart Logic
+
+        #region Order and OrderLine Logic
 
         public IEnumerable<Order> GetOrdersByUserId(int userId)
         {
-            throw new NotImplementedException();
+            return _userRepository.GetOrdersByUserId(userId).Select(o => _mapper.Map(o, new Order()));
         }
 
         public void CreateOrder(Order order)
         {
-            throw new NotImplementedException();
+            _userRepository.CreateOrder(_mapper.Map(order, new DataModels.Order()));
         }
 
         public void CreateOrderLine(OrderLine orderLine)
         {
-            throw new NotImplementedException();
+            _userRepository.CreateOrderLine(_mapper.Map(orderLine, new DataModels.OrderLine()));
         }
 
         public IEnumerable<OrderLine> GetOrderLinesByOrderId(int id)
         {
-            throw new NotImplementedException();
+            return _userRepository.GetOrderLinesByOrderId(id).Select(o => _mapper.Map(o, new OrderLine()));
         }
+
+        #endregion Order and OrderLine Logic
+
+        #region Browsing History Logic
 
         public IEnumerable<BrowsingHistory> GetUsersBrowsingHistories(int userId)
         {
-            throw new NotImplementedException();
+            return _userRepository.GetUsersBrowsingHistories(userId).Select(o => _mapper.Map(o, new BrowsingHistory()));
         }
 
         public void CreateBrowsingHistoryEntry(BrowsingHistory bhe)
         {
-            throw new NotImplementedException();
+            _userRepository.CreateBrowsingHistoryEntry(_mapper.Map(bhe, new DataModels.BrowsingHistory()));
         }
+
+        #endregion Browsing History Logic
     }
 }
