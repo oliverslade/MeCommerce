@@ -19,7 +19,7 @@ namespace Interfaces.Repositories
 
         void UpdateUser(AspNetUsers user);
 
-        void DeleteUser(AspNetUsers user);
+        void DeleteUser(int userId);
 
         #endregion IUserRepository
 
@@ -49,7 +49,7 @@ namespace Interfaces.Repositories
 
         void UpdateOrder(Order order);
 
-        void DeleteOrderById(Order order);
+        void DeleteOrderById(int id);
 
         void CreateOrderLine(OrderLine orderLine);
 
@@ -57,9 +57,9 @@ namespace Interfaces.Repositories
 
         IEnumerable<OrderLine> GetOrderLinesByOrderId(int id);
 
-        void UpdateOrderLineById(OrderLine orderLine);
+        void UpdateOrderLine(OrderLine orderLine);
 
-        void DeleteOrderLineById(OrderLine orderLine);
+        void DeleteOrderLineById(int id);
 
         #endregion IOrder and IOrderLineRepository
 

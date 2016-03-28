@@ -19,9 +19,9 @@ namespace Interfaces.Repositories
 
         void CreateProduct(Product product);
 
-        void UpdateProductBySku(Product product);
+        void UpdateProduct(Product product);
 
-        void DeleteProduct(Product product);
+        void DeleteProductById(int id);
 
         void DeleteProductBySku(string sku);
 
@@ -37,9 +37,9 @@ namespace Interfaces.Repositories
 
         Category GetCategoryByName(string name);
 
-        void UpdateCategoryByName(Category category);
+        void UpdateCategory(Category category);
 
-        void DeleteCategoryById(Category category);
+        void DeleteCategoryById(int id);
 
         #endregion ICategoryRepository
 
@@ -55,9 +55,7 @@ namespace Interfaces.Repositories
 
         void UpdateBrand(Brand brand);
 
-        void UpdateBrandByName(Brand brand);
-
-        void DeleteBrandById(Brand brand);
+        void DeleteBrandById(int id);
 
         #endregion IBrandRepository
     }

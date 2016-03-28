@@ -65,9 +65,9 @@ namespace Repository
             _context.SaveChanges();
         }
 
-        public void DeleteUser(AspNetUsers user)
+        public void DeleteUser(int userId)
         {
-            var existing = GetUser(user.Id);
+            var existing = GetUser(userId);
             _context.AspNetUsers.Remove(existing);
             _context.SaveChanges();
         }
@@ -140,9 +140,9 @@ namespace Repository
             _context.SaveChanges();
         }
 
-        public void DeleteOrderById(Order order)
+        public void DeleteOrderById(int orderId)
         {
-            var existing = GetOrderById(order.OrderId);
+            var existing = GetOrderById(orderId);
             _context.Orders.Remove(existing);
             _context.SaveChanges();
         }
@@ -163,16 +163,16 @@ namespace Repository
             return _context.OrderLines.Where(ol => ol.Order.OrderId == id).ToList();
         }
 
-        public void UpdateOrderLineById(OrderLine orderLine)
+        public void UpdateOrderLine(OrderLine orderLine)
         {
             var existing = GetOrderLineById(orderLine.OrderLineId);
             _mapper.Map(orderLine, existing);
             _context.SaveChanges();
         }
 
-        public void DeleteOrderLineById(OrderLine orderLine)
+        public void DeleteOrderLineById(int orderLineId)
         {
-            var existing = GetOrderLineById(orderLine.OrderLineId);
+            var existing = GetOrderLineById(orderLineId);
             _context.OrderLines.Remove(existing);
             _context.SaveChanges();
         }

@@ -68,16 +68,18 @@ namespace Repository
             _context.SaveChanges();
         }
 
-        public void UpdateProductBySku(Product product)
+        public void UpdateProduct(Product product)
         {
-            var existing = GetProductBySku(product.SKU);
+            var existing = GetProductById(product.ProductId);
             _mapper.Map(product, existing);
             _context.SaveChanges();
         }
 
-        public void DeleteProduct(Product product)
+        public void DeleteProductById(int id)
         {
-            DeleteProductBySku(product.SKU);
+            var existing = GetProductById(id);
+            _context.Products.Remove(existing);
+            _context.SaveChanges();
         }
 
         public void DeleteProductBySku(string sku)
@@ -112,16 +114,16 @@ namespace Repository
             return _context.Categories.FirstOrDefault(c => c.Name.Equals(name, StringComparison.OrdinalIgnoreCase));
         }
 
-        public void UpdateCategoryByName(Category category)
+        public void UpdateCategory(Category category)
         {
             var existing = GetCategoryByName(category.Name);
             _mapper.Map(category, existing);
             _context.SaveChanges();
         }
 
-        public void DeleteCategoryById(Category category)
+        public void DeleteCategoryById(int id)
         {
-            var existing = GetCategoryById(category.CategoryId);
+            var existing = GetCategoryById(id);
             _context.Categories.Remove(existing);
             _context.SaveChanges();
         }
@@ -158,16 +160,9 @@ namespace Repository
             _context.SaveChanges();
         }
 
-        public void UpdateBrandByName(Brand brand)
+        public void DeleteBrandById(int id)
         {
-            var existing = GetBrandByName(brand.Name);
-            _mapper.Map(brand, existing);
-            _context.SaveChanges();
-        }
-
-        public void DeleteBrandById(Brand brand)
-        {
-            var existing = GetBrandById(brand.BrandId);
+            var existing = GetBrandById(id);
             _context.Brands.Remove(existing);
             _context.SaveChanges();
         }

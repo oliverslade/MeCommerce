@@ -1,4 +1,5 @@
 ﻿using DomainModels;
+using System.CodeDom.Compiler;
 using System.Collections.Generic;
 
 namespace Interfaces.Services
@@ -19,7 +20,7 @@ namespace Interfaces.Services
 
         void UpdateUser(AspNetUsers user);
 
-        void DeleteUser(AspNetUsers user);
+        void DeleteUser(int userId);
 
         IEnumerable<Order> GetAllOrders();
 
@@ -29,15 +30,15 @@ namespace Interfaces.Services
 
         void UpdateOrder(Order order);
 
-        void DeleteOrderById(Order order);
+        void DeleteOrderById(int orderId);
 
         OrderLine GetOrderLineById(int id);
 
         IEnumerable<OrderLine> GetOrderLinesByOrderId(int id);
 
-        void UpdateOrderLineById(OrderLine orderLine);
+        void UpdateOrderLine(OrderLine orderLine);
 
-        void DeleteOrderLineById(OrderLine orderLine);
+        void DeleteOrderLineById(int orderLineId);
 
         #endregion User Admin
 
@@ -55,9 +56,9 @@ namespace Interfaces.Services
 
         void CreateProduct(Product product);
 
-        void UpdateProductBySku(Product product);
+        void UpdateProduct(Product product);
 
-        void DeleteProduct(Product product);
+        void DeleteProductById(int id);
 
         void DeleteProductBySku(string sku);
 
@@ -69,9 +70,9 @@ namespace Interfaces.Services
 
         Category GetCategoryByName(string name);
 
-        void UpdateCategoryByName(Category category);
+        void UpdateCategory(Category category);
 
-        void DeleteCategoryById(Category category);
+        void DeleteCategoryById(int id);
 
         void CreateBrand(Brand brand);
 
@@ -83,9 +84,7 @@ namespace Interfaces.Services
 
         void UpdateBrand(Brand brand);
 
-        void UpdateBrandByName(Brand brand);
-
-        void DeleteBrandById(Brand brand);
+        void DeleteBrandById(int id);
 
         #endregion Catalog Admin
     }
