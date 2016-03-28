@@ -2,7 +2,6 @@
 using DomainModels;
 using Interfaces.Repositories;
 using Interfaces.Services;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -136,6 +135,10 @@ namespace Services
 
         #endregion User Repo Logic
 
+        #region Catelog Repo Logic
+
+        #region Product
+
         public IEnumerable<Product> GetAllProducts()
         {
             return _catalogRepository.GetAllProducts().Select(p => _mapper.Map(p, new Product()));
@@ -185,6 +188,10 @@ namespace Services
             _catalogRepository.DeleteProductBySku(sku);
         }
 
+        #endregion Product
+
+        #region Category
+
         public void CreateCategory(Category category)
         {
             _catalogRepository.CreateCategory(_mapper.Map(category, new DataModels.Category()));
@@ -220,6 +227,10 @@ namespace Services
             _catalogRepository.CreateBrand(_mapper.Map(brand, new DataModels.Brand()));
         }
 
+        #endregion Category
+
+        #region Brand
+
         public IEnumerable<Brand> GetAllBrands()
         {
             return _catalogRepository.GetAllBrands().Select(p => _mapper.Map(p, new Brand()));
@@ -244,5 +255,9 @@ namespace Services
         {
             _catalogRepository.DeleteBrandById(id);
         }
+
+        #endregion Brand
+
+        #endregion Catelog Repo Logic
     }
 }
