@@ -2,9 +2,10 @@ C:\Users\Oliver Slade\Desktop\MeCommerce\MeCommerce\bin\MeCommerce.dll.config
 C:\Users\Oliver Slade\Desktop\MeCommerce\MeCommerce\bin\MeCommerce.dll
 C:\Users\Oliver Slade\Desktop\MeCommerce\MeCommerce\bin\MeCommerce.pdb
 C:\Users\Oliver Slade\Desktop\MeCommerce\MeCommerce\bin\Antlr3.Runtime.dll
-C:\Users\Oliver Slade\Desktop\MeCommerce\MeCommerce\bin\DataModels.dll
+C:\Users\Oliver Slade\Desktop\MeCommerce\MeCommerce\bin\DomainModels.dll
 C:\Users\Oliver Slade\Desktop\MeCommerce\MeCommerce\bin\EntityFramework.dll
 C:\Users\Oliver Slade\Desktop\MeCommerce\MeCommerce\bin\EntityFramework.SqlServer.dll
+C:\Users\Oliver Slade\Desktop\MeCommerce\MeCommerce\bin\Interfaces.dll
 C:\Users\Oliver Slade\Desktop\MeCommerce\MeCommerce\bin\Microsoft.AspNet.Identity.Core.dll
 C:\Users\Oliver Slade\Desktop\MeCommerce\MeCommerce\bin\Microsoft.AspNet.Identity.EntityFramework.dll
 C:\Users\Oliver Slade\Desktop\MeCommerce\MeCommerce\bin\Microsoft.AspNet.Identity.Owin.dll
@@ -31,7 +32,9 @@ C:\Users\Oliver Slade\Desktop\MeCommerce\MeCommerce\bin\System.Web.WebPages.Depl
 C:\Users\Oliver Slade\Desktop\MeCommerce\MeCommerce\bin\System.Web.WebPages.dll
 C:\Users\Oliver Slade\Desktop\MeCommerce\MeCommerce\bin\System.Web.WebPages.Razor.dll
 C:\Users\Oliver Slade\Desktop\MeCommerce\MeCommerce\bin\WebGrease.dll
-C:\Users\Oliver Slade\Desktop\MeCommerce\MeCommerce\bin\DataModels.pdb
+C:\Users\Oliver Slade\Desktop\MeCommerce\MeCommerce\bin\DataModels.dll
+C:\Users\Oliver Slade\Desktop\MeCommerce\MeCommerce\bin\DomainModels.pdb
+C:\Users\Oliver Slade\Desktop\MeCommerce\MeCommerce\bin\Interfaces.pdb
 C:\Users\Oliver Slade\Desktop\MeCommerce\MeCommerce\bin\Antlr3.Runtime.pdb
 C:\Users\Oliver Slade\Desktop\MeCommerce\MeCommerce\bin\Newtonsoft.Json.xml
 C:\Users\Oliver Slade\Desktop\MeCommerce\MeCommerce\bin\SimpleInjector.xml
@@ -58,6 +61,7 @@ C:\Users\Oliver Slade\Desktop\MeCommerce\MeCommerce\bin\Microsoft.Owin.Security.
 C:\Users\Oliver Slade\Desktop\MeCommerce\MeCommerce\bin\Microsoft.Owin.Security.Google.xml
 C:\Users\Oliver Slade\Desktop\MeCommerce\MeCommerce\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\Oliver Slade\Desktop\MeCommerce\MeCommerce\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\Oliver Slade\Desktop\MeCommerce\MeCommerce\bin\DataModels.pdb
 C:\Users\Oliver Slade\Desktop\MeCommerce\MeCommerce\obj\Debug\MeCommerce.csprojResolveAssemblyReference.cache
 C:\Users\Oliver Slade\Desktop\MeCommerce\MeCommerce\obj\Debug\MeCommerce.Migrations.initial.resources
 C:\Users\Oliver Slade\Desktop\MeCommerce\MeCommerce\obj\Debug\MeCommerce.Migrations.update.resources
