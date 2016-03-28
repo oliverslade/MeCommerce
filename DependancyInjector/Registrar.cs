@@ -15,6 +15,7 @@ namespace DependancyInjector
 
             container.Register<ICatalogService, CatalogService>();
             container.Register<IUserService, UserService>();
+            container.Register<IAdminService, AdminService>();
 
             container.Verify();
         }
