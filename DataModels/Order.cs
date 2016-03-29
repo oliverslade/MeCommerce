@@ -18,5 +18,7 @@ namespace DataModels
         public int TotalPrice { get; set; }
 
         public virtual ICollection<OrderLine> OrderLines { get; set; }
+
+        public virtual AspNetUsers User { get; set; }
     }
 }

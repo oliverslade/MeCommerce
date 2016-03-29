@@ -1,9 +1,11 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DataModels
 {
     using System.Collections.Generic;
 
+    [Table("Brand")]
     public class Brand
     {
         public Brand()
