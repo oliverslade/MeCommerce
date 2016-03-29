@@ -1,6 +1,6 @@
 ﻿namespace MeCommerce.ViewModels
 {
-    public class AspNetRolesViewModel
+    public class OrderViewModel
     {
     }
 }

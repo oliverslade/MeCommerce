@@ -3,7 +3,6 @@ using Interfaces.Services;
 using MeCommerce.Mapper;
 using MeCommerce.ViewModels;
 using Microsoft.AspNet.Identity;
-using SimpleInjector;
 using System;
 using System.Collections.Generic;
 using System.Linq;
