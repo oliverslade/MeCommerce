@@ -1,17 +1,7 @@
 namespace DataModels
 {
-    using System.Collections.Generic;
-
     public class Product
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Product()
-        {
-            BrowsingHistories = new HashSet<BrowsingHistory>();
-            OrderLines = new HashSet<OrderLine>();
-            ShoppingCartItems = new HashSet<ShoppingCartItem>();
-        }
-
         public int ProductId { get; set; }
         public string Name { get; set; }
         public string SKU { get; set; }
@@ -25,15 +15,6 @@ namespace DataModels
 
         public virtual Brand Brand { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BrowsingHistory> BrowsingHistories { get; set; }
-
         public virtual Category Category { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<OrderLine> OrderLines { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ShoppingCartItem> ShoppingCartItems { get; set; }
     }
 }

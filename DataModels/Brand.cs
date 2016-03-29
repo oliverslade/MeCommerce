@@ -4,7 +4,6 @@ namespace DataModels
 
     public class Brand
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Brand()
         {
             Products = new HashSet<Product>();
@@ -15,7 +14,6 @@ namespace DataModels
         public string Description { get; set; }
         public bool IsActive { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Product> Products { get; set; }
     }
 }

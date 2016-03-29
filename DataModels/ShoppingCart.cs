@@ -4,7 +4,6 @@ namespace DataModels
 
     public class ShoppingCart
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public ShoppingCart()
         {
             ShoppingCartItems = new HashSet<ShoppingCartItem>();
@@ -14,7 +13,6 @@ namespace DataModels
         public int UserId { get; set; }
         public int TotalPrice { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ShoppingCartItem> ShoppingCartItems { get; set; }
 
         public virtual AspNetUsers User { get; set; }

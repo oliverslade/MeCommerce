@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Web;
+﻿using System.ComponentModel;
 
 namespace MeCommerce.ViewModels
 {
     public class ProductViewModel
     {
+        public int Id { get; set; }
+
         public string Name { get; set; }
 
         [DisplayName("SKU")]
@@ -20,5 +18,9 @@ namespace MeCommerce.ViewModels
         public string LongDescription { get; set; }
 
         public int Price { get; set; }
+
+        public BrandViewModel Brand { get; set; }
+
+        public CategoryViewModel Category { get; set; }
     }
 }

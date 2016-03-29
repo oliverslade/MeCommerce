@@ -10,5 +10,6 @@ namespace DomainModels
 
         public virtual AspNetUsers User { get; set; }
         public virtual Device Device { get; set; }
+        public virtual Product Product { get; set; }
     }
 }
