@@ -9,9 +9,9 @@ namespace DataModels
         {
         }
 
-        public virtual DbSet<Brand> Brands { get; set; }
+        public virtual DbSet<Brand> Brand { get; set; }
 
-        public virtual DbSet<Category> Categories { get; set; }
+        public virtual DbSet<Category> Category { get; set; }
 
         public virtual DbSet<AspNetUsers> AspNetUsers { get; set; }
 

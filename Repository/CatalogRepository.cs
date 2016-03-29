@@ -95,23 +95,23 @@ namespace Repository
 
         public void CreateCategory(Category category)
         {
-            _context.Categories.Add((category));
+            _context.Category.Add((category));
             _context.SaveChanges();
         }
 
         public IEnumerable<Category> GetAllCategories()
         {
-            return _context.Categories.ToList();
+            return _context.Category.ToList();
         }
 
         public Category GetCategoryById(int id)
         {
-            return _context.Categories.FirstOrDefault(c => c.CategoryId == id);
+            return _context.Category.FirstOrDefault(c => c.CategoryId == id);
         }
 
         public Category GetCategoryByName(string name)
         {
-            return _context.Categories.FirstOrDefault(c => c.Name.Equals(name, StringComparison.OrdinalIgnoreCase));
+            return _context.Category.FirstOrDefault(c => c.Name.Equals(name, StringComparison.OrdinalIgnoreCase));
         }
 
         public void UpdateCategory(Category category)
@@ -124,7 +124,7 @@ namespace Repository
         public void DeleteCategoryById(int id)
         {
             var existing = GetCategoryById(id);
-            _context.Categories.Remove(existing);
+            _context.Category.Remove(existing);
             _context.SaveChanges();
         }
 
@@ -134,23 +134,23 @@ namespace Repository
 
         public void CreateBrand(Brand brand)
         {
-            _context.Brands.Add(brand);
+            _context.Brand.Add(brand);
             _context.SaveChanges();
         }
 
         public IEnumerable<Brand> GetAllBrands()
         {
-            return _context.Brands.ToList();
+            return _context.Brand.ToList();
         }
 
         public Brand GetBrandById(int id)
         {
-            return _context.Brands.FirstOrDefault(b => b.BrandId == id);
+            return _context.Brand.FirstOrDefault(b => b.BrandId == id);
         }
 
         public Brand GetBrandByName(string name)
         {
-            return _context.Brands.FirstOrDefault(b => b.Name.Equals(name, StringComparison.OrdinalIgnoreCase));
+            return _context.Brand.FirstOrDefault(b => b.Name.Equals(name, StringComparison.OrdinalIgnoreCase));
         }
 
         public void UpdateBrand(Brand brand)
@@ -163,7 +163,7 @@ namespace Repository
         public void DeleteBrandById(int id)
         {
             var existing = GetBrandById(id);
-            _context.Brands.Remove(existing);
+            _context.Brand.Remove(existing);
             _context.SaveChanges();
         }
 
