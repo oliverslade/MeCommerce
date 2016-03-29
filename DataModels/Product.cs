@@ -1,8 +1,12 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace DataModels
 {
     public class Product
     {
+        [Key]
         public int ProductId { get; set; }
+
         public string Name { get; set; }
         public string SKU { get; set; }
         public string ShortDescription { get; set; }

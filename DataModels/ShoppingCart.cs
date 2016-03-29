@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace DataModels
 {
     using System.Collections.Generic;
@@ -9,7 +11,9 @@ namespace DataModels
             ShoppingCartItems = new HashSet<ShoppingCartItem>();
         }
 
+        [Key]
         public int CartId { get; set; }
+
         public int UserId { get; set; }
         public int TotalPrice { get; set; }
 

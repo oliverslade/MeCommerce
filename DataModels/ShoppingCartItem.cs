@@ -1,8 +1,12 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace DataModels
 {
     public class ShoppingCartItem
     {
+        [Key]
         public int ShoppingCartItemsId { get; set; }
+
         public int ProductId { get; set; }
         public int Quantity { get; set; }
         public int CartId { get; set; }

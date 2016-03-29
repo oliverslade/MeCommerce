@@ -15,8 +15,6 @@ namespace DataModels
 
         public virtual DbSet<AspNetUsers> AspNetUsers { get; set; }
 
-        public virtual DbSet<AspNetUserLogins> AspNetUserLogins { get; set; }
-
         public virtual DbSet<AspNetUserClaims> AspNetUserClaims { get; set; }
 
         public virtual DbSet<Order> Orders { get; set; }

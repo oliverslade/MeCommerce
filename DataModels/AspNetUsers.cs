@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace DataModels
 {
     using System;
@@ -12,11 +14,12 @@ namespace DataModels
             Orders = new HashSet<Order>();
             ShoppingCarts = new HashSet<ShoppingCart>();
             AspNetUserClaims = new HashSet<AspNetUserClaims>();
-            AspNetUserLogins = new HashSet<AspNetUserLogins>();
             AspNetRoles = new HashSet<AspNetRoles>();
         }
 
+        [Key]
         public int Id { get; set; }
+
         public string Email { get; set; }
         public bool EmailConfirmed { get; set; }
         public string PasswordHash { get; set; }
@@ -48,9 +51,6 @@ namespace DataModels
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AspNetUserClaims> AspNetUserClaims { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<AspNetUserLogins> AspNetUserLogins { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AspNetRoles> AspNetRoles { get; set; }

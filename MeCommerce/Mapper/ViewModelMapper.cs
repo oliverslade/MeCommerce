@@ -67,6 +67,29 @@ namespace MeCommerce.Mapper
 
         #endregion Brands
 
+        public static BrowsingHistoryViewModel ToViewModel(BrowsingHistory bhe)
+        {
+            return new BrowsingHistoryViewModel
+            {
+                BrowsingHistoryId = bhe.BrowsingHistoryId,
+                DateTime = bhe.DateTime,
+                Product = ToViewModel(bhe.Product),
+                Device = ToViewModel(bhe.Device),
+                ProductId = bhe.ProductId,
+                UserId = bhe.UserId,
+            };
+        }
+
+        public static DeviceViewModel ToViewModel(Device device)
+        {
+            return new DeviceViewModel
+            {
+                DeviceId = device.DeviceId,
+                DisplayName = device.DisplayName,
+                OperatingSystem = device.OperatingSystem,
+            };
+        }
+
         #endregion Domain to ViewModel
 
         #region ViewModel To Domain
@@ -121,7 +144,6 @@ namespace MeCommerce.Mapper
                 Device = ToDomain(bhe.Device),
                 ProductId = bhe.ProductId,
                 UserId = bhe.UserId,
-                User = ToDomain(bhe.User)
             };
         }
 

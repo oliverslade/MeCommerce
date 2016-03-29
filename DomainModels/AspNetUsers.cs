@@ -11,7 +11,6 @@ namespace DomainModels
             Orders = new HashSet<Order>();
             ShoppingCarts = new HashSet<ShoppingCart>();
             AspNetUserClaims = new HashSet<AspNetUserClaims>();
-            AspNetUserLogins = new HashSet<AspNetUserLogins>();
             AspNetRoles = new HashSet<AspNetRoles>();
         }
 
@@ -43,8 +42,6 @@ namespace DomainModels
         public virtual ICollection<ShoppingCart> ShoppingCarts { get; set; }
 
         public virtual ICollection<AspNetUserClaims> AspNetUserClaims { get; set; }
-
-        public virtual ICollection<AspNetUserLogins> AspNetUserLogins { get; set; }
 
         public virtual ICollection<AspNetRoles> AspNetRoles { get; set; }
     }

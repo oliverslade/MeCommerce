@@ -71,7 +71,6 @@
   <ItemGroup>
     <Compile Include="AspNetRoles.cs" />
     <Compile Include="AspNetUserClaims.cs" />
-    <Compile Include="AspNetUserLogins.cs" />
     <Compile Include="AspNetUsers.cs" />
     <Compile Include="Brand.cs" />
     <Compile Include="BrowsingHistory.cs" />

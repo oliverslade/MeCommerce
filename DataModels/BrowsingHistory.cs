@@ -1,8 +1,12 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace DataModels
 {
     public class BrowsingHistory
     {
+        [Key]
         public int BrowsingHistoryId { get; set; }
+
         public int ProductId { get; set; }
         public System.DateTime DateTime { get; set; }
         public int DeviceId { get; set; }
