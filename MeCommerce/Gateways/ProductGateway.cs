@@ -1,5 +1,4 @@
-﻿using DependancyInjector;
-using DomainModels;
+﻿using DomainModels;
 using Interfaces.Services;
 using SimpleInjector;
 using System.Collections.Generic;
@@ -15,7 +14,7 @@ namespace MeCommerce.Gateways
         private ProductGateway()
         {
             var container = new Container();
-            Registrar.RegisterDependencies(container);
+            SimpleInjectorInitializer.RegisterDependencies(container);
 
             _catalogService = container.GetInstance<ICatalogService>();
         }

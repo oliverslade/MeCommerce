@@ -1,0 +1,49 @@
+﻿@model IEnumerable<MeCommerce.ViewModels.BrowsingHistoryViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.BrowsingHistoryId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DeviceId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserId)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.BrowsingHistoryId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DeviceId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserId)
+            </td>
+        </tr>
+    }
+</table>

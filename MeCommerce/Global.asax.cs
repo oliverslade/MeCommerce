@@ -1,9 +1,10 @@
-﻿using DependancyInjector;
-using SimpleInjector;
+﻿using SimpleInjector;
 using SimpleInjector.Integration.Web.Mvc;
+using System.ComponentModel;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using Container = SimpleInjector.Container;
 
 namespace MeCommerce
 {
@@ -12,8 +13,8 @@ namespace MeCommerce
         protected void Application_Start()
         {
             var container = new Container();
-            Registrar.RegisterDependencies(container);
-            container.Verify();
+            SimpleInjectorInitializer.RegisterDependencies(container);
+            //container.Verify();
 
             DependencyResolver.SetResolver(new SimpleInjectorDependencyResolver(container));
 

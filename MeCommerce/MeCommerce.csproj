@@ -181,17 +181,21 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\SimpleInjectorInitializer.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BrandController.cs" />
+    <Compile Include="Controllers\BrowsingHistoryController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Gateways\BrandGateway.cs" />
     <Compile Include="Gateways\CategoryGateway.cs" />
     <Compile Include="Gateways\ProductGateway.cs" />
+    <Compile Include="Gateways\ShoppingCartGateway.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -315,19 +319,18 @@
     <Content Include="Views\Category\Index.cshtml" />
     <Content Include="Views\Brand\Index.cshtml" />
     <Content Include="Views\Brand\Details.cshtml" />
+    <Content Include="Views\BrowsingHistory\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Images\" />
+    <Folder Include="Views\Order\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DependancyInjector\DependancyInjector.csproj">
-      <Project>{4100DD63-C3F0-4F75-8182-2DBAB188CCBD}</Project>
-      <Name>DependancyInjector</Name>
-    </ProjectReference>
     <ProjectReference Include="..\DomainModels\DomainModels.csproj">
       <Project>{111e34be-1d29-4420-a80a-80b8bcd9d7a7}</Project>
       <Name>DomainModels</Name>
@@ -335,6 +338,14 @@
     <ProjectReference Include="..\Interfaces\Interfaces.csproj">
       <Project>{5BAF3E78-6CEB-427B-89B8-039C4570A163}</Project>
       <Name>Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Repository\Repository.csproj">
+      <Project>{bbc9c7ca-c18d-45f9-812e-2cd072435ffe}</Project>
+      <Name>Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Services\Services.csproj">
+      <Project>{3e14cfcc-78e3-403a-a5cf-fd23e1b30b16}</Project>
+      <Name>Services</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

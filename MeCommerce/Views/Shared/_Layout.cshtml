@@ -56,12 +56,21 @@
 
         <div class="cd-panel-container">
             <div class="cd-panel-content">
-
-                <div id="default">
-                    <h3>My Store</h3>
-                    <hr />
-                    <h5>Sign in or Register to manage your account.</h5>
-                </div>
+                @if (Request.IsAuthenticated)
+                {
+                    <ul class="navbar-nav nav auth-style">
+                        <li>@Html.ActionLink("View Browsing History", "Index", "BrowsingHistory", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+                        <li>@Html.ActionLink("View Order History", "Index", "Order", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+                    </ul>
+                }
+                else
+                {
+                    <div id="default">
+                        <h3>My Store</h3>
+                        <hr />
+                        <h5>Sign in or Register to manage your account.</h5>
+                    </div>
+                }
             </div>
         </div>
     </div>

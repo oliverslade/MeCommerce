@@ -11,7 +11,7 @@ namespace MeCommerce.ViewModels
         public int UserId { get; set; }
 
         public virtual UserViewModel User { get; set; }
-        public virtual DeviceViewModel Device { get; set; }
-        public virtual ProductViewModel Product { get; set; }
+        public DeviceViewModel Device { get; set; }
+        public ProductViewModel Product { get; set; }
     }
 }
