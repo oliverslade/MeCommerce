@@ -1,14 +1,16 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DataModels
 {
     using System.Collections.Generic;
 
-    public partial class AspNetRoles
+    [Table("AspNetRoles")]
+    public class AspNetRoles
     {
         public AspNetRoles()
         {
-            this.Users = new HashSet<AspNetUsers>();
+            Users = new HashSet<AspNetUsers>();
         }
 
         [Key]

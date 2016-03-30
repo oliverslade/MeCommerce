@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DataModels
 {
@@ -11,10 +12,11 @@ namespace DataModels
             ShoppingCartItems = new HashSet<ShoppingCartItem>();
         }
 
-        [Key]
+        [Key, ForeignKey("User")]
         public int CartId { get; set; }
 
         public int UserId { get; set; }
+
         public int TotalPrice { get; set; }
 
         public virtual ICollection<ShoppingCartItem> ShoppingCartItems { get; set; }

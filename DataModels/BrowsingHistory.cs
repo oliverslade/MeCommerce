@@ -1,7 +1,9 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DataModels
 {
+    [Table("BrowsingHistory")]
     public class BrowsingHistory
     {
         [Key]
@@ -14,5 +16,6 @@ namespace DataModels
 
         public virtual AspNetUsers User { get; set; }
         public virtual Device Device { get; set; }
+        public virtual Product Product { get; set; }
     }
 }

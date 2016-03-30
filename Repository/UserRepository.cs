@@ -96,8 +96,8 @@ namespace Repository
 
         public void DeleteShoppingCartItem(int productId)
         {
-            var existing = _context.ShoppingCartItem.FirstOrDefault(x => x.ProductId == productId);
-            _context.ShoppingCartItem.Remove(existing);
+            var existing = _context.ShoppingCartItems.FirstOrDefault(x => x.ProductId == productId);
+            _context.ShoppingCartItems.Remove(existing);
             _context.SaveChanges();
         }
 
@@ -114,23 +114,23 @@ namespace Repository
 
         public void CreateOrder(Order order)
         {
-            _context.Orders.Add(order);
+            _context.Order.Add(order);
             _context.SaveChanges();
         }
 
         public IEnumerable<Order> GetAllOrders()
         {
-            return _context.Orders.ToList();
+            return _context.Order.ToList();
         }
 
         public Order GetOrderById(int orderId)
         {
-            return _context.Orders.FirstOrDefault(o => o.OrderId == orderId);
+            return _context.Order.FirstOrDefault(o => o.OrderId == orderId);
         }
 
         public IEnumerable<Order> GetOrdersByUserId(int userId)
         {
-            return _context.Orders.Where(o => o.UserId == userId).ToList();
+            return _context.Order.Where(o => o.UserId == userId).ToList();
         }
 
         public void UpdateOrder(Order order)
@@ -143,7 +143,7 @@ namespace Repository
         public void DeleteOrderById(int orderId)
         {
             var existing = GetOrderById(orderId);
-            _context.Orders.Remove(existing);
+            _context.Order.Remove(existing);
             _context.SaveChanges();
         }
 

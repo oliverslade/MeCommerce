@@ -1,5 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 
 namespace DataModels
 {
@@ -18,7 +17,7 @@ namespace DataModels
 
         public virtual DbSet<AspNetUserClaims> AspNetUserClaims { get; set; }
 
-        public virtual DbSet<Order> Orders { get; set; }
+        public virtual DbSet<Order> Order { get; set; }
 
         public virtual DbSet<OrderLine> OrderLines { get; set; }
 
@@ -28,10 +27,10 @@ namespace DataModels
 
         public virtual DbSet<ShoppingCart> ShoppingCart { get; set; }
 
-        public virtual DbSet<ShoppingCartItem> ShoppingCartItem { get; set; }
+        public virtual DbSet<ShoppingCartItem> ShoppingCartItems { get; set; }
 
         public virtual DbSet<BrowsingHistory> BrowsingHistory { get; set; }
 
-        public virtual DbSet<Device> Devices { get; set; }
+        public virtual DbSet<Device> Device { get; set; }
     }
 }

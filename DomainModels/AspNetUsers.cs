@@ -9,7 +9,6 @@ namespace DomainModels
         {
             BrowsingHistories = new HashSet<BrowsingHistory>();
             Orders = new HashSet<Order>();
-            ShoppingCarts = new HashSet<ShoppingCart>();
             AspNetUserClaims = new HashSet<AspNetUserClaims>();
             AspNetRoles = new HashSet<AspNetRoles>();
         }
@@ -39,7 +38,7 @@ namespace DomainModels
 
         public virtual ICollection<Order> Orders { get; set; }
 
-        public virtual ICollection<ShoppingCart> ShoppingCarts { get; set; }
+        public virtual ShoppingCart ShoppingCarts { get; set; }
 
         public virtual ICollection<AspNetUserClaims> AspNetUserClaims { get; set; }
 

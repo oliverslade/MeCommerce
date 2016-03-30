@@ -20,7 +20,7 @@ namespace MeCommerce.ViewModels
 
         public virtual ICollection<OrderViewModel> Orders { get; set; }
 
-        public virtual ICollection<ShoppingCartViewModel> ShoppingCarts { get; set; }
+        public virtual ShoppingCartViewModel ShoppingCart { get; set; }
 
         public virtual ICollection<AspNetRolesViewModel> AspNetRoles { get; set; }
     }

@@ -1,5 +1,8 @@
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace DomainModels
 {
+    [Table("BrowsingHistory")]
     public class BrowsingHistory
     {
         public int BrowsingHistoryId { get; set; }

@@ -15,6 +15,7 @@ namespace MeCommerce.Mapper
         {
             return new ProductViewModel
             {
+                Id = product.ProductId,
                 Name = product.Name,
                 Price = product.Price,
                 Sku = product.SKU,
@@ -39,6 +40,7 @@ namespace MeCommerce.Mapper
         {
             return new CategoryViewModel
             {
+                Id = category.CategoryId,
                 Name = category.Name,
                 Description = category.Description,
                 Products = products
@@ -59,6 +61,7 @@ namespace MeCommerce.Mapper
         {
             return new BrandViewModel
             {
+                Id = brand.BrandId,
                 Name = brand.Name,
                 Description = brand.Description,
                 Products = products
@@ -66,6 +69,82 @@ namespace MeCommerce.Mapper
         }
 
         #endregion Brands
+
+        public static UserViewModel ToViewModel(AspNetUsers user)
+        {
+            IEnumerable<BrowsingHistoryViewModel> bhe = new List<BrowsingHistoryViewModel>();
+            IEnumerable<OrderViewModel> orders = new List<OrderViewModel>();
+            IEnumerable<AspNetRolesViewModel> roles = new List<AspNetRolesViewModel>();
+            return (ToViewModel(user, bhe.AsEnumerable(), orders.AsEnumerable(), roles.AsEnumerable()));
+        }
+
+        public static UserViewModel ToViewModel(AspNetUsers user, IEnumerable<BrowsingHistoryViewModel> browsingHistory, IEnumerable<OrderViewModel> orders, IEnumerable<AspNetRolesViewModel> roles)
+        {
+            return new UserViewModel
+            {
+                Id = user.Id,
+                Email = user.Email,
+                UserName = user.UserName,
+                HouseName = user.HouseName,
+                AddressLine1 = user.AddressLine1,
+                AddressLine2 = user.AddressLine2,
+                AddressLine3 = user.AddressLine3,
+                County = user.County,
+                Town = user.Town,
+                Postcode = user.Postcode,
+                ContactNumber = user.ContactNumber,
+                AspNetRoles = roles.ToList(),
+                Orders = orders.ToList(),
+                BrowsingHistories = browsingHistory.ToList(),
+                ShoppingCart = ToViewModel(user.ShoppingCarts)
+            };
+        }
+
+        public static AspNetRolesViewModel ToViewModel(AspNetRoles role)
+        {
+            IEnumerable<UserViewModel> users = new List<UserViewModel>();
+            return (ToViewModel(role, users.AsEnumerable()));
+        }
+
+        public static AspNetRolesViewModel ToViewModel(AspNetRoles role, IEnumerable<UserViewModel> users)
+        {
+            return new AspNetRolesViewModel
+            {
+                Id = role.Id,
+                Name = role.Name,
+                Users = users.ToList()
+            };
+        }
+
+        public static ShoppingCartViewModel ToViewModel(ShoppingCart cart)
+        {
+            IEnumerable<ShoppingCartItemViewModel> items = new List<ShoppingCartItemViewModel>();
+            return (ToViewModel(cart, items.AsEnumerable()));
+        }
+
+        public static ShoppingCartViewModel ToViewModel(ShoppingCart cart, IEnumerable<ShoppingCartItemViewModel> cartItems)
+        {
+            return new ShoppingCartViewModel
+            {
+                CartId = cart.CartId,
+                UserId = cart.UserId,
+                User = ToViewModel(cart.User),
+                ShoppingCartItems = cartItems.ToList(),
+                TotalPrice = cart.TotalPrice
+            };
+        }
+
+        public static ShoppingCartItemViewModel ToViewModel(ShoppingCartItem cartItems)
+        {
+            return new ShoppingCartItemViewModel
+            {
+                ShoppingCartItemsId = cartItems.ShoppingCartItemsId,
+                CartId = cartItems.CartId,
+                ProductId = cartItems.ProductId,
+                Product = ToViewModel(cartItems.Product),
+                Quantity = cartItems.Quantity
+            };
+        }
 
         public static BrowsingHistoryViewModel ToViewModel(BrowsingHistory bhe)
         {

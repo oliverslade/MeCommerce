@@ -1,12 +1,9 @@
-﻿using DomainModels;
-using Interfaces.Services;
+﻿using Interfaces.Services;
 using MeCommerce.Mapper;
 using MeCommerce.ViewModels;
 using Microsoft.AspNet.Identity;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace MeCommerce.Controllers
@@ -23,23 +20,11 @@ namespace MeCommerce.Controllers
         // GET: BrowsingHistory
         public ActionResult Index()
         {
-            AspNetUsers user = GetCurrentUser();
+            int userId = System.Web.HttpContext.Current.User.Identity.GetUserId<int>();
+            UserViewModel user = ViewModelMapper.ToViewModel(_userService.GetUser(userId));
             IEnumerable<BrowsingHistoryViewModel> browsingHistories = _userService.GetUsersBrowsingHistories(user.Id).Select(ViewModelMapper.ToViewModel);
 
             return View(browsingHistories);
-        }
-
-        private AspNetUsers GetCurrentUser()
-        {
-            try
-            {
-                int userId = System.Web.HttpContext.Current.User.Identity.GetUserId<int>();
-                return _userService.GetUser(userId);
-            }
-            catch
-            {
-                return null;
-            }
         }
     }
 }
