@@ -5,6 +5,7 @@ namespace DataModels
 {
     using System.Collections.Generic;
 
+    [Table("ShoppingCart")]
     public class ShoppingCart
     {
         public ShoppingCart()

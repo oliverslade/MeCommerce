@@ -1,8 +1,11 @@
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace DomainModels
 {
     using System;
     using System.Collections.Generic;
 
+    [Table("AspNetUsers")]
     public class AspNetUsers
     {
         public AspNetUsers()

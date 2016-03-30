@@ -2,8 +2,12 @@
 using DomainModels;
 using Interfaces.Repositories;
 using Interfaces.Services;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
+using System.Runtime;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Services
 {
@@ -27,6 +31,11 @@ namespace Services
                 cfg.CreateMap<ShoppingCartItem, DataModels.ShoppingCartItem>();
                 cfg.CreateMap<Order, DataModels.Order>();
                 cfg.CreateMap<OrderLine, DataModels.OrderLine>();
+                cfg.CreateMap<AspNetRoles, DataModels.AspNetRoles>();
+                cfg.CreateMap<AspNetUserClaims, DataModels.AspNetUserClaims>();
+                cfg.CreateMap<Product, DataModels.Product>();
+                cfg.CreateMap<Brand, DataModels.Brand>();
+                cfg.CreateMap<Category, DataModels.Category>();
 
                 // To data models
                 cfg.CreateMap<DataModels.AspNetUsers, AspNetUsers>();
@@ -36,6 +45,11 @@ namespace Services
                 cfg.CreateMap<DataModels.ShoppingCartItem, ShoppingCartItem>();
                 cfg.CreateMap<DataModels.Order, Order>();
                 cfg.CreateMap<DataModels.OrderLine, OrderLine>();
+                cfg.CreateMap<DataModels.AspNetRoles, AspNetRoles>();
+                cfg.CreateMap<DataModels.AspNetUserClaims, AspNetUserClaims>();
+                cfg.CreateMap<DataModels.Product, Product>();
+                cfg.CreateMap<DataModels.Brand, Brand>();
+                cfg.CreateMap<DataModels.Category, Category>();
             }).CreateMapper();
         }
 
@@ -43,7 +57,36 @@ namespace Services
 
         public AspNetUsers GetUser(int id)
         {
-            return _mapper.Map(_userRepository.GetUser(id), new AspNetUsers());
+            DataModels.AspNetUsers user = _userRepository.GetUser(id);
+            AspNetUsers doaminUser = new AspNetUsers
+            {
+                Id = user.Id,
+                Email = user.Email,
+                EmailConfirmed = user.EmailConfirmed,
+                HouseName = user.HouseName,
+                AddressLine1 = user.AddressLine1,
+                AddressLine2 = user.AddressLine2,
+                AddressLine3 = user.AddressLine3,
+                County = user.County,
+                Town = user.Town,
+                ContactNumber = user.ContactNumber,
+                Postcode = user.Postcode,
+                PhoneNumber = user.PhoneNumber,
+                AccessFailedCount = user.AccessFailedCount,
+                PhoneNumberConfirmed = user.PhoneNumberConfirmed,
+                UserName = user.UserName,
+                LockoutEnabled = user.LockoutEnabled,
+                LockoutEndDateUtc = user.LockoutEndDateUtc,
+                TwoFactorEnabled = user.TwoFactorEnabled,
+                SecurityStamp = user.SecurityStamp,
+                PasswordHash = user.PasswordHash,
+                //AspNetRoles = user.AspNetRoles.Select(x => _mapper.Map(x, new AspNetRoles())).ToList(),
+                BrowsingHistories = user.BrowsingHistories.Select(b => _mapper.Map(b, new BrowsingHistory())).ToList(),
+                AspNetUserClaims = user.AspNetUserClaims.Select(x => _mapper.Map(x, new AspNetUserClaims())).ToList(),
+                ShoppingCarts = _mapper.Map(user.ShoppingCart, new ShoppingCart()),
+                Orders = user.Orders.Select(x => _mapper.Map(x, new Order())).ToList()
+            };
+            return doaminUser;
         }
 
         public void UpdateUser(AspNetUsers user)

@@ -1,12 +1,14 @@
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace DomainModels
 {
     using System.Collections.Generic;
 
-    public partial class AspNetRoles
+    public class AspNetRoles
     {
         public AspNetRoles()
         {
-            this.Users = new HashSet<AspNetUsers>();
+            Users = new HashSet<AspNetUsers>();
         }
 
         public string Id { get; set; }

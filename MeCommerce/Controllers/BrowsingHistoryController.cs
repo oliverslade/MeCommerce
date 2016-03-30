@@ -21,8 +21,7 @@ namespace MeCommerce.Controllers
         public ActionResult Index()
         {
             int userId = System.Web.HttpContext.Current.User.Identity.GetUserId<int>();
-            UserViewModel user = ViewModelMapper.ToViewModel(_userService.GetUser(userId));
-            IEnumerable<BrowsingHistoryViewModel> browsingHistories = _userService.GetUsersBrowsingHistories(user.Id).Select(ViewModelMapper.ToViewModel);
+            IEnumerable<BrowsingHistoryViewModel> browsingHistories = _userService.GetUsersBrowsingHistories(userId).Select(ViewModelMapper.ToViewModel);
 
             return View(browsingHistories);
         }

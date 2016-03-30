@@ -33,18 +33,19 @@ namespace MeCommerce.Controllers
         {
             Product product = _catalogService.GetProductById(id);
             Device device = ViewModelMapper.ToDomain(GetCurrentDevice());
-            AspNetUsers user = GetCurrentUser();
+            int userId = System.Web.HttpContext.Current.User.Identity.GetUserId<int>();
 
-            if (user != null)
+            if (Request.IsAuthenticated)
             {
                 BrowsingHistory bhe = new BrowsingHistory
                 {
-                    UserId = user.Id,
+                    UserId = userId,
                     DateTime = DateTime.Now,
                     Device = device,
                     DeviceId = device.DeviceId,
                     ProductId = product.ProductId,
-                    User = user
+                    Product = product,
+                    User = _userService.GetUser(id)
                 };
 
                 _userService.CreateBrowsingHistoryEntry(bhe);
@@ -71,19 +72,6 @@ namespace MeCommerce.Controllers
             device.OperatingSystem = Environment.OSVersion.ToString();
 
             return device;
-        }
-
-        private AspNetUsers GetCurrentUser()
-        {
-            try
-            {
-                int userId = System.Web.HttpContext.Current.User.Identity.GetUserId<int>();
-                return _userService.GetUser(userId);
-            }
-            catch
-            {
-                return null;
-            }
         }
     }
 }

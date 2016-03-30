@@ -2,6 +2,7 @@
 using DataModels;
 using Interfaces.Repositories;
 using System.Collections.Generic;
+using System.Data.Entity.Migrations;
 using System.Linq;
 
 namespace Repository
@@ -27,6 +28,9 @@ namespace Repository
 
                 cfg.CreateMap<ShoppingCartItem, ShoppingCartItem>()
                     .ForMember(m => m.ShoppingCartItemsId, opt => opt.Ignore());
+
+                cfg.CreateMap<AspNetUsers, AspNetUsers>()
+                    .ForMember(m => m.Id, opt => opt.Ignore());
             }).CreateMapper();
         }
 
@@ -45,7 +49,8 @@ namespace Repository
 
         public AspNetUsers GetUser(int id)
         {
-            return _context.AspNetUsers.FirstOrDefault(u => u.Id == id);
+            var user = _context.AspNetUsers.SingleOrDefault(u => u.Id == id);
+            return user;
         }
 
         public AspNetUsers GetUserByUsername(string username)
@@ -183,12 +188,15 @@ namespace Repository
 
         public IEnumerable<BrowsingHistory> GetUsersBrowsingHistories(int userId)
         {
-            return _context.BrowsingHistory.Where(x => x.User.Id == userId);
+            var user = GetUser(userId);
+            return user.BrowsingHistories;
         }
 
         public void CreateBrowsingHistoryEntry(BrowsingHistory bhe)
         {
-            _context.BrowsingHistory.Add(bhe);
+            var user = bhe.User;
+            user.BrowsingHistories.Add(bhe);
+            _context.AspNetUsers.AddOrUpdate(user);
             _context.SaveChanges();
         }
 
