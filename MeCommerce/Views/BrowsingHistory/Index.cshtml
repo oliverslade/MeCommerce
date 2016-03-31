@@ -1,27 +1,21 @@
 ﻿@model IEnumerable<MeCommerce.ViewModels.BrowsingHistoryViewModel>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Browsing History";
 }
 
-<h2>Index</h2>
+<h2>Browsing History</h2>
 
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.BrowsingHistoryId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ProductId)
+            @Html.DisplayNameFor(model => model.ProductName)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.DateTime)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DeviceId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.UserId)
+            @Html.DisplayNameFor(model => model.DeviceType)
         </th>
         <th></th>
     </tr>
@@ -30,19 +24,16 @@
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.BrowsingHistoryId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ProductId)
+                @Html.DisplayFor(modelItem => item.ProductName)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.DateTime)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.DeviceId)
+                @Html.DisplayFor(modelItem => item.DeviceType)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.UserId)
+                @Html.ActionLink("View Product", "Details", new { controller = "Product", id = item.ProductId })
             </td>
         </tr>
     }

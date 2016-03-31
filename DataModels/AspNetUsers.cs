@@ -12,7 +12,7 @@ namespace DataModels
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public AspNetUsers()
         {
-            BrowsingHistories = new HashSet<BrowsingHistory>();
+            //BrowsingHistories = new HashSet<BrowsingHistory>();
             Orders = new HashSet<Order>();
             AspNetUserClaims = new HashSet<AspNetUserClaims>();
             AspNetRoles = new HashSet<AspNetRoles>();
@@ -42,7 +42,7 @@ namespace DataModels
         public string ContactNumber { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BrowsingHistory> BrowsingHistories { get; set; }
+        //public virtual ICollection<BrowsingHistory> BrowsingHistories { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order> Orders { get; set; }

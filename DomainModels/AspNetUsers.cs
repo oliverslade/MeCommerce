@@ -10,7 +10,7 @@ namespace DomainModels
     {
         public AspNetUsers()
         {
-            BrowsingHistories = new HashSet<BrowsingHistory>();
+            //BrowsingHistories = new HashSet<BrowsingHistory>();
             Orders = new HashSet<Order>();
             AspNetUserClaims = new HashSet<AspNetUserClaims>();
             AspNetRoles = new HashSet<AspNetRoles>();
@@ -37,7 +37,7 @@ namespace DomainModels
         public string Postcode { get; set; }
         public string ContactNumber { get; set; }
 
-        public virtual ICollection<BrowsingHistory> BrowsingHistories { get; set; }
+        //public virtual ICollection<BrowsingHistory> BrowsingHistories { get; set; }
 
         public virtual ICollection<Order> Orders { get; set; }
 

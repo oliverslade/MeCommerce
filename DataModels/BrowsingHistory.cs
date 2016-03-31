@@ -14,8 +14,9 @@ namespace DataModels
         public int DeviceId { get; set; }
         public int UserId { get; set; }
 
-        public virtual AspNetUsers User { get; set; }
+        //public virtual AspNetUsers User { get; set; }
         public virtual Device Device { get; set; }
+
         public virtual Product Product { get; set; }
     }
 }

@@ -32,7 +32,8 @@ namespace MeCommerce.Controllers
         public ActionResult Details(int id)
         {
             Product product = _catalogService.GetProductById(id);
-            Device device = ViewModelMapper.ToDomain(GetCurrentDevice());
+            Device device = new Device();
+            device = ViewModelMapper.ToDomain(GetCurrentDevice());
             int userId = System.Web.HttpContext.Current.User.Identity.GetUserId<int>();
 
             if (Request.IsAuthenticated)
@@ -43,9 +44,7 @@ namespace MeCommerce.Controllers
                     DateTime = DateTime.Now,
                     Device = device,
                     DeviceId = device.DeviceId,
-                    ProductId = product.ProductId,
-                    Product = product,
-                    User = _userService.GetUser(id)
+                    ProductId = product.ProductId
                 };
 
                 _userService.CreateBrowsingHistoryEntry(bhe);

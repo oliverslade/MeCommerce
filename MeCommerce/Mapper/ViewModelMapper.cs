@@ -93,10 +93,10 @@ namespace MeCommerce.Mapper
                 Town = user.Town,
                 Postcode = user.Postcode,
                 ContactNumber = user.ContactNumber,
-                AspNetRoles = roles.ToList(),
-                Orders = orders.ToList(),
-                BrowsingHistories = browsingHistory.ToList(),
-                ShoppingCart = ToViewModel(user.ShoppingCarts)
+                //AspNetRoles = roles.ToList(),
+                //Orders = orders.ToList(),
+                ////BrowsingHistories = browsingHistory.ToList(),
+                //ShoppingCart = ToViewModel(user.ShoppingCarts)
             };
         }
 
@@ -116,48 +116,48 @@ namespace MeCommerce.Mapper
             };
         }
 
-        public static ShoppingCartViewModel ToViewModel(ShoppingCart cart)
-        {
-            IEnumerable<ShoppingCartItemViewModel> items = new List<ShoppingCartItemViewModel>();
-            return (ToViewModel(cart, items.AsEnumerable()));
-        }
+        //public static ShoppingCartViewModel ToViewModel(ShoppingCart cart)
+        //{
+        //    IEnumerable<ShoppingCartItemViewModel> items = new List<ShoppingCartItemViewModel>();
+        //    return (ToViewModel(cart, items.AsEnumerable()));
+        //}
 
-        public static ShoppingCartViewModel ToViewModel(ShoppingCart cart, IEnumerable<ShoppingCartItemViewModel> cartItems)
-        {
-            return new ShoppingCartViewModel
-            {
-                CartId = cart.CartId,
-                UserId = cart.UserId,
-                User = ToViewModel(cart.User),
-                ShoppingCartItems = cartItems.ToList(),
-                TotalPrice = cart.TotalPrice
-            };
-        }
+        //public static ShoppingCartViewModel ToViewModel(ShoppingCart cart, IEnumerable<ShoppingCartItemViewModel> cartItems)
+        //{
+        //    return new ShoppingCartViewModel
+        //    {
+        //        CartId = cart.CartId,
+        //        UserId = cart.UserId,
+        //        User = ToViewModel(cart.User),
+        //        ShoppingCartItems = cartItems.ToList(),
+        //        TotalPrice = cart.TotalPrice
+        //    };
+        //}
 
-        public static ShoppingCartItemViewModel ToViewModel(ShoppingCartItem cartItems)
-        {
-            return new ShoppingCartItemViewModel
-            {
-                ShoppingCartItemsId = cartItems.ShoppingCartItemsId,
-                CartId = cartItems.CartId,
-                ProductId = cartItems.ProductId,
-                Product = ToViewModel(cartItems.Product),
-                Quantity = cartItems.Quantity
-            };
-        }
+        //public static ShoppingCartItemViewModel ToViewModel(ShoppingCartItem cartItems)
+        //{
+        //    return new ShoppingCartItemViewModel
+        //    {
+        //        ShoppingCartItemsId = cartItems.ShoppingCartItemsId,
+        //        CartId = cartItems.CartId,
+        //        ProductId = cartItems.ProductId,
+        //        Product = ToViewModel(cartItems.Product),
+        //        Quantity = cartItems.Quantity
+        //    };
+        //}
 
-        public static BrowsingHistoryViewModel ToViewModel(BrowsingHistory bhe)
-        {
-            return new BrowsingHistoryViewModel
-            {
-                BrowsingHistoryId = bhe.BrowsingHistoryId,
-                DateTime = bhe.DateTime,
-                Product = ToViewModel(bhe.Product),
-                Device = ToViewModel(bhe.Device),
-                ProductId = bhe.ProductId,
-                UserId = bhe.UserId,
-            };
-        }
+        //public static BrowsingHistoryViewModel ToViewModel(BrowsingHistory bhe)
+        //{
+        //    return new BrowsingHistoryViewModel
+        //    {
+        //        BrowsingHistoryId = bhe.BrowsingHistoryId,
+        //        DateTime = bhe.DateTime,
+        //        Product = ToViewModel(bhe.Product),
+        //        Device = ToViewModel(bhe.Device),
+        //        ProductId = bhe.ProductId,
+        //        UserId = bhe.UserId
+        //    };
+        //}
 
         public static DeviceViewModel ToViewModel(Device device)
         {
@@ -213,18 +213,18 @@ namespace MeCommerce.Mapper
             };
         }
 
-        public static BrowsingHistory ToDomain(BrowsingHistoryViewModel bhe)
-        {
-            return new BrowsingHistory
-            {
-                BrowsingHistoryId = bhe.BrowsingHistoryId,
-                DateTime = bhe.DateTime,
-                Product = ToDomain(bhe.Product),
-                Device = ToDomain(bhe.Device),
-                ProductId = bhe.ProductId,
-                UserId = bhe.UserId,
-            };
-        }
+        //public static BrowsingHistory ToDomain(BrowsingHistoryViewModel bhe)
+        //{
+        //    return new BrowsingHistory
+        //    {
+        //        BrowsingHistoryId = bhe.BrowsingHistoryId,
+        //        DateTime = bhe.DateTime,
+        //        Product = ToDomain(bhe.Product),
+        //        Device = ToDomain(bhe.Device),
+        //        ProductId = bhe.ProductId,
+        //        UserId = bhe.UserId,
+        //    };
+        //}
 
         public static Device ToDomain(DeviceViewModel device)
         {

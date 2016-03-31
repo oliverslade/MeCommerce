@@ -318,9 +318,9 @@
     <Content Include="Views\Category\Details.cshtml" />
     <Content Include="Views\Category\Index.cshtml" />
     <Content Include="Views\Brand\Index.cshtml" />
-    <Content Include="Views\BrowsingHistory\Index.cshtml" />
     <Content Include="Views\Brand\Details.cshtml" />
     <Content Include="Views\Product\_productTable.cshtml" />
+    <Content Include="Views\BrowsingHistory\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

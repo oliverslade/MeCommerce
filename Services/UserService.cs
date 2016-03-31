@@ -81,10 +81,10 @@ namespace Services
                 SecurityStamp = user.SecurityStamp,
                 PasswordHash = user.PasswordHash,
                 //AspNetRoles = user.AspNetRoles.Select(x => _mapper.Map(x, new AspNetRoles())).ToList(),
-                BrowsingHistories = user.BrowsingHistories.Select(b => _mapper.Map(b, new BrowsingHistory())).ToList(),
-                AspNetUserClaims = user.AspNetUserClaims.Select(x => _mapper.Map(x, new AspNetUserClaims())).ToList(),
-                ShoppingCarts = _mapper.Map(user.ShoppingCart, new ShoppingCart()),
-                Orders = user.Orders.Select(x => _mapper.Map(x, new Order())).ToList()
+                //BrowsingHistories = user.BrowsingHistories.Select(b => _mapper.Map(b, new BrowsingHistory())).ToList(),
+                //AspNetUserClaims = user.AspNetUserClaims.Select(x => _mapper.Map(x, new AspNetUserClaims())).ToList(),
+                //ShoppingCarts = _mapper.Map(user.ShoppingCart, new ShoppingCart()),
+                //Orders = user.Orders.Select(x => _mapper.Map(x, new Order())).ToList()
             };
             return doaminUser;
         }

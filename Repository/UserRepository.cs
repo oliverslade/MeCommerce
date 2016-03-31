@@ -83,7 +83,7 @@ namespace Repository
 
         public ShoppingCart GetUserCart(int userId)
         {
-            return _context.ShoppingCart.FirstOrDefault(x => x.User.Id == userId);
+            return _context.ShoppingCart.FirstOrDefault(x => x.UserId == userId);
         }
 
         public void CreateBasket(ShoppingCart cart)
@@ -94,7 +94,7 @@ namespace Repository
 
         public void UpdateBasket(ShoppingCart cart)
         {
-            var existing = GetUserCart(cart.User.Id);
+            var existing = GetUserCart(cart.UserId);
             _mapper.Map(cart, existing);
             _context.SaveChanges();
         }
@@ -108,7 +108,7 @@ namespace Repository
 
         public void DeleteCartByUserId(int userId)
         {
-            var existing = _context.ShoppingCart.FirstOrDefault(x => x.User.Id == userId);
+            var existing = _context.ShoppingCart.FirstOrDefault(x => x.UserId == userId);
             _context.ShoppingCart.Remove(existing);
             _context.SaveChanges();
         }
@@ -165,7 +165,7 @@ namespace Repository
 
         public IEnumerable<OrderLine> GetOrderLinesByOrderId(int id)
         {
-            return _context.OrderLines.Where(ol => ol.Order.OrderId == id).ToList();
+            return _context.OrderLines.Where(ol => ol.OrderId == id).ToList();
         }
 
         public void UpdateOrderLine(OrderLine orderLine)
@@ -188,15 +188,17 @@ namespace Repository
 
         public IEnumerable<BrowsingHistory> GetUsersBrowsingHistories(int userId)
         {
-            var user = GetUser(userId);
-            return user.BrowsingHistories;
+            //var user = GetUser(userId);
+            //return user.BrowsingHistories;
+            return _context.BrowsingHistory.Where(x => x.UserId == userId);
         }
 
         public void CreateBrowsingHistoryEntry(BrowsingHistory bhe)
         {
-            var user = bhe.User;
-            user.BrowsingHistories.Add(bhe);
-            _context.AspNetUsers.AddOrUpdate(user);
+            //var user = bhe.User;
+            //user.BrowsingHistories.Add(bhe);
+            _context.Device.Add(bhe.Device);
+            _context.BrowsingHistory.Add(bhe);
             _context.SaveChanges();
         }
 

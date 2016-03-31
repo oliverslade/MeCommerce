@@ -16,12 +16,12 @@ namespace MeCommerce.ViewModels
         public string Postcode { get; set; }
         public string ContactNumber { get; set; }
 
-        public virtual ICollection<BrowsingHistoryViewModel> BrowsingHistories { get; set; }
+        //// public virtual ICollection<BrowsingHistoryViewModel> BrowsingHistories { get; set; }
 
-        public virtual ICollection<OrderViewModel> Orders { get; set; }
+        //public virtual ICollection<OrderViewModel> Orders { get; set; }
 
-        public virtual ShoppingCartViewModel ShoppingCart { get; set; }
+        //public virtual ShoppingCartViewModel ShoppingCart { get; set; }
 
-        public virtual ICollection<AspNetRolesViewModel> AspNetRoles { get; set; }
+        //public virtual ICollection<AspNetRolesViewModel> AspNetRoles { get; set; }
     }
 }
