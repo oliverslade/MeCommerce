@@ -7,6 +7,6 @@
         public int Quantity { get; set; }
         public int CartId { get; set; }
 
-        //public virtual ProductViewModel Product { get; set; }
+        public virtual ProductViewModel Product { get; set; }
     }
 }

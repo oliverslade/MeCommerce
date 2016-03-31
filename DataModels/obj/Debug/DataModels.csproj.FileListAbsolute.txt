@@ -1,7 +1,7 @@
+C:\Users\Oliver Slade\Desktop\MeCommerce\DataModels\bin\Debug\EntityFramework.dll
 C:\Users\Oliver Slade\Desktop\MeCommerce\DataModels\bin\Debug\DataModels.dll.config
 C:\Users\Oliver Slade\Desktop\MeCommerce\DataModels\bin\Debug\DataModels.dll
 C:\Users\Oliver Slade\Desktop\MeCommerce\DataModels\bin\Debug\DataModels.pdb
-C:\Users\Oliver Slade\Desktop\MeCommerce\DataModels\bin\Debug\EntityFramework.dll
 C:\Users\Oliver Slade\Desktop\MeCommerce\DataModels\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\Oliver Slade\Desktop\MeCommerce\DataModels\bin\Debug\Microsoft.AspNet.Identity.Core.dll
 C:\Users\Oliver Slade\Desktop\MeCommerce\DataModels\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll

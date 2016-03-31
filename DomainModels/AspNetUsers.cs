@@ -41,7 +41,7 @@ namespace DomainModels
 
         public virtual ICollection<Order> Orders { get; set; }
 
-        public virtual ShoppingCart ShoppingCarts { get; set; }
+        //public virtual ShoppingCart ShoppingCarts { get; set; }
 
         public virtual ICollection<AspNetUserClaims> AspNetUserClaims { get; set; }
 
