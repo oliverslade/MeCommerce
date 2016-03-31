@@ -184,6 +184,7 @@
     <Compile Include="App_Start\SimpleInjectorInitializer.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Chaching\CacheManager.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BrandController.cs" />
     <Compile Include="Controllers\BrowsingHistoryController.cs" />
@@ -321,11 +322,12 @@
     <Content Include="Views\Brand\Details.cshtml" />
     <Content Include="Views\Product\_productTable.cshtml" />
     <Content Include="Views\BrowsingHistory\Index.cshtml" />
+    <Content Include="Views\Order\_basketItems.cshtml" />
+    <Content Include="Views\Order\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Images\" />
-    <Folder Include="Views\Order\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

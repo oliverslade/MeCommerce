@@ -52,5 +52,6 @@
     </dl>
 </div>
 <p>
+    @Html.ActionLink("Add to Basket", "AddProductToBasket", "Order", new { productId = Model.Id, quantity = 1 }, null)
     @Html.ActionLink("Back to List", "Index")
 </p>

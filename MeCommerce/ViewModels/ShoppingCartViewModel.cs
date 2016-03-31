@@ -8,7 +8,7 @@ namespace MeCommerce.ViewModels
         public int UserId { get; set; }
         public int TotalPrice { get; set; }
 
-        //public virtual ICollection<ShoppingCartItemViewModel> ShoppingCartItems { get; set; }
+        public virtual ICollection<ShoppingCartItemViewModel> ShoppingCartItems { get; set; }
 
         //public virtual UserViewModel User { get; set; }
     }

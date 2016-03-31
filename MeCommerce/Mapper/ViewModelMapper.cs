@@ -122,29 +122,35 @@ namespace MeCommerce.Mapper
         //    return (ToViewModel(cart, items.AsEnumerable()));
         //}
 
-        //public static ShoppingCartViewModel ToViewModel(ShoppingCart cart, IEnumerable<ShoppingCartItemViewModel> cartItems)
-        //{
-        //    return new ShoppingCartViewModel
-        //    {
-        //        CartId = cart.CartId,
-        //        UserId = cart.UserId,
-        //        User = ToViewModel(cart.User),
-        //        ShoppingCartItems = cartItems.ToList(),
-        //        TotalPrice = cart.TotalPrice
-        //    };
-        //}
+        public static ShoppingCartViewModel ToViewModel(ShoppingCart cart, IEnumerable<ShoppingCartItemViewModel> cartItems)
+        {
+            return new ShoppingCartViewModel
+            {
+                CartId = cart.CartId,
+                UserId = cart.UserId,
+                ShoppingCartItems = cartItems.ToList(),
+                TotalPrice = cart.TotalPrice
+            };
+        }
 
-        //public static ShoppingCartItemViewModel ToViewModel(ShoppingCartItem cartItems)
-        //{
-        //    return new ShoppingCartItemViewModel
-        //    {
-        //        ShoppingCartItemsId = cartItems.ShoppingCartItemsId,
-        //        CartId = cartItems.CartId,
-        //        ProductId = cartItems.ProductId,
-        //        Product = ToViewModel(cartItems.Product),
-        //        Quantity = cartItems.Quantity
-        //    };
-        //}
+        public static ShoppingCartItemViewModel ToViewModel(ShoppingCartItem cartItems)
+        {
+            return new ShoppingCartItemViewModel
+            {
+                ShoppingCartItemsId = cartItems.ShoppingCartItemsId,
+                CartId = cartItems.CartId,
+                ProductId = cartItems.ProductId,
+                Quantity = cartItems.Quantity
+            };
+        }
+
+        public static ShoppingCartViewModel ToViewModel(ShoppingCart basket)
+        {
+            return new ShoppingCartViewModel()
+            {
+                ShoppingCartItems = basket.ShoppingCartItems.Select(ToViewModel).ToList()
+            };
+        }
 
         //public static BrowsingHistoryViewModel ToViewModel(BrowsingHistory bhe)
         //{
