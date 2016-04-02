@@ -1,5 +1,6 @@
 ﻿using DomainModels;
 using MeCommerce.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -17,7 +18,7 @@ namespace MeCommerce.Mapper
             {
                 Id = product.ProductId,
                 Name = product.Name,
-                Price = product.Price,
+                Price = (decimal)product.Price / 100,
                 Sku = product.SKU,
                 ShortDescription = product.ShortDescription,
                 LongDescription = product.LongDescription,
@@ -93,10 +94,6 @@ namespace MeCommerce.Mapper
                 Town = user.Town,
                 Postcode = user.Postcode,
                 ContactNumber = user.ContactNumber,
-                //AspNetRoles = roles.ToList(),
-                //Orders = orders.ToList(),
-                ////BrowsingHistories = browsingHistory.ToList(),
-                //ShoppingCart = ToViewModel(user.ShoppingCarts)
             };
         }
 
@@ -115,12 +112,6 @@ namespace MeCommerce.Mapper
                 Users = users.ToList()
             };
         }
-
-        //public static ShoppingCartViewModel ToViewModel(ShoppingCart cart)
-        //{
-        //    IEnumerable<ShoppingCartItemViewModel> items = new List<ShoppingCartItemViewModel>();
-        //    return (ToViewModel(cart, items.AsEnumerable()));
-        //}
 
         public static ShoppingCartViewModel ToViewModel(ShoppingCart cart, IEnumerable<ShoppingCartItemViewModel> cartItems)
         {
@@ -152,19 +143,6 @@ namespace MeCommerce.Mapper
             };
         }
 
-        //public static BrowsingHistoryViewModel ToViewModel(BrowsingHistory bhe)
-        //{
-        //    return new BrowsingHistoryViewModel
-        //    {
-        //        BrowsingHistoryId = bhe.BrowsingHistoryId,
-        //        DateTime = bhe.DateTime,
-        //        Product = ToViewModel(bhe.Product),
-        //        Device = ToViewModel(bhe.Device),
-        //        ProductId = bhe.ProductId,
-        //        UserId = bhe.UserId
-        //    };
-        //}
-
         public static DeviceViewModel ToViewModel(Device device)
         {
             return new DeviceViewModel
@@ -185,7 +163,7 @@ namespace MeCommerce.Mapper
             {
                 ProductId = product.Id,
                 SKU = product.Sku,
-                Price = product.Price,
+                Price = (int)(product.Price * 100),
                 Name = product.Name,
                 ShortDescription = product.ShortDescription,
                 LongDescription = product.LongDescription,
@@ -218,19 +196,6 @@ namespace MeCommerce.Mapper
                 Name = category.Name
             };
         }
-
-        //public static BrowsingHistory ToDomain(BrowsingHistoryViewModel bhe)
-        //{
-        //    return new BrowsingHistory
-        //    {
-        //        BrowsingHistoryId = bhe.BrowsingHistoryId,
-        //        DateTime = bhe.DateTime,
-        //        Product = ToDomain(bhe.Product),
-        //        Device = ToDomain(bhe.Device),
-        //        ProductId = bhe.ProductId,
-        //        UserId = bhe.UserId,
-        //    };
-        //}
 
         public static Device ToDomain(DeviceViewModel device)
         {

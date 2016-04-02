@@ -13,6 +13,5 @@ C:\Users\Oliver Slade\Desktop\MeCommerce\Interfaces\bin\Debug\SimpleInjector.xml
 C:\Users\Oliver Slade\Desktop\MeCommerce\Interfaces\bin\Debug\SimpleInjector.Integration.Web.xml
 C:\Users\Oliver Slade\Desktop\MeCommerce\Interfaces\bin\Debug\SimpleInjector.Integration.Web.Mvc.xml
 C:\Users\Oliver Slade\Desktop\MeCommerce\Interfaces\bin\Debug\EntityFramework.xml
-C:\Users\Oliver Slade\Desktop\MeCommerce\Interfaces\obj\Debug\Interfaces.csprojResolveAssemblyReference.cache
 C:\Users\Oliver Slade\Desktop\MeCommerce\Interfaces\obj\Debug\Interfaces.dll
 C:\Users\Oliver Slade\Desktop\MeCommerce\Interfaces\obj\Debug\Interfaces.pdb

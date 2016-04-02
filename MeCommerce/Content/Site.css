@@ -118,7 +118,6 @@ textarea {
     width: 269px;
     height: 49.5px;
     margin-top: 6px;
-    font-size: initial;
     vertical-align: top;
 }
 
@@ -152,6 +151,19 @@ textarea {
     width: 24px;
     cursor: pointer;
 }
+
+.checkout-style {
+    background-color: #428bca;
+    color: white !important;
+    border-radius: 3px;
+    border: none !important;
+    margin-top: 6px;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
 
 .log-in-fields {
     margin-left: 35px;

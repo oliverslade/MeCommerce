@@ -1,8 +1,5 @@
-﻿using DomainModels;
-using Interfaces.Services;
-using MeCommerce.Mapper;
+﻿using Interfaces.Services;
 using MeCommerce.ViewModels;
-using Microsoft.AspNet.Identity;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
@@ -13,90 +10,35 @@ namespace MeCommerce.Controllers
     {
         private readonly ICatalogService _catalogService;
 
-        private readonly IUserService _userService;
-
-        public OrderController(ICatalogService catalogService, IUserService userService)
+        public OrderController(ICatalogService catalogService)
         {
             _catalogService = catalogService;
-            _userService = userService;
         }
 
         public ActionResult Index()
         {
             int totalPrice = 0;
-            ShoppingCart cart = Chaching.CacheManager.Get<ShoppingCart>("Basket");
+            ShoppingCartViewModel cart = Chaching.CacheManager.Get<ShoppingCartViewModel>("Basket");
 
-            if (cart != null)
+            IEnumerable<ShoppingCartItemViewModel> items = cart.ShoppingCartItems.ToList();
+            totalPrice = items.Aggregate(totalPrice, (current, i) => current + i.Product.Price);
+
+            ShoppingCartViewModel cartViewModel = new ShoppingCartViewModel
             {
-                IEnumerable<ShoppingCartItem> items = cart.ShoppingCartItems.ToList();
-                ICollection<ShoppingCartItemViewModel> itemsList = new List<ShoppingCartItemViewModel>();
-                foreach (var i in items)
-                {
-                    ShoppingCartItemViewModel itemsViewModel = new ShoppingCartItemViewModel
-                    {
-                        CartId = cart.CartId,
-                        ProductId = i.ProductId,
-                        ShoppingCartItemsId = i.ShoppingCartItemsId,
-                        Quantity = i.Quantity,
-                        Product = ViewModelMapper.ToViewModel(i.Product)
-                    };
-
-                    itemsList.Add(itemsViewModel);
-
-                    totalPrice = totalPrice + i.Product.Price;
-                }
-
-                ShoppingCartViewModel cartViewModel = new ShoppingCartViewModel
-                {
-                    CartId = cart.CartId,
-                    ShoppingCartItems = itemsList,
-                    TotalPrice = totalPrice
-                };
-                return View(cartViewModel);
-            }
-            else
-            {
-                ShoppingCart cacheCart = Chaching.CacheManager.Get<ShoppingCart>("Basket");
-                if (cacheCart != null)
-                {
-                    IEnumerable<ShoppingCartItem> items = cacheCart.ShoppingCartItems.ToList();
-                    ICollection<ShoppingCartItemViewModel> itemsList = new List<ShoppingCartItemViewModel>();
-                    foreach (var i in items)
-                    {
-                        ShoppingCartItemViewModel itemsViewModel = new ShoppingCartItemViewModel
-                        {
-                            CartId = cacheCart.CartId,
-                            ProductId = i.ProductId,
-                            ShoppingCartItemsId = i.ShoppingCartItemsId,
-                            Quantity = i.Quantity,
-                            Product = ViewModelMapper.ToViewModel(i.Product)
-                        };
-
-                        itemsList.Add(itemsViewModel);
-
-                        totalPrice = totalPrice + i.Product.Price;
-                    }
-
-                    ShoppingCartViewModel cartViewModel = new ShoppingCartViewModel
-                    {
-                        CartId = cacheCart.CartId,
-                        ShoppingCartItems = itemsList,
-                        TotalPrice = totalPrice
-                    };
-
-                    return View(cartViewModel);
-                }
-            }
-            return View();
+                CartId = cart.CartId,
+                ShoppingCartItems = items.ToList(),
+                TotalPrice = (decimal)totalPrice / 100
+            };
+            return View(cartViewModel);
         }
 
         public ActionResult AddProductToBasket(int productId, int quantity)
         {
-            ShoppingCart basket;
+            ShoppingCartViewModel basket;
 
             if (Chaching.CacheManager.Exists("Basket"))
             {
-                basket = Chaching.CacheManager.Get<ShoppingCart>("Basket");
+                basket = Chaching.CacheManager.Get<ShoppingCartViewModel>("Basket");
 
                 if (basket.ShoppingCartItems.Any(x => x.ProductId == productId))
                 {
@@ -108,7 +50,7 @@ namespace MeCommerce.Controllers
                 }
                 else
                 {
-                    ShoppingCartItem newItem = new ShoppingCartItem
+                    ShoppingCartItemViewModel newItem = new ShoppingCartItemViewModel
                     {
                         ProductId = productId,
                         Quantity = quantity,
@@ -116,14 +58,14 @@ namespace MeCommerce.Controllers
                         Product = _catalogService.GetProductById(productId)
                     };
 
-                    basket.ShoppingCartItems = basket.ShoppingCartItems.Concat(new List<ShoppingCartItem> { newItem }).ToList();
+                    basket.ShoppingCartItems = basket.ShoppingCartItems.Concat(new List<ShoppingCartItemViewModel> { newItem }).ToList();
                 }
             }
             else
             {
-                basket = new ShoppingCart();
+                basket = new ShoppingCartViewModel();
 
-                ShoppingCartItem newItem = new ShoppingCartItem
+                ShoppingCartItemViewModel newItem = new ShoppingCartItemViewModel
                 {
                     ProductId = productId,
                     Quantity = quantity,
@@ -131,14 +73,13 @@ namespace MeCommerce.Controllers
                     Product = _catalogService.GetProductById(productId)
                 };
 
-                basket.ShoppingCartItems = new List<ShoppingCartItem> { newItem };
+                basket.ShoppingCartItems = new List<ShoppingCartItemViewModel> { newItem };
             }
 
             Chaching.CacheManager.Add(basket, "Basket");
 
-            ViewData["Success"] = "Product Added To Basket!";
-
-            return RedirectToAction("Index");
+            if (HttpContext.Request.UrlReferrer != null) return Redirect(HttpContext.Request.UrlReferrer.AbsoluteUri);
+            else return RedirectToAction("Index");
         }
     }
 }

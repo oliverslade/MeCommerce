@@ -1,13 +1,20 @@
 ﻿@model MeCommerce.ViewModels.ShoppingCartViewModel
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Basket";
 }
 
-<h2>Index</h2>
+<h2>Shopping Basket</h2>
+@if (Model.ShoppingCartItems == null)
+{
+    <p>Your Basket is empty :(</p>
+}
+else
+{
+    @Html.Partial("~/Views/Order/_basketItems.cshtml", Model.ShoppingCartItems)
+}
 
 <div>
-    <h4>ShoppingCartViewModel</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -19,5 +26,3 @@
         </dd>
     </dl>
 </div>
-
-@Html.Partial("~/Views/Order/_basketItems.cshtml", Model.ShoppingCartItems)

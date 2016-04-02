@@ -1,4 +1,6 @@
-﻿namespace MeCommerce.ViewModels
+﻿using DomainModels;
+
+namespace MeCommerce.ViewModels
 {
     public class ShoppingCartItemViewModel
     {
@@ -7,6 +9,6 @@
         public int Quantity { get; set; }
         public int CartId { get; set; }
 
-        public virtual ProductViewModel Product { get; set; }
+        public virtual Product Product { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using MeCommerce.ViewModels
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -83,7 +84,26 @@
 
         <div class="cd-panel-container">
             <div class="cd-panel-content">
-                @Html.ActionLink("View Basket", "Index", "Order")
+
+                @if (MeCommerce.Chaching.CacheManager.Exists("Basket"))
+                {
+                    var basket = MeCommerce.Chaching.CacheManager.Get<ShoppingCartViewModel>("Basket");
+                    decimal totalPrice = 0;
+                    totalPrice = basket.ShoppingCartItems.Aggregate(totalPrice, (current, i) => current + (decimal)i.Product.Price * i.Quantity / 100);
+
+                    <h4 class="text-center">Total price: £@totalPrice</h4>
+                    <br/>
+
+                    @Html.ActionLink("Go To Checkout", "Index", "Order", null, new {@class = "button-style", style = "text-align: center; margin-left: 30%; text-decoration: none;"});
+                    <br/>
+                    <br/>
+                   
+                    @Html.Partial("~/Views/Order/_basketItems.cshtml", basket.ShoppingCartItems);
+                }
+                else
+                {
+                    <p>Your basket is empty :(</p>
+                }
             </div>
         </div>
     </div>
