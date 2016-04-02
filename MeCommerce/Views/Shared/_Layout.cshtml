@@ -86,12 +86,12 @@
     </div>
 
     <div class="cd-panel from-right cd-basket">
-        <header class="cd-panel-header">
+        <header class="cd-panel-header" style="width: 30%;">
             <h3 class="text-center basket-header">Basket</h3>
             <a class="cd-panel-close">Close</a>
         </header>
 
-        <div class="cd-panel-container">
+        <div class="cd-panel-container" style="width: 30%;">
             <div class="cd-panel-content">
 
                 @if (MeCommerce.Chaching.CacheManager.Exists("Basket"))
@@ -103,11 +103,13 @@
                     <h4 class="text-center">Total price: £@totalPrice</h4>
                     <br />
 
-                    @Html.ActionLink("Go To Checkout", "Index", "Order", null, new { @class = "button-style", style = "text-align: center; margin-left: 30%; text-decoration: none;" })
+                    @Html.ActionLink("Go To Checkout", "Index", "Order", null, new { @class = "button-style", style = "text-align: center; margin-left: 37%; text-decoration: none;" })
                     <br />
                     <br />
 
                     @Html.Partial("~/Views/Order/_basketItems.cshtml", basket.ShoppingCartItems);
+
+                    @Html.ActionLink("Clear Basket", "ClearBasket", "Order", null, new { @class = "button-style", style = "text-align: right; margin-left: 39%; text-decoration: none;" })
                 }
                 else
                 {
