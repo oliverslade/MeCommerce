@@ -1,0 +1,126 @@
+﻿@using MeCommerce.ViewModels
+@model ShoppingCartViewModel
+
+@{
+    ViewBag.Title = "Checkout";
+}
+<h2>Checkout</h2>
+<hr />
+
+@{
+    var basket = MeCommerce.Chaching.CacheManager.Get<ShoppingCartViewModel>("Basket");
+    decimal totalPrice = 0;
+    totalPrice = basket.ShoppingCartItems.Aggregate(totalPrice, (current, i) => current + (decimal)i.Product.Price * i.Quantity / 100);
+
+    <h4>Total price: £@totalPrice</h4>
+    <br />
+}
+
+@Html.Partial("_basketItems", basket.ShoppingCartItems)
+
+@using (Html.BeginForm("CheckoutPost", "Order", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <hr />
+    <h3>Please Enter Your Delivery Information</h3>
+
+    <div class="col-md-3">
+        Title
+    </div>
+    <div class="form-group">
+        @Html.TextBox("CustomerTitle")
+    </div>
+
+    <div class="col-md-3">
+        Full Name
+    </div>
+    <div class="form-group">
+        @Html.TextBox("CustomerName")
+    </div>
+
+    <div class="col-md-3">
+        House Name or Number
+    </div>
+    <div class="form-group">
+        @Html.TextBox("HouseNameNumber")
+    </div>
+
+    <div class="col-md-3">
+        Address Line 1
+    </div>
+    <div class="form-group">
+        @Html.TextBox("AddressLine1")
+    </div>
+
+    <div class="col-md-3">
+        Address Line 2
+    </div>
+    <div class="form-group">
+        @Html.TextBox("AddressLine2")
+    </div>
+
+    <div class="col-md-3">
+        Address Line 3
+    </div>
+    <div class="form-group">
+        @Html.TextBox("AddressLine3")
+    </div>
+
+    <div class="col-md-3">
+        Town
+    </div>
+    <div class="form-group">
+        @Html.TextBox("Town")
+    </div>
+    <div class="col-md-3">
+        County
+    </div>
+    <div class="form-group">
+        @Html.TextBox("County")
+    </div>
+    <div class="col-md-3">
+        Postcode
+    </div>
+    <div class="form-group">
+        @Html.TextBox("Postcode")
+    </div>
+    <div class="col-md-3">
+        Contact Phone Number
+    </div>
+    <div class="form-group">
+        @Html.TextBox("ContactNumber")
+    </div>
+    <div class="col-md-3">
+        Contact Email Address
+    </div>
+    <div class="form-group">
+        @Html.TextBox("ContactEmail")
+    </div>
+    <hr />
+    <h3>Please Enter Your Card Details</h3>
+    <br/>
+    <div class="col-md-3">
+        Name on Card
+    </div>
+    <div class="form-group">
+        @Html.TextBox("CardName")
+    </div>
+    <div class="col-md-3">
+        Card Number
+    </div>
+    <div class="form-group">
+        @Html.TextBox("CardNumber")
+    </div>
+    <div class="col-md-3">
+        Security Code (CV2)
+    </div>
+    <div class="form-group">
+        @Html.TextBox("SecurityCode")
+    </div>
+    <hr />
+    <br />
+    <p>
+        <input class="button-style" type="submit" value="Submit Order" />
+    </p>
+}

@@ -17,7 +17,7 @@ namespace Repository
         {
             _mapper = new MapperConfiguration(cfg =>
             {
-                cfg.CreateMap<Order, Order>()
+                cfg.CreateMap<Orders, Orders>()
                     .ForMember(m => m.OrderId, opt => opt.Ignore());
 
                 cfg.CreateMap<OrderLine, OrderLine>()
@@ -67,14 +67,14 @@ namespace Repository
         {
             var existing = GetUser(user.Id);
             _mapper.Map(user, existing);
-            _context.SaveChanges();
+            //_context.SaveChanges();
         }
 
         public void DeleteUser(int userId)
         {
             var existing = GetUser(userId);
             _context.AspNetUsers.Remove(existing);
-            _context.SaveChanges();
+            // _context.SaveChanges();
         }
 
         #endregion User Repository
@@ -89,56 +89,60 @@ namespace Repository
         public void CreateBasket(ShoppingCart cart)
         {
             _context.ShoppingCart.Add(cart);
-            _context.SaveChanges();
+            // _context.SaveChanges();
         }
 
         public void UpdateBasket(ShoppingCart cart)
         {
             var existing = GetUserCart(cart.UserId);
             _mapper.Map(cart, existing);
-            _context.SaveChanges();
+            //_context.SaveChanges();
         }
 
         public void DeleteShoppingCartItem(int productId)
         {
             var existing = _context.ShoppingCartItems.FirstOrDefault(x => x.ProductId == productId);
             _context.ShoppingCartItems.Remove(existing);
-            _context.SaveChanges();
+            //_context.SaveChanges();
         }
 
         public void DeleteCartByUserId(int userId)
         {
             var existing = _context.ShoppingCart.FirstOrDefault(x => x.UserId == userId);
             _context.ShoppingCart.Remove(existing);
-            _context.SaveChanges();
+            //_context.SaveChanges();
         }
 
         #endregion Cart Repository
 
         #region Order and Order Line Repository
 
-        public void CreateOrder(Order order)
+        public void CreateOrder(Orders order)
         {
-            _context.Order.Add(order);
+            foreach (var orderline in order.OrderLines)
+            {
+                _context.OrderLines.Add(orderline);
+            }
+            _context.Orders.Add(order);
             _context.SaveChanges();
         }
 
-        public IEnumerable<Order> GetAllOrders()
+        public IEnumerable<Orders> GetAllOrders()
         {
-            return _context.Order.ToList();
+            return _context.Orders.ToList();
         }
 
-        public Order GetOrderById(int orderId)
+        public Orders GetOrderById(int orderId)
         {
-            return _context.Order.FirstOrDefault(o => o.OrderId == orderId);
+            return _context.Orders.FirstOrDefault(o => o.OrderId == orderId);
         }
 
-        public IEnumerable<Order> GetOrdersByUserId(int userId)
+        public IEnumerable<Orders> GetOrdersByUserId(int userId)
         {
-            return _context.Order.Where(o => o.UserId == userId).ToList();
+            return _context.Orders.Where(o => o.UserId == userId).ToList();
         }
 
-        public void UpdateOrder(Order order)
+        public void UpdateOrder(Orders order)
         {
             var existing = GetOrderById(order.OrderId);
             _mapper.Map(order, existing);
@@ -148,7 +152,7 @@ namespace Repository
         public void DeleteOrderById(int orderId)
         {
             var existing = GetOrderById(orderId);
-            _context.Order.Remove(existing);
+            _context.Orders.Remove(existing);
             _context.SaveChanges();
         }
 

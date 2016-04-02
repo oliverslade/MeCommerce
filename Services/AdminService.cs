@@ -29,7 +29,7 @@ namespace Services
                 cfg.CreateMap<Device, DataModels.Device>();
                 cfg.CreateMap<ShoppingCart, DataModels.ShoppingCart>();
                 cfg.CreateMap<ShoppingCartItem, DataModels.ShoppingCartItem>();
-                cfg.CreateMap<Order, DataModels.Order>();
+                cfg.CreateMap<Orders, DataModels.Orders>();
                 cfg.CreateMap<OrderLine, DataModels.OrderLine>();
 
                 // To data models
@@ -38,7 +38,7 @@ namespace Services
                 cfg.CreateMap<DataModels.Device, Device>();
                 cfg.CreateMap<DataModels.ShoppingCart, ShoppingCart>();
                 cfg.CreateMap<DataModels.ShoppingCartItem, ShoppingCartItem>();
-                cfg.CreateMap<DataModels.Order, Order>();
+                cfg.CreateMap<DataModels.Orders, Orders>();
                 cfg.CreateMap<DataModels.OrderLine, OrderLine>();
             }).CreateMapper();
         }
@@ -86,24 +86,24 @@ namespace Services
 
         #region Order
 
-        public IEnumerable<Order> GetAllOrders()
+        public IEnumerable<Orders> GetAllOrders()
         {
-            return _userRepository.GetAllOrders().Select(p => _mapper.Map(p, new Order()));
+            return _userRepository.GetAllOrders().Select(p => _mapper.Map(p, new Orders()));
         }
 
-        public Order GetOrderById(int orderId)
+        public Orders GetOrderById(int orderId)
         {
-            return _mapper.Map(_userRepository.GetOrderById(orderId), new Order());
+            return _mapper.Map(_userRepository.GetOrderById(orderId), new Orders());
         }
 
-        public IEnumerable<Order> GetOrdersByUserId(int userId)
+        public IEnumerable<Orders> GetOrdersByUserId(int userId)
         {
-            return _userRepository.GetOrdersByUserId(userId).Select(p => _mapper.Map(p, new Order()));
+            return _userRepository.GetOrdersByUserId(userId).Select(p => _mapper.Map(p, new Orders()));
         }
 
-        public void UpdateOrder(Order order)
+        public void UpdateOrder(Orders order)
         {
-            _userRepository.UpdateOrder(_mapper.Map(order, new DataModels.Order()));
+            _userRepository.UpdateOrder(_mapper.Map(order, new DataModels.Orders()));
         }
 
         public void DeleteOrderById(int orderId)

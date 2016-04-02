@@ -10,7 +10,7 @@ namespace DomainModels
     {
         public AspNetUsers()
         {
-            Orders = new HashSet<Order>();
+            Orders = new HashSet<Orders>();
             AspNetUserClaims = new HashSet<AspNetUserClaims>();
             AspNetRoles = new HashSet<AspNetRoles>();
         }
@@ -28,7 +28,7 @@ namespace DomainModels
         public int AccessFailedCount { get; set; }
         public string UserName { get; set; }
 
-        public virtual ICollection<Order> Orders { get; set; }
+        public virtual ICollection<Orders> Orders { get; set; }
 
         public virtual ICollection<AspNetUserClaims> AspNetUserClaims { get; set; }
 

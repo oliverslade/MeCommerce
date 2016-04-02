@@ -39,15 +39,15 @@ namespace Interfaces.Repositories
 
         #region IOrder and IOrderLineRepository
 
-        void CreateOrder(Order order);
+        void CreateOrder(Orders order);
 
-        IEnumerable<Order> GetAllOrders();
+        IEnumerable<Orders> GetAllOrders();
 
-        Order GetOrderById(int orderId);
+        Orders GetOrderById(int orderId);
 
-        IEnumerable<Order> GetOrdersByUserId(int userId);
+        IEnumerable<Orders> GetOrdersByUserId(int userId);
 
-        void UpdateOrder(Order order);
+        void UpdateOrder(Orders order);
 
         void DeleteOrderById(int id);
 

@@ -29,9 +29,9 @@ namespace Interfaces.Services
 
         #region Order and OrderLine Interfaces
 
-        IEnumerable<Order> GetOrdersByUserId(int userId);
+        IEnumerable<Orders> GetOrdersByUserId(int userId);
 
-        void CreateOrder(Order order);
+        void CreateOrder(Orders order);
 
         void CreateOrderLine(OrderLine orderLine);
 

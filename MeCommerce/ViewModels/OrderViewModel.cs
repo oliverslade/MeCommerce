@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace MeCommerce.ViewModels
 {
@@ -18,6 +19,7 @@ namespace MeCommerce.ViewModels
         public string Postcode { get; set; }
         public string ContactNumber { get; set; }
         public string ContactEmail { get; set; }
+        public DateTime DatePlaced { get; set; }
 
         public virtual ICollection<OrderLineViewModel> OrderLines { get; set; }
     }

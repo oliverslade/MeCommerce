@@ -1,10 +1,12 @@
+using System;
+
 namespace DomainModels
 {
     using System.Collections.Generic;
 
-    public class Order
+    public class Orders
     {
-        public Order()
+        public Orders()
         {
             OrderLines = new HashSet<OrderLine>();
         }
@@ -23,6 +25,7 @@ namespace DomainModels
         public string Postcode { get; set; }
         public string ContactNumber { get; set; }
         public string ContactEmail { get; set; }
+        public DateTime DatePlaced { get; set; }
 
         public virtual ICollection<OrderLine> OrderLines { get; set; }
     }

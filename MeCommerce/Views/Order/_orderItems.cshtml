@@ -1,0 +1,41 @@
+﻿@model IEnumerable<MeCommerce.ViewModels.OrderLineViewModel>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Product.Name)
+        </th>
+        <th>
+            Qty
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Product.Price)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td>
+                @{
+        var price = item.Product.Price;
+                }
+
+                £@price
+            </td>
+            <td>
+                @Html.ActionLink("View", "Details", new { controller = "Product", id = item.ProductId })
+            </td>
+        </tr>
+    }
+</table>
+
+<script src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery-1.8.2.js")" type="text/javascript"></script>

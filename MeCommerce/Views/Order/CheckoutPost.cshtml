@@ -1,0 +1,117 @@
+﻿@model DomainModels.Orders
+
+    @{
+        ViewBag.Title = "Order Summary";
+    }
+
+    <h2>CheckoutPost</h2>
+
+    <div>
+        <h4>Order</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.UserId)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.UserId)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.TotalPrice)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TotalPrice)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.CustomerTitle)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CustomerTitle)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.CustomerName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CustomerName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.HouseNameNumber)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.HouseNameNumber)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.AddressLine1)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.AddressLine1)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.AddressLine2)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.AddressLine2)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.AddressLine3)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.AddressLine3)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Town)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Town)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.County)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.County)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Postcode)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Postcode)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ContactNumber)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ContactNumber)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ContactEmail)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ContactEmail)
+            </dd>
+        </dl>
+    </div>

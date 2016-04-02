@@ -1,3 +1,4 @@
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -5,10 +6,10 @@ namespace DataModels
 {
     using System.Collections.Generic;
 
-    [Table("Order")]
-    public class Order
+    [Table("Orders")]
+    public class Orders
     {
-        public Order()
+        public Orders()
         {
             OrderLines = new HashSet<OrderLine>();
         }
@@ -29,6 +30,7 @@ namespace DataModels
         public string Postcode { get; set; }
         public string ContactNumber { get; set; }
         public string ContactEmail { get; set; }
+        public DateTime DatePlaced { get; set; }
 
         public virtual ICollection<OrderLine> OrderLines { get; set; }
     }

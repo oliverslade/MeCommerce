@@ -29,7 +29,7 @@ namespace Services
                 cfg.CreateMap<Device, DataModels.Device>();
                 cfg.CreateMap<ShoppingCart, DataModels.ShoppingCart>();
                 cfg.CreateMap<ShoppingCartItem, DataModels.ShoppingCartItem>();
-                cfg.CreateMap<Order, DataModels.Order>();
+                cfg.CreateMap<Orders, DataModels.Orders>();
                 cfg.CreateMap<OrderLine, DataModels.OrderLine>();
                 cfg.CreateMap<AspNetRoles, DataModels.AspNetRoles>();
                 cfg.CreateMap<AspNetUserClaims, DataModels.AspNetUserClaims>();
@@ -43,7 +43,7 @@ namespace Services
                 cfg.CreateMap<DataModels.Device, Device>();
                 cfg.CreateMap<DataModels.ShoppingCart, ShoppingCart>();
                 cfg.CreateMap<DataModels.ShoppingCartItem, ShoppingCartItem>();
-                cfg.CreateMap<DataModels.Order, Order>();
+                cfg.CreateMap<DataModels.Orders, Orders>();
                 cfg.CreateMap<DataModels.OrderLine, OrderLine>();
                 cfg.CreateMap<DataModels.AspNetRoles, AspNetRoles>();
                 cfg.CreateMap<DataModels.AspNetUserClaims, AspNetUserClaims>();
@@ -114,14 +114,14 @@ namespace Services
 
         #region Order and OrderLine Logic
 
-        public IEnumerable<Order> GetOrdersByUserId(int userId)
+        public IEnumerable<Orders> GetOrdersByUserId(int userId)
         {
-            return _userRepository.GetOrdersByUserId(userId).Select(o => _mapper.Map(o, new Order()));
+            return _userRepository.GetOrdersByUserId(userId).Select(o => _mapper.Map(o, new Orders()));
         }
 
-        public void CreateOrder(Order order)
+        public void CreateOrder(Orders order)
         {
-            _userRepository.CreateOrder(_mapper.Map(order, new DataModels.Order()));
+            _userRepository.CreateOrder(_mapper.Map(order, new DataModels.Orders()));
         }
 
         public void CreateOrderLine(OrderLine orderLine)

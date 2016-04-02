@@ -3,6 +3,7 @@ using Interfaces.Services;
 using MeCommerce.ViewModels;
 using Microsoft.AspNet.Identity;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 
 namespace MeCommerce.Controllers
@@ -40,7 +41,7 @@ namespace MeCommerce.Controllers
                 browsingHistoryViewModels.Add(viewModel);
             }
 
-            return View(browsingHistoryViewModels);
+            return View(browsingHistoryViewModels.Reverse());
         }
     }
 }
