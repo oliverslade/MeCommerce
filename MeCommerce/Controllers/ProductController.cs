@@ -55,6 +55,13 @@ namespace MeCommerce.Controllers
             return View(finalProduct);
         }
 
+        public ActionResult Search(string term)
+        {
+            var products = _catalogService.GetProductsBySearchTerm(term).Select(ViewModelMapper.ToViewModel);
+
+            return View(products);
+        }
+
         private DeviceViewModel GetCurrentDevice()
         {
             DeviceViewModel device = new DeviceViewModel();

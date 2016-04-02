@@ -1,0 +1,62 @@
+﻿@model IEnumerable<MeCommerce.ViewModels.ProductViewModel>
+
+@{
+    ViewBag.Title = "Search";
+}
+
+<h2>Search Results</h2>
+
+@{
+    if (Model != null)
+    {
+
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Sku)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ShortDescription)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LongDescription)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Price)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Sku)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ShortDescription)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LongDescription)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Price)
+                    </td>
+                    <td>
+                        @Html.ActionLink("View Product", "Details", new { id = item.Id })
+                    </td>
+                </tr>
+            }
+        </table>
+    }
+    else
+    {
+        <h4>Sorry, we couldn't find any products in that search :(</h4>
+    }
+}

@@ -201,5 +201,14 @@ namespace MeCommerce.Controllers
             if (HttpContext.Request.UrlReferrer != null) return Redirect(HttpContext.Request.UrlReferrer.AbsoluteUri);
             else return RedirectToAction("Index");
         }
+
+        public ActionResult ClearBasket()
+        {
+            if (Chaching.CacheManager.Exists("Basket"))
+            {
+                Chaching.CacheManager.Delete("Basket");
+            }
+            return RedirectToAction("Index", "Home", null);
+        }
     }
 }
