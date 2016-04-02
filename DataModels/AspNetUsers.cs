@@ -12,8 +12,6 @@ namespace DataModels
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public AspNetUsers()
         {
-            //BrowsingHistories = new HashSet<BrowsingHistory>();
-            Orders = new HashSet<Order>();
             AspNetUserClaims = new HashSet<AspNetUserClaims>();
             AspNetRoles = new HashSet<AspNetRoles>();
         }
@@ -32,23 +30,6 @@ namespace DataModels
         public bool LockoutEnabled { get; set; }
         public int AccessFailedCount { get; set; }
         public string UserName { get; set; }
-        public string HouseName { get; set; }
-        public string AddressLine1 { get; set; }
-        public string AddressLine2 { get; set; }
-        public string AddressLine3 { get; set; }
-        public string Town { get; set; }
-        public string County { get; set; }
-        public string Postcode { get; set; }
-        public string ContactNumber { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        //public virtual ICollection<BrowsingHistory> BrowsingHistories { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Order> Orders { get; set; }
-
-        //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        //public virtual ShoppingCart ShoppingCart { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AspNetUserClaims> AspNetUserClaims { get; set; }

@@ -86,14 +86,6 @@ namespace MeCommerce.Mapper
                 Id = user.Id,
                 Email = user.Email,
                 UserName = user.UserName,
-                HouseName = user.HouseName,
-                AddressLine1 = user.AddressLine1,
-                AddressLine2 = user.AddressLine2,
-                AddressLine3 = user.AddressLine3,
-                County = user.County,
-                Town = user.Town,
-                Postcode = user.Postcode,
-                ContactNumber = user.ContactNumber,
             };
         }
 

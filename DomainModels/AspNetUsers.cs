@@ -10,7 +10,6 @@ namespace DomainModels
     {
         public AspNetUsers()
         {
-            //BrowsingHistories = new HashSet<BrowsingHistory>();
             Orders = new HashSet<Order>();
             AspNetUserClaims = new HashSet<AspNetUserClaims>();
             AspNetRoles = new HashSet<AspNetRoles>();
@@ -28,20 +27,8 @@ namespace DomainModels
         public bool LockoutEnabled { get; set; }
         public int AccessFailedCount { get; set; }
         public string UserName { get; set; }
-        public string HouseName { get; set; }
-        public string AddressLine1 { get; set; }
-        public string AddressLine2 { get; set; }
-        public string AddressLine3 { get; set; }
-        public string Town { get; set; }
-        public string County { get; set; }
-        public string Postcode { get; set; }
-        public string ContactNumber { get; set; }
-
-        //public virtual ICollection<BrowsingHistory> BrowsingHistories { get; set; }
 
         public virtual ICollection<Order> Orders { get; set; }
-
-        //public virtual ShoppingCart ShoppingCarts { get; set; }
 
         public virtual ICollection<AspNetUserClaims> AspNetUserClaims { get; set; }
 

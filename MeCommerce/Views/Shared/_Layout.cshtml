@@ -92,12 +92,12 @@
                     totalPrice = basket.ShoppingCartItems.Aggregate(totalPrice, (current, i) => current + (decimal)i.Product.Price * i.Quantity / 100);
 
                     <h4 class="text-center">Total price: £@totalPrice</h4>
-                    <br/>
+                    <br />
 
-                    @Html.ActionLink("Go To Checkout", "Index", "Order", null, new {@class = "button-style", style = "text-align: center; margin-left: 30%; text-decoration: none;"});
-                    <br/>
-                    <br/>
-                   
+                    @Html.ActionLink("Go To Checkout", "Index", "Order", null, new { @class = "button-style", style = "text-align: center; margin-left: 30%; text-decoration: none;" })
+                    <br />
+                    <br />
+
                     @Html.Partial("~/Views/Order/_basketItems.cshtml", basket.ShoppingCartItems);
                 }
                 else

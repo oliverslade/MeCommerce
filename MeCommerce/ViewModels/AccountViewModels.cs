@@ -8,34 +8,6 @@ namespace MeCommerce.ViewModels
         [Required]
         [Display(Name = "Email")]
         public string Email { get; set; }
-
-        [Required]
-        [Display(Name = "House Name or Number")]
-        public string HouseName { get; set; }
-
-        [Required]
-        [Display(Name = "Address Line 1")]
-        public string AddressLine1 { get; set; }
-
-        [Required]
-        [Display(Name = "Address Line 2")]
-        public string AddressLine2 { get; set; }
-
-        [Display(Name = "Address Line 3")]
-        public string AddressLine3 { get; set; }
-
-        [Required]
-        public string Town { get; set; }
-
-        [Required]
-        public string County { get; set; }
-
-        [Required]
-        public string Postcode { get; set; }
-
-        [Required]
-        [Display(Name = "Contact Phone Number")]
-        public string ContactNumber { get; set; }
     }
 
     public class ExternalLoginListViewModel
@@ -108,34 +80,6 @@ namespace MeCommerce.ViewModels
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
-
-        [Required]
-        [Display(Name = "House Name or Number")]
-        public string HouseName { get; set; }
-
-        [Required]
-        [Display(Name = "Address Line 1")]
-        public string AddressLine1 { get; set; }
-
-        [Required]
-        [Display(Name = "Address Line 2")]
-        public string AddressLine2 { get; set; }
-
-        [Display(Name = "Address Line 3")]
-        public string AddressLine3 { get; set; }
-
-        [Required]
-        public string Town { get; set; }
-
-        [Required]
-        public string County { get; set; }
-
-        [Required]
-        public string Postcode { get; set; }
-
-        [Required]
-        [Display(Name = "Contact Phone Number")]
-        public string ContactNumber { get; set; }
     }
 
     public class ResetPasswordViewModel

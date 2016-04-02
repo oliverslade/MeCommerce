@@ -153,14 +153,6 @@ namespace MeCommerce.Controllers
                 {
                     UserName = model.Email,
                     Email = model.Email,
-                    HouseName = model.HouseName,
-                    AddressLine1 = model.AddressLine1,
-                    AddressLine2 = model.AddressLine2,
-                    AddressLine3 = model.AddressLine3,
-                    Town = model.Town,
-                    County = model.County,
-                    Postcode = model.Postcode,
-                    ContactNumber = model.ContactNumber
                 };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
@@ -380,14 +372,6 @@ namespace MeCommerce.Controllers
                 {
                     UserName = model.Email,
                     Email = model.Email,
-                    HouseName = model.HouseName,
-                    AddressLine1 = model.AddressLine1,
-                    AddressLine2 = model.AddressLine2,
-                    AddressLine3 = model.AddressLine3,
-                    Town = model.Town,
-                    County = model.County,
-                    Postcode = model.Postcode,
-                    ContactNumber = model.ContactNumber
                 };
                 var result = await UserManager.CreateAsync(user);
                 if (result.Succeeded)

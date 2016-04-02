@@ -63,14 +63,6 @@ namespace Services
                 Id = user.Id,
                 Email = user.Email,
                 EmailConfirmed = user.EmailConfirmed,
-                HouseName = user.HouseName,
-                AddressLine1 = user.AddressLine1,
-                AddressLine2 = user.AddressLine2,
-                AddressLine3 = user.AddressLine3,
-                County = user.County,
-                Town = user.Town,
-                ContactNumber = user.ContactNumber,
-                Postcode = user.Postcode,
                 PhoneNumber = user.PhoneNumber,
                 AccessFailedCount = user.AccessFailedCount,
                 PhoneNumberConfirmed = user.PhoneNumberConfirmed,
@@ -80,11 +72,6 @@ namespace Services
                 TwoFactorEnabled = user.TwoFactorEnabled,
                 SecurityStamp = user.SecurityStamp,
                 PasswordHash = user.PasswordHash,
-                //AspNetRoles = user.AspNetRoles.Select(x => _mapper.Map(x, new AspNetRoles())).ToList(),
-                //BrowsingHistories = user.BrowsingHistories.Select(b => _mapper.Map(b, new BrowsingHistory())).ToList(),
-                //AspNetUserClaims = user.AspNetUserClaims.Select(x => _mapper.Map(x, new AspNetUserClaims())).ToList(),
-                //ShoppingCarts = _mapper.Map(user.ShoppingCart, new ShoppingCart()),
-                //Orders = user.Orders.Select(x => _mapper.Map(x, new Order())).ToList()
             };
             return doaminUser;
         }

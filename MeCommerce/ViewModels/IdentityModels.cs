@@ -9,15 +9,6 @@ namespace MeCommerce.ViewModels
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit http://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
     public class ApplicationUser : IdentityUser<int, CustomUserLogin, CustomUserRole, CustomUserClaim>
     {
-        public string HouseName { get; set; }
-        public string AddressLine1 { get; set; }
-        public string AddressLine2 { get; set; }
-        public string AddressLine3 { get; set; }
-        public string Town { get; set; }
-        public string County { get; set; }
-        public string Postcode { get; set; }
-        public string ContactNumber { get; set; }
-
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser, int> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType

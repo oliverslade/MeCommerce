@@ -17,17 +17,17 @@ namespace MeCommerce.Controllers
 
         public ActionResult Index()
         {
-            int totalPrice = 0;
+            decimal totalPrice = 0;
             ShoppingCartViewModel cart = Chaching.CacheManager.Get<ShoppingCartViewModel>("Basket");
 
             IEnumerable<ShoppingCartItemViewModel> items = cart.ShoppingCartItems.ToList();
-            totalPrice = items.Aggregate(totalPrice, (current, i) => current + i.Product.Price);
+            totalPrice = cart.ShoppingCartItems.Aggregate(totalPrice, (current, i) => current + (decimal)i.Product.Price * i.Quantity / 100);
 
             ShoppingCartViewModel cartViewModel = new ShoppingCartViewModel
             {
                 CartId = cart.CartId,
                 ShoppingCartItems = items.ToList(),
-                TotalPrice = (decimal)totalPrice / 100
+                TotalPrice = totalPrice
             };
             return View(cartViewModel);
         }

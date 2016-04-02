@@ -7,7 +7,6 @@
         public int Quantity { get; set; }
         public int OrderId { get; set; }
 
-        public virtual OrderViewModel Order { get; set; }
         public virtual ProductViewModel Product { get; set; }
     }
 }
