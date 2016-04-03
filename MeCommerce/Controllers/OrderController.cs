@@ -31,19 +31,19 @@ namespace MeCommerce.Controllers
         {
             if (string.IsNullOrWhiteSpace(form["CardNumber"]))
             {
-                ViewData["Error"] = "Please insert your Card Number";
+                TempData["Error"] = "Please insert your Card Number";
                 return RedirectToAction("Index");
             }
 
             if (string.IsNullOrWhiteSpace(form["CardName"]))
             {
-                ViewData["Error"] = "Please insert the name on your card";
+                TempData["Error"] = "Please insert the name on your card";
                 return RedirectToAction("Index");
             }
 
             if (string.IsNullOrWhiteSpace(form["SecurityCode"]))
             {
-                ViewData["Error"] = "Please insert the 3 digit code on the back of your card";
+                TempData["Error"] = "Please insert the 3 digit code on the back of your card";
                 return RedirectToAction("Index");
             }
 
@@ -196,7 +196,7 @@ namespace MeCommerce.Controllers
 
             Chaching.CacheManager.Add(basket, "Basket");
 
-            ViewData["Success"] = "Product Added To Basket!";
+            TempData["Success"] = "Product Added To Basket!";
 
             if (HttpContext.Request.UrlReferrer != null) return Redirect(HttpContext.Request.UrlReferrer.AbsoluteUri);
             else return RedirectToAction("Index");
@@ -250,7 +250,7 @@ namespace MeCommerce.Controllers
                 Chaching.CacheManager.Add(newBasket, "Basket");
             }
 
-            ViewData["Success"] = "Product Removed from Basket!";
+            TempData["Success"] = "Product Removed!";
 
             if (HttpContext.Request.UrlReferrer != null) return Redirect(HttpContext.Request.UrlReferrer.AbsoluteUri);
             else return RedirectToAction("Index");
@@ -292,7 +292,7 @@ namespace MeCommerce.Controllers
                 Chaching.CacheManager.Add(newBasket, "Basket");
             }
 
-            ViewData["Success"] = "We added another one for you!";
+            TempData["Success"] = "Basket Updated!";
 
             if (HttpContext.Request.UrlReferrer != null) return Redirect(HttpContext.Request.UrlReferrer.AbsoluteUri);
             else return RedirectToAction("Index");
@@ -305,7 +305,7 @@ namespace MeCommerce.Controllers
                 Chaching.CacheManager.Delete("Basket");
             }
 
-            ViewData["Success"] = "Basket Cleared!";
+            TempData["Success"] = "Basket Cleared!";
 
             return RedirectToAction("Index", "Home", null);
         }

@@ -73,7 +73,7 @@ namespace MeCommerce.Controllers
             {
                 case SignInStatus.Success:
 
-                    ViewData["Success"] = "Signed In!";
+                    TempData["Success"] = "Signed In!";
 
                     return RedirectToLocal(returnUrl);
 
@@ -168,7 +168,7 @@ namespace MeCommerce.Controllers
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
-                    ViewData["Success"] = "You're registered!";
+                    TempData["Success"] = "You're registered!";
 
                     return RedirectToAction("Index", "Home");
                 }
@@ -362,7 +362,7 @@ namespace MeCommerce.Controllers
         {
             if (User.Identity.IsAuthenticated)
             {
-                ViewData["Success"] = "Login Success!";
+                TempData["Success"] = "Login Success!";
                 return RedirectToAction("Index", "Manage");
             }
 
@@ -403,7 +403,7 @@ namespace MeCommerce.Controllers
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-            ViewData["Success"] = "Logged out!";
+            TempData["Success"] = "Logged out!";
             return RedirectToAction("Index", "Home");
         }
 

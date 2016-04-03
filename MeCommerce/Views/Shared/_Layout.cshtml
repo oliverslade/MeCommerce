@@ -7,6 +7,7 @@
     <title>@ViewBag.Title - MeCommerce, Oliver Slade</title>
     @Styles.Render("~/Content/css")
     @Styles.Render("~/Content/toastr.css")
+    <script src="~/Scripts/jquery-2.2.1.min.js"></script>
     @Scripts.Render("~/Scripts/toastr.js")
     @Scripts.Render("~/bundles/modernizr")
 </head>
@@ -124,7 +125,6 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
-    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
 
     <script>
         jQuery(document).ready(function ($) {
@@ -160,8 +160,8 @@
     {
         <script type="text/javascript">
             DisplayToastSuccess('@(TempData["Success"])');
-            function DisplayToastSuccess(message) {
-                toastr.success(message);
+            function DisplayToastSuccess(message, title) {
+                toastr.success(message, title);
             }
         </script>
     }
