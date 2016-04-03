@@ -3,8 +3,6 @@
 <table class="table">
     <tr>
         <th>
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.Product.Name)
         </th>
         <th>
@@ -20,23 +18,22 @@
     {
         <tr>
             <td>
-                @Html.ActionLink("X", "Details", new { controller = "Product", id = item.ProductId })
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.Product.Name)
             </td>
             <td>
+                @Html.ActionLink("-", "DeleteProductFromCart", new { controller = "Order", productId = item.ProductId }, new {style="font-size: large"})
                 @Html.DisplayFor(modelItem => item.Quantity)
+                @Html.ActionLink("+", "AddOneToQuantity", new { controller = "Order", productId = item.ProductId }, new { style = "font-size: large" })
             </td>
             <td>
                 @{
-                    var price = (decimal) item.Product.Price/100;
+        var price = (decimal)item.Product.Price / 100;
                 }
 
                 £@price
             </td>
             <td>
-                @Html.ActionLink("View", "Details", new {controller = "Product", id = item.ProductId})
+                @Html.ActionLink("View", "Details", new { controller = "Product", id = item.ProductId })
             </td>
         </tr>
     }

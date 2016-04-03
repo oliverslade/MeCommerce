@@ -5,9 +5,7 @@ using MeCommerce.ViewModels;
 using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
-using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Web.Mvc;
 
 namespace MeCommerce.Controllers
@@ -197,6 +195,98 @@ namespace MeCommerce.Controllers
             }
 
             Chaching.CacheManager.Add(basket, "Basket");
+
+            if (HttpContext.Request.UrlReferrer != null) return Redirect(HttpContext.Request.UrlReferrer.AbsoluteUri);
+            else return RedirectToAction("Index");
+        }
+
+        public ActionResult DeleteProductFromCart(int productId)
+        {
+            var oldBasket = Chaching.CacheManager.Get<ShoppingCartViewModel>("Basket");
+
+            ICollection<ShoppingCartItemViewModel> newBasketItems = new List<ShoppingCartItemViewModel>();
+
+            foreach (var item in oldBasket.ShoppingCartItems)
+            {
+                if (item.Product.ProductId != productId)
+                {
+                    ShoppingCartItemViewModel itemViewModel = new ShoppingCartItemViewModel
+                    {
+                        Product = item.Product,
+                        CartId = item.CartId,
+                        ProductId = item.ProductId,
+                        Quantity = item.Quantity
+                    };
+
+                    newBasketItems.Add(itemViewModel);
+                }
+                else if (item.Quantity > 1)
+                {
+                    ShoppingCartItemViewModel itemViewModel = new ShoppingCartItemViewModel
+                    {
+                        Product = item.Product,
+                        CartId = item.CartId,
+                        ProductId = item.ProductId,
+                        Quantity = item.Quantity - 1
+                    };
+
+                    newBasketItems.Add(itemViewModel);
+                }
+            }
+
+            var newBasket = new ShoppingCartViewModel
+            {
+                TotalPrice = oldBasket.TotalPrice,
+                CartId = oldBasket.CartId,
+                ShoppingCartItems = newBasketItems
+            };
+
+            Chaching.CacheManager.Delete("Basket");
+
+            if (newBasket.ShoppingCartItems != null)
+            {
+                Chaching.CacheManager.Add(newBasket, "Basket");
+            }
+
+            if (HttpContext.Request.UrlReferrer != null) return Redirect(HttpContext.Request.UrlReferrer.AbsoluteUri);
+            else return RedirectToAction("Index");
+        }
+
+        public ActionResult AddOneToQuantity(int productId)
+        {
+            var oldBasket = Chaching.CacheManager.Get<ShoppingCartViewModel>("Basket");
+
+            ICollection<ShoppingCartItemViewModel> newBasketItems = new List<ShoppingCartItemViewModel>();
+
+            foreach (var item in oldBasket.ShoppingCartItems)
+            {
+                if (item.Product.ProductId == productId)
+                {
+                    ShoppingCartItemViewModel itemViewModel = new ShoppingCartItemViewModel
+                    {
+                        Product = item.Product,
+                        CartId = item.CartId,
+                        ProductId = item.ProductId,
+                        Quantity = item.Quantity + 1
+                    };
+
+                    newBasketItems.Add(itemViewModel);
+                }
+            }
+
+            var newBasket = new ShoppingCartViewModel
+            {
+                TotalPrice = oldBasket.TotalPrice,
+                CartId = oldBasket.CartId,
+                ShoppingCartItems = newBasketItems
+            };
+
+            Chaching.CacheManager.Delete("Basket");
+
+            if (newBasket.ShoppingCartItems != null)
+            {
+                Chaching.CacheManager.Add(newBasket, "Basket");
+            }
 
             if (HttpContext.Request.UrlReferrer != null) return Redirect(HttpContext.Request.UrlReferrer.AbsoluteUri);
             else return RedirectToAction("Index");
