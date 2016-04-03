@@ -19,6 +19,8 @@ namespace MeCommerce.ViewModels
 
         public decimal Price { get; set; }
 
+        public string ImagePath { get; set; }
+
         public BrandViewModel Brand { get; set; }
 
         public CategoryViewModel Category { get; set; }

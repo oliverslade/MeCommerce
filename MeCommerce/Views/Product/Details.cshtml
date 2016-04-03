@@ -1,57 +1,49 @@
 ﻿@model MeCommerce.ViewModels.ProductViewModel
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = Model.Name;
 }
 
-<h2>Details</h2>
-
 <div>
-    <h4>ProductViewModel</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+    <h2 class="text-center">
+        @Html.DisplayFor(model => model.Name)
+    </h2>
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
+    <br />
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Sku)
-        </dt>
+    <div style="text-align: center"><img src="@Url.Content(Model.ImagePath)" alt=@Model.Name style="width:70%;"></div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Sku)
-        </dd>
+    <h5 class="text-center">
+        @Html.DisplayNameFor(model => model.Sku):
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ShortDescription)
-        </dt>
+        @Html.DisplayFor(model => model.Sku)
+    </h5>
 
-        <dd>
-            @Html.DisplayFor(model => model.ShortDescription)
-        </dd>
+    <h4 class="text-center">
+        Description
+    </h4>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.LongDescription)
-        </dt>
+    <p class="text-center">
+        @Html.DisplayFor(model => model.ShortDescription)
+    </p>
 
-        <dd>
-            @Html.DisplayFor(model => model.LongDescription)
-        </dd>
+    <p class="text-center">
+        @Html.DisplayFor(model => model.LongDescription)
+    </p>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Price)
-        </dt>
-
-        <dd>
-            £@Html.DisplayFor(model => model.Price)
-        </dd>
-    </dl>
+    <h4 class="text-center">
+        £@Html.DisplayFor(model => model.Price)
+    </h4>
+    <br />
 </div>
-<p>
-    @Html.ActionLink("Add to Basket", "AddProductToBasket", "Order", new { productId = Model.Id, quantity = 1 }, null)
-    @Html.ActionLink("Back to List", "Index")
+
+<p class="text-center">
+    @Html.ActionLink("Add to Basket", "AddProductToBasket", "Order", new { productId = Model.Id, quantity = 1 }, new { @class = "button-style" })
+</p>
+
+<br />
+
+<p class="text-center">
+    @Html.ActionLink("See more " + Model.Category.Name, "Details", "Category", new { id = Model.Category.Id }, new { @class = "button-style" })
+    @Html.ActionLink("See more " + Model.Brand.Name + " Products", "Details", "Brand", new { id = Model.Brand.Id }, new { @class = "button-style" })
 </p>

@@ -2,6 +2,11 @@
     padding-bottom: 20px;
 }
 
+html, body {
+    width:100%; 
+    height:100%;
+}
+
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
@@ -20,6 +25,55 @@ input,
 select,
 textarea {
     max-width: 280px;
+}
+
+@media only screen and (max-width: 1236px) {
+    #navbar {
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 1026px) {
+    #basket-Panel {
+        width: 30%;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    #term {
+        display: none !important;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    #search-button {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    #search-button {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    #carticon {
+        margin-top: 0
+    }
+}
+
+@media only screen and (max-width: 767px) and (min-width: 384px)  {
+    #logo {
+        margin-top: 0
+    }
+}
+
+@media only screen and (max-width: 383px) {
+    #logo {
+        width: 175px;
+       margin-top: 10px
+    }
 }
 
 .logo {
@@ -163,7 +217,6 @@ textarea {
     padding-top: 8px;
     padding-bottom: 8px;
 }
-
 
 .log-in-fields {
     margin-left: 35px;

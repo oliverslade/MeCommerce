@@ -12,6 +12,7 @@ namespace DomainModels
         public bool IsActive { get; set; }
         public int CategoryId { get; set; }
         public int BrandId { get; set; }
+        public string ImagePath { get; set; }
 
         public virtual Brand Brand { get; set; }
 

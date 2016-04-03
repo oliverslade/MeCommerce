@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace MeCommerce.ViewModels
+﻿namespace MeCommerce.ViewModels
 {
     public class UserViewModel
     {

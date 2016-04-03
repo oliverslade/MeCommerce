@@ -1,6 +1,5 @@
 ﻿using DomainModels;
 using MeCommerce.ViewModels;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -23,7 +22,8 @@ namespace MeCommerce.Mapper
                 ShortDescription = product.ShortDescription,
                 LongDescription = product.LongDescription,
                 Brand = ToViewModel(product.Brand),
-                Category = ToViewModel(product.Category)
+                Category = ToViewModel(product.Category),
+                ImagePath = product.ImagePath
             };
         }
 
@@ -163,7 +163,8 @@ namespace MeCommerce.Mapper
                 Brand = ToDomain(product.Brand),
                 Category = ToDomain(product.Category),
                 CategoryId = product.Category.Id,
-                BrandId = product.Brand.Id
+                BrandId = product.Brand.Id,
+                ImagePath = product.ImagePath
             };
         }
 

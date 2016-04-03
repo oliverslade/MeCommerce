@@ -241,6 +241,19 @@
     <Content Include="Icons\cart.svg" />
     <Content Include="Icons\logo.png" />
     <Content Include="Icons\menu.svg" />
+    <Content Include="Images\apple-iphone-6s.png" />
+    <Content Include="Images\apple-lightning-cable.jpg" />
+    <Content Include="Images\google-nexus-9.jpg" />
+    <Content Include="Images\google-nexus-case.png" />
+    <Content Include="Images\google-universal-charger.png" />
+    <Content Include="Images\ipad-air-2.jpg" />
+    <Content Include="Images\iphone-silicone-case.jpg" />
+    <Content Include="Images\nexus-5x.jpg" />
+    <Content Include="Images\samsung-cover.jpg" />
+    <Content Include="Images\samsung-galaxy-s7.png" />
+    <Content Include="Images\samsung-galaxy-tab-s2.jpg" />
+    <Content Include="Images\samsung-wireless-charger.jpg" />
+    <Content Include="Images\smartphones.jpg" />
     <Content Include="Scripts\auth.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -251,6 +264,9 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\toastr.scss" />
     <Content Include="Content\toastr.less" />
+    <Content Include="Content\toastr.css.map">
+      <DependentUpon>toastr.css</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -337,7 +353,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
