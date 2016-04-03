@@ -196,6 +196,8 @@ namespace MeCommerce.Controllers
 
             Chaching.CacheManager.Add(basket, "Basket");
 
+            ViewData["Success"] = "Product Added To Basket!";
+
             if (HttpContext.Request.UrlReferrer != null) return Redirect(HttpContext.Request.UrlReferrer.AbsoluteUri);
             else return RedirectToAction("Index");
         }
@@ -248,6 +250,8 @@ namespace MeCommerce.Controllers
                 Chaching.CacheManager.Add(newBasket, "Basket");
             }
 
+            ViewData["Success"] = "Product Removed from Basket!";
+
             if (HttpContext.Request.UrlReferrer != null) return Redirect(HttpContext.Request.UrlReferrer.AbsoluteUri);
             else return RedirectToAction("Index");
         }
@@ -288,6 +292,8 @@ namespace MeCommerce.Controllers
                 Chaching.CacheManager.Add(newBasket, "Basket");
             }
 
+            ViewData["Success"] = "We added another one for you!";
+
             if (HttpContext.Request.UrlReferrer != null) return Redirect(HttpContext.Request.UrlReferrer.AbsoluteUri);
             else return RedirectToAction("Index");
         }
@@ -298,6 +304,9 @@ namespace MeCommerce.Controllers
             {
                 Chaching.CacheManager.Delete("Basket");
             }
+
+            ViewData["Success"] = "Basket Cleared!";
+
             return RedirectToAction("Index", "Home", null);
         }
     }

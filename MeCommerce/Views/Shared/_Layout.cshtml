@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - MeCommerce, Oliver Slade</title>
     @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/toastr.css")
+    @Scripts.Render("~/Scripts/toastr.js")
     @Scripts.Render("~/bundles/modernizr")
 </head>
 
@@ -107,7 +109,7 @@
                     <br />
                     <br />
 
-                    @Html.Partial("~/Views/Order/_basketItems.cshtml", basket.ShoppingCartItems);
+                    @Html.Partial("~/Views/Order/_basketItems.cshtml", basket.ShoppingCartItems)
 
                     @Html.ActionLink("Clear Basket", "ClearBasket", "Order", null, new { @class = "button-style", style = "text-align: right; margin-left: 39%; text-decoration: none;" })
                 }
@@ -123,26 +125,45 @@
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+
+    <script>
+        jQuery(document).ready(function ($) {
+            $('.hamburger').on('click', function (event) {
+                event.preventDefault();
+                $('.cd-acc').addClass('is-visible');
+            });
+
+            $('.cart-icon').on('click', function (event) {
+                event.preventDefault();
+                $('.cd-basket').addClass('is-visible');
+            });
+
+            $('.cd-panel').on('click', function (event) {
+                if ($(event.target).is('.cd-panel') || $(event.target).is('.cd-panel-close')) {
+                    $('.cd-panel').removeClass('is-visible');
+                    event.preventDefault();
+                }
+            });
+        });
+    </script>
+
+    @if (TempData["Error"] != null)
+    {
+        <script type="text/javascript">
+            DisplayToastError('@(TempData["Error"])');
+            function DisplayToastError(message) {
+                toastr.error(message);
+            }
+        </script>
+    }
+    @if (TempData["Success"] != null)
+    {
+        <script type="text/javascript">
+            DisplayToastSuccess('@(TempData["Success"])');
+            function DisplayToastSuccess(message) {
+                toastr.success(message);
+            }
+        </script>
+    }
 </body>
 </html>
-
-<script>
-    jQuery(document).ready(function ($) {
-        $('.hamburger').on('click', function (event) {
-            event.preventDefault();
-            $('.cd-acc').addClass('is-visible');
-        });
-
-        $('.cart-icon').on('click', function (event) {
-            event.preventDefault();
-            $('.cd-basket').addClass('is-visible');
-        });
-
-        $('.cd-panel').on('click', function (event) {
-            if ($(event.target).is('.cd-panel') || $(event.target).is('.cd-panel-close')) {
-                $('.cd-panel').removeClass('is-visible');
-                event.preventDefault();
-            }
-        });
-    });
-</script>
