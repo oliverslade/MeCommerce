@@ -1,4 +1,5 @@
-﻿using MeCommerceAdmin.Models;
+﻿using Interfaces.Services;
+using MeCommerceAdmin.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
@@ -14,11 +15,13 @@ namespace MeCommerceAdmin.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private readonly IAdminService _adminService;
 
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
+        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager, IAdminService adminService)
         {
             UserManager = userManager;
             SignInManager = signInManager;
+            _adminService = adminService;
         }
 
         public ApplicationSignInManager SignInManager
@@ -48,9 +51,8 @@ namespace MeCommerceAdmin.Controllers
         //
         // GET: /Account/Login
         [AllowAnonymous]
-        public ActionResult Login(string returnUrl)
+        public ActionResult Login()
         {
-            ViewBag.ReturnUrl = returnUrl;
             return View();
         }
 
@@ -59,7 +61,7 @@ namespace MeCommerceAdmin.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
+        public async Task<ActionResult> Login(LoginViewModel model)
         {
             if (!ModelState.IsValid)
             {
@@ -68,26 +70,35 @@ namespace MeCommerceAdmin.Controllers
 
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
-            var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
-            switch (result)
+            var user = _adminService.GetUserByEmailAddress(model.Email);
+            if (user.IsAdmin != null && user.IsAdmin == true)
             {
-                case SignInStatus.Success:
+                var result =
+                    await
+                        SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe,
+                            shouldLockout: false);
+                switch (result)
+                {
+                    case SignInStatus.Success:
 
-                    TempData["Success"] = "Signed In!";
+                        TempData["Success"] = "Signed In!";
 
-                    return RedirectToLocal(returnUrl);
+                        return RedirectToAction("Index", "Order");
 
-                case SignInStatus.LockedOut:
-                    return View("Lockout");
+                    case SignInStatus.LockedOut:
+                        return View("Lockout");
 
-                case SignInStatus.RequiresVerification:
-                    return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
+                    case SignInStatus.RequiresVerification:
+                        return RedirectToAction("SendCode", new { RememberMe = model.RememberMe });
 
-                case SignInStatus.Failure:
-                default:
-                    ModelState.AddModelError("", "Invalid login attempt.");
-                    return View(model);
+                    default:
+                        ModelState.AddModelError("", "Invalid login attempt.");
+                        return View(model);
+                }
             }
+
+            ModelState.AddModelError("", "You need to be an Administrator to use this Web App");
+            return View(model);
         }
 
         //
@@ -404,7 +415,7 @@ namespace MeCommerceAdmin.Controllers
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
             TempData["Success"] = "Logged out!";
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Login", "Account");
         }
 
         //

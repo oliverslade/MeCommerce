@@ -31,6 +31,11 @@ namespace Services
                 cfg.CreateMap<ShoppingCartItem, DataModels.ShoppingCartItem>();
                 cfg.CreateMap<Orders, DataModels.Orders>();
                 cfg.CreateMap<OrderLine, DataModels.OrderLine>();
+                cfg.CreateMap<AspNetRoles, DataModels.AspNetRoles>();
+                cfg.CreateMap<AspNetUserClaims, DataModels.AspNetUserClaims>();
+                cfg.CreateMap<Product, DataModels.Product>();
+                cfg.CreateMap<Brand, DataModels.Brand>();
+                cfg.CreateMap<Category, DataModels.Category>();
 
                 // To data models
                 cfg.CreateMap<DataModels.AspNetUsers, AspNetUsers>();
@@ -40,6 +45,11 @@ namespace Services
                 cfg.CreateMap<DataModels.ShoppingCartItem, ShoppingCartItem>();
                 cfg.CreateMap<DataModels.Orders, Orders>();
                 cfg.CreateMap<DataModels.OrderLine, OrderLine>();
+                cfg.CreateMap<DataModels.AspNetRoles, AspNetRoles>();
+                cfg.CreateMap<DataModels.AspNetUserClaims, AspNetUserClaims>();
+                cfg.CreateMap<DataModels.Product, Product>();
+                cfg.CreateMap<DataModels.Brand, Brand>();
+                cfg.CreateMap<DataModels.Category, Category>();
             }).CreateMapper();
         }
 
@@ -64,12 +74,96 @@ namespace Services
 
         public AspNetUsers GetUserByUsername(string username)
         {
-            return _mapper.Map(_userRepository.GetUserByUsername(username), new AspNetUsers());
+            DataModels.AspNetUsers user = _userRepository.GetUserByUsername(username);
+
+            AspNetUsers doaminUser;
+
+            if (user.IsAdmin == null)
+            {
+                doaminUser = new AspNetUsers
+                {
+                    Id = user.Id,
+                    Email = user.Email,
+                    EmailConfirmed = user.EmailConfirmed,
+                    PhoneNumber = user.PhoneNumber,
+                    AccessFailedCount = user.AccessFailedCount,
+                    PhoneNumberConfirmed = user.PhoneNumberConfirmed,
+                    UserName = user.UserName,
+                    LockoutEnabled = user.LockoutEnabled,
+                    LockoutEndDateUtc = user.LockoutEndDateUtc,
+                    TwoFactorEnabled = user.TwoFactorEnabled,
+                    SecurityStamp = user.SecurityStamp,
+                    PasswordHash = user.PasswordHash
+                };
+            }
+            else
+            {
+                doaminUser = new AspNetUsers
+                {
+                    Id = user.Id,
+                    Email = user.Email,
+                    EmailConfirmed = user.EmailConfirmed,
+                    PhoneNumber = user.PhoneNumber,
+                    AccessFailedCount = user.AccessFailedCount,
+                    PhoneNumberConfirmed = user.PhoneNumberConfirmed,
+                    UserName = user.UserName,
+                    LockoutEnabled = user.LockoutEnabled,
+                    LockoutEndDateUtc = user.LockoutEndDateUtc,
+                    TwoFactorEnabled = user.TwoFactorEnabled,
+                    SecurityStamp = user.SecurityStamp,
+                    PasswordHash = user.PasswordHash,
+                    IsAdmin = user.IsAdmin
+                };
+            }
+
+            return doaminUser;
         }
 
         public AspNetUsers GetUserByEmailAddress(string emailAddress)
         {
-            return _mapper.Map(_userRepository.GetUserByEmailAddress(emailAddress), new AspNetUsers());
+            DataModels.AspNetUsers user = _userRepository.GetUserByEmailAddress(emailAddress);
+
+            AspNetUsers doaminUser;
+
+            if (user.IsAdmin == null)
+            {
+                doaminUser = new AspNetUsers
+                {
+                    Id = user.Id,
+                    Email = user.Email,
+                    EmailConfirmed = user.EmailConfirmed,
+                    PhoneNumber = user.PhoneNumber,
+                    AccessFailedCount = user.AccessFailedCount,
+                    PhoneNumberConfirmed = user.PhoneNumberConfirmed,
+                    UserName = user.UserName,
+                    LockoutEnabled = user.LockoutEnabled,
+                    LockoutEndDateUtc = user.LockoutEndDateUtc,
+                    TwoFactorEnabled = user.TwoFactorEnabled,
+                    SecurityStamp = user.SecurityStamp,
+                    PasswordHash = user.PasswordHash
+                };
+            }
+            else
+            {
+                doaminUser = new AspNetUsers
+                {
+                    Id = user.Id,
+                    Email = user.Email,
+                    EmailConfirmed = user.EmailConfirmed,
+                    PhoneNumber = user.PhoneNumber,
+                    AccessFailedCount = user.AccessFailedCount,
+                    PhoneNumberConfirmed = user.PhoneNumberConfirmed,
+                    UserName = user.UserName,
+                    LockoutEnabled = user.LockoutEnabled,
+                    LockoutEndDateUtc = user.LockoutEndDateUtc,
+                    TwoFactorEnabled = user.TwoFactorEnabled,
+                    SecurityStamp = user.SecurityStamp,
+                    PasswordHash = user.PasswordHash,
+                    IsAdmin = user.IsAdmin
+                };
+            }
+
+            return doaminUser;
         }
 
         public void UpdateUser(AspNetUsers user)

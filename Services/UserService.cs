@@ -58,21 +58,47 @@ namespace Services
         public AspNetUsers GetUser(int id)
         {
             DataModels.AspNetUsers user = _userRepository.GetUser(id);
-            AspNetUsers doaminUser = new AspNetUsers
+
+            AspNetUsers doaminUser;
+
+            if (user.IsAdmin == null)
             {
-                Id = user.Id,
-                Email = user.Email,
-                EmailConfirmed = user.EmailConfirmed,
-                PhoneNumber = user.PhoneNumber,
-                AccessFailedCount = user.AccessFailedCount,
-                PhoneNumberConfirmed = user.PhoneNumberConfirmed,
-                UserName = user.UserName,
-                LockoutEnabled = user.LockoutEnabled,
-                LockoutEndDateUtc = user.LockoutEndDateUtc,
-                TwoFactorEnabled = user.TwoFactorEnabled,
-                SecurityStamp = user.SecurityStamp,
-                PasswordHash = user.PasswordHash,
-            };
+                doaminUser = new AspNetUsers
+                {
+                    Id = user.Id,
+                    Email = user.Email,
+                    EmailConfirmed = user.EmailConfirmed,
+                    PhoneNumber = user.PhoneNumber,
+                    AccessFailedCount = user.AccessFailedCount,
+                    PhoneNumberConfirmed = user.PhoneNumberConfirmed,
+                    UserName = user.UserName,
+                    LockoutEnabled = user.LockoutEnabled,
+                    LockoutEndDateUtc = user.LockoutEndDateUtc,
+                    TwoFactorEnabled = user.TwoFactorEnabled,
+                    SecurityStamp = user.SecurityStamp,
+                    PasswordHash = user.PasswordHash
+                };
+            }
+            else
+            {
+                doaminUser = new AspNetUsers
+                {
+                    Id = user.Id,
+                    Email = user.Email,
+                    EmailConfirmed = user.EmailConfirmed,
+                    PhoneNumber = user.PhoneNumber,
+                    AccessFailedCount = user.AccessFailedCount,
+                    PhoneNumberConfirmed = user.PhoneNumberConfirmed,
+                    UserName = user.UserName,
+                    LockoutEnabled = user.LockoutEnabled,
+                    LockoutEndDateUtc = user.LockoutEndDateUtc,
+                    TwoFactorEnabled = user.TwoFactorEnabled,
+                    SecurityStamp = user.SecurityStamp,
+                    PasswordHash = user.PasswordHash,
+                    IsAdmin = user.IsAdmin
+                };
+            }
+
             return doaminUser;
         }
 

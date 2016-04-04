@@ -2,6 +2,7 @@
 using Owin;
 
 [assembly: OwinStartupAttribute(typeof(MeCommerceAdmin.Startup))]
+
 namespace MeCommerceAdmin
 {
     public partial class Startup

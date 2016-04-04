@@ -1,0 +1,70 @@
+﻿@model IEnumerable<DomainModels.Orders>
+
+@{
+    ViewBag.Title = "Order History";
+}
+
+<h2>All Orders</h2>
+
+<h4>These are all the orders in the system</h4>
+
+<table class="table">
+    <tr>
+        <th>
+            Order Number
+        </th>
+        <th>
+            Order Date
+        </th>
+        <th>
+            Contact Email
+        </th>
+        <th>
+            Delivery Postcode
+        </th>
+        <th>
+            Items Ordered
+        </th>
+        <th>
+            Order Total Price
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DatePlaced)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ContactEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Postcode)
+            </td>
+            @{
+        var itemCount = item.OrderLines.Count();
+            }
+            <td>
+                @itemCount
+            </td>
+            @{
+        decimal totalPrice = 0;
+        totalPrice = (decimal)item.TotalPrice / 100;
+            }
+
+            <td>
+                £@totalPrice
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {/* id=item.PrimaryKey */}) |
+                @Html.ActionLink("View Order Details", "OrderDetails", "Order", new { orderId = item.OrderId }, null) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+    }
+</table>
