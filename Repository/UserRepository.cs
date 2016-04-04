@@ -144,21 +144,14 @@ namespace Repository
 
         public void UpdateOrder(Orders order)
         {
-            var existing = GetOrderById(order.OrderId);
-            _mapper.Map(order, existing);
+            _context.Orders.AddOrUpdate(order);
             _context.SaveChanges();
         }
 
         public void DeleteOrderById(int orderId)
         {
-            var existing = GetOrderById(orderId);
-            _context.Orders.Remove(existing);
-            _context.SaveChanges();
-        }
-
-        public void CreateOrderLine(OrderLine orderLine)
-        {
-            _context.OrderLines.Add(orderLine);
+            var order = GetOrderById(orderId);
+            _context.Orders.Remove(order);
             _context.SaveChanges();
         }
 
@@ -192,15 +185,11 @@ namespace Repository
 
         public IEnumerable<BrowsingHistory> GetUsersBrowsingHistories(int userId)
         {
-            //var user = GetUser(userId);
-            //return user.BrowsingHistories;
             return _context.BrowsingHistory.Where(x => x.UserId == userId);
         }
 
         public void CreateBrowsingHistoryEntry(BrowsingHistory bhe)
         {
-            //var user = bhe.User;
-            //user.BrowsingHistories.Add(bhe);
             _context.Device.Add(bhe.Device);
             _context.BrowsingHistory.Add(bhe);
             _context.SaveChanges();

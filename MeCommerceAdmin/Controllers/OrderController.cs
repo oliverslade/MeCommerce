@@ -70,76 +70,50 @@ namespace MeCommerceAdmin.Controllers
             return View(orderViewModel);
         }
 
-        // GET: Order/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
-        // GET: Order/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Order/Create
-        [HttpPost]
-        public ActionResult Create(FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
         // GET: Order/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            Orders order = _adminService.GetAllOrders().FirstOrDefault(x => x.OrderId == id);
+            return View(order);
         }
 
         // POST: Order/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, Orders order)
         {
-            try
-            {
-                // TODO: Add update logic here
+            Orders oldOrder = _adminService.GetOrderById(id);
 
-                return RedirectToAction("Index");
-            }
-            catch
+            Orders newOrder = new Orders
             {
-                return View();
-            }
+                OrderId = id,
+                UserId = oldOrder.UserId,
+                CustomerTitle = order.CustomerTitle,
+                CustomerName = order.CustomerName,
+                HouseNameNumber = order.HouseNameNumber,
+                AddressLine1 = order.AddressLine1,
+                AddressLine2 = order.AddressLine2,
+                AddressLine3 = order.AddressLine3,
+                Town = order.Town,
+                County = order.County,
+                Postcode = order.Postcode,
+                ContactNumber = order.ContactNumber,
+                ContactEmail = order.ContactEmail,
+                TotalPrice = oldOrder.TotalPrice,
+                DatePlaced = oldOrder.DatePlaced,
+                OrderLines = oldOrder.OrderLines
+            };
+
+            _adminService.UpdateOrder(newOrder);
+
+            return RedirectToAction("Index");
         }
 
         // GET: Order/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
-        }
+            _adminService.DeleteOrderById(id);
 
-        // POST: Order/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            return RedirectToAction("Index");
         }
     }
 }
