@@ -3,8 +3,8 @@
 }
 
 html, body {
-    width:100%; 
-    height:100%;
+    width: 100%;
+    height: 100%;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -29,6 +29,12 @@ textarea {
 
 @media only screen and (max-width: 1236px) {
     #navbar {
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 1236px) {
+    #side-nav {
         display: none;
     }
 }
@@ -59,20 +65,44 @@ textarea {
 
 @media only screen and (max-width: 767px) {
     #carticon {
-        margin-top: 0
+        margin-top: 0;
     }
 }
 
-@media only screen and (max-width: 767px) and (min-width: 384px)  {
+@media only screen and (max-width: 767px) {
+    #loginLink {
+        margin-top: 0;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    #logoutForm {
+        margin-top: 0;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    #manageButton {
+        margin-top: 0;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    #registerLink {
+        margin-top: 0;
+    }
+}
+
+@media only screen and (max-width: 767px) and (min-width: 384px) {
     #logo {
-        margin-top: 0
+        margin-top: 0;
     }
 }
 
 @media only screen and (max-width: 383px) {
     #logo {
         width: 175px;
-       margin-top: 10px
+        margin-top: 10px;
     }
 }
 
@@ -439,7 +469,7 @@ Primary style
 
 @media only screen and (min-width: 1170px) {
     .cd-panel-header {
-        width: 20%;
+        width: 30%;
     }
 }
 
@@ -466,6 +496,9 @@ Primary style
         background-color: #000000;
         /* this fixes a bug where pseudo elements are slighty off position */
         -webkit-backface-visibility: hidden;
+        -moz-backface-visibility: hidden;
+        -ms-backface-visibility: hidden;
+        -o-backface-visibility: hidden;
         backface-visibility: hidden;
     }
 
@@ -566,7 +599,7 @@ Primary style
 
 @media only screen and (min-width: 1170px) {
     .cd-panel-container {
-        width: 20%;
+        width: 30%;
     }
 }
 

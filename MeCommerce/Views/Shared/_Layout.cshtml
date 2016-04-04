@@ -33,7 +33,7 @@
                     <li>@Html.ActionLink("Categories", "Index", "Category")</li>
                     <li>@Html.ActionLink("Brands", "Index", "Brand")</li>
                     <li>@Html.ActionLink("Phones", "Details", new { controller = "Category", id = 1 })</li>
-                    <li>@Html.ActionLink("Tables", "Details", new { controller = "Category", id = 1 })</li>
+                    <li>@Html.ActionLink("Tablets", "Details", new { controller = "Category", id = 4 })</li>
                     <li>@Html.ActionLink("Contact Us", "Contact", "Home")</li>
                 </ul>
                 @using (Html.BeginForm("Search", "Product", FormMethod.Get))
@@ -70,11 +70,11 @@
                 @if (Request.IsAuthenticated)
                 {
                     <ul class="navbar-nav nav auth-style">
-                        <li>@Html.ActionLink("View Browsing History", "Index", "BrowsingHistory", routeValues: null, htmlAttributes: new {id = "registerLink"})</li>
-                        <li>@Html.ActionLink("View Order History", "OrderHistory", "Order", routeValues: null, htmlAttributes: new {id = "loginLink"})</li>
+                        <li>@Html.ActionLink("View Browsing History", "Index", "BrowsingHistory", routeValues: null, htmlAttributes: new { style = "float: left", id = "registerLink" })</li>
+                        <li>@Html.ActionLink("View Order History", "OrderHistory", "Order", routeValues: null, htmlAttributes: new { style = "float: left", id = "orderHistory" })</li>
                     </ul>
-    <br />
-    <br />
+                    <br />
+                    <br />
                 }
                 else
                 {
@@ -85,17 +85,16 @@
                     </div>
                 }
 
-                <hr/>
+                <hr />
 
                 <ul class="auth-style" id="side-nav">
                     <li style="display: block; margin-top: 15px;">@Html.ActionLink("Browse All", "Index", "Product")</li>
                     <li style="display: block; margin-top: 15px;">@Html.ActionLink("Categories", "Index", "Category")</li>
                     <li style="display: block; margin-top: 15px;">@Html.ActionLink("Brands", "Index", "Brand")</li>
                     <li style="display: block; margin-top: 15px;">@Html.ActionLink("Phones", "Details", new { controller = "Category", id = 1 })</li>
-                    <li style="display: block; margin-top: 15px;">@Html.ActionLink("Tables", "Details", new { controller = "Category", id = 1 })</li>
+                    <li style="display: block; margin-top: 15px;">@Html.ActionLink("Tablets", "Details", new { controller = "Category", id = 4 })</li>
                     <li style="display: block; margin-top: 15px;">@Html.ActionLink("Contact Us", "Contact", "Home")</li>
                 </ul>
-
             </div>
         </div>
     </div>

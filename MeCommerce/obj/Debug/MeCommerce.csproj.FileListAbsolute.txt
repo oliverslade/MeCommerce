@@ -75,8 +75,7 @@ C:\Users\Oliver Slade\Desktop\MeCommerce\MeCommerce\bin\Microsoft.Owin.Security.
 C:\Users\Oliver Slade\Desktop\MeCommerce\MeCommerce\bin\DataModels.pdb
 C:\Users\Oliver Slade\Desktop\MeCommerce\MeCommerce\bin\AutoMapper.xml
 C:\Users\Oliver Slade\Desktop\MeCommerce\MeCommerce\obj\Debug\MeCommerce.csprojResolveAssemblyReference.cache
-C:\Users\Oliver Slade\Desktop\MeCommerce\MeCommerce\obj\Debug\MeCommerce.Migrations.initial.resources
-C:\Users\Oliver Slade\Desktop\MeCommerce\MeCommerce\obj\Debug\MeCommerce.Migrations.update.resources
+C:\Users\Oliver Slade\Desktop\MeCommerce\MeCommerce\obj\Debug\MeCommerce.Migrations.Initial.resources
 C:\Users\Oliver Slade\Desktop\MeCommerce\MeCommerce\obj\Debug\MeCommerce.csproj.GenerateResource.Cache
 C:\Users\Oliver Slade\Desktop\MeCommerce\MeCommerce\obj\Debug\MeCommerce.dll
 C:\Users\Oliver Slade\Desktop\MeCommerce\MeCommerce\obj\Debug\MeCommerce.pdb
