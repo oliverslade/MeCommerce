@@ -1,29 +1,70 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
-
-<div style="text-align: center"><img src="@Url.Content("~/Images/smartphones.jpg")" alt=" banner" style="width:90%;"></div>
+<div style="text-align: center">
+    <img src="@Url.Content("~/Images/smartphones.jpg")" alt=" banner" style="width: 90%;">
+</div>
 
 <h2 class="text-center">We only supply Top Brands!</h2>
 
+<hr/>
+
+
 <div class="row">
     <div class="col-md-4">
-        <h2>Phones</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
+        <h2 class="text-center">Samsung</h2>
+        <p class="text-center">
+            Samsung is the largest mobile phone maker in its home market of South Korea, and the third largest in the world. In addition to mobile phones and related devices, the company also manufacturers things such as televisions, cameras, and electronic components.
         </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+        <p class="text-center">
+             @Html.ActionLink("View Products", "Details", new { controller = "Brand", id = 3 }, new {@class="button-style"})
+        </p>
     </div>
     <div class="col-md-4">
-        <h2>Accessories</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+        <h2 class="text-center">Apple</h2>
+        <p class="text-center">Apple is a prominent hardware and software company best known for its series of world class smartphones, tablets, the iPod and its innovative marketing strategies for its products.</p>
+        <p class="text-center">
+            @Html.ActionLink("View Products", "Details", new { controller = "Brand", id = 2 }, new { @class = "button-style" })
+        </p>
     </div>
     <div class="col-md-4">
-        <h2>Cases</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+        <h2 class="text-center">Google</h2>
+        <p class="text-center">Premium Android phones that keep you connected with the best of Google built right in. Google makes world leading smartphones and tablets with it's legendary OS - Android.</p>
+        <p class="text-center">
+            @Html.ActionLink("View Products", "Details", new { controller = "Brand", id = 1 }, new { @class = "button-style" })
+        </p>
+    </div>
+</div>
+
+<div style="text-align: center"><img src="@Url.Content("~/Images/phone-accessories.jpg")" alt=" banner" style="width:90%;"></div>
+
+<h2 class="text-center">Search our store by Category!</h2>
+
+<hr />
+
+<div class="row">
+    <div class="col-md-3">
+        <h2 class="text-center">Phones</h2>
+        <p class="text-center">
+            Discover the full range of world class smartphones featuring the flagship phones from market leaders, Apple, Samsung and Google Nexus. 
+        </p>
+        <p class="text-center">@Html.ActionLink("View Products", "Details", new { controller = "Category", id = 1 }, new { @class = "button-style" })</p>
+    </div>
+    <div class="col-md-3">
+        <h2 class="text-center">Tablets</h2>
+        <p class="text-center">Tablets provide instant access to the things that matter the most. They're easy to use and feature great customisation options that let you make your tablet, yours. </p>
+        <p class="text-center">@Html.ActionLink("View Products", "Details", new { controller = "Category", id = 4 }, new { @class = "button-style" })</p>
+    </div>
+    <div class="col-md-3">
+        <h2 class="text-center">Accessories</h2>
+        <p class="text-center">Leading range of mobile phone & tablet accessories at great prices. We only supply top brands so the quality of our products is assured.</p>
+        <p class="text-center">
+            @Html.ActionLink("View Products", "Details", new { controller = "Category", id = 2 }, new { @class = "button-style" })
+        </p>
+    </div>
+    <div class="col-md-3">
+        <h2 class="text-center">Cases</h2>
+        <p class="text-center">Our Phone Cases are manufactured by the Phone's company so a perfect fit with your device is ensured</p>
+        <p class="text-center">@Html.ActionLink("View Products", "Details", new { controller = "Category", id = 3 }, new { @class = "button-style" })</p>
     </div>
 </div>

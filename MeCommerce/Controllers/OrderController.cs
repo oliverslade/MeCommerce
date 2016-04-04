@@ -55,7 +55,7 @@ namespace MeCommerce.Controllers
                 userId = System.Web.HttpContext.Current.User.Identity.GetUserId<int>();
             }
 
-            var basket = Chaching.CacheManager.Get<ShoppingCartViewModel>("Basket");
+            var basket = Chaching.CacheManager.Get<ShoppingCartViewModel>("Basket" + Request.UserHostAddress);
             ICollection<OrderLine> orderLines = new List<OrderLine>();
 
             foreach (var item in basket.ShoppingCartItems)
@@ -93,7 +93,7 @@ namespace MeCommerce.Controllers
 
             _userService.CreateOrder(order);
 
-            if (Chaching.CacheManager.Exists("Basket")) { Chaching.CacheManager.Delete("Basket"); }
+            if (Chaching.CacheManager.Exists("Basket" + Request.UserHostAddress)) { Chaching.CacheManager.Delete("Basket" + Request.UserHostAddress); }
 
             return View(order);
         }
@@ -155,9 +155,9 @@ namespace MeCommerce.Controllers
         {
             ShoppingCartViewModel basket;
 
-            if (Chaching.CacheManager.Exists("Basket"))
+            if (Chaching.CacheManager.Exists("Basket" + Request.UserHostAddress))
             {
-                basket = Chaching.CacheManager.Get<ShoppingCartViewModel>("Basket");
+                basket = Chaching.CacheManager.Get<ShoppingCartViewModel>("Basket" + Request.UserHostAddress);
 
                 if (basket.ShoppingCartItems.Any(x => x.ProductId == productId))
                 {
@@ -195,7 +195,7 @@ namespace MeCommerce.Controllers
                 basket.ShoppingCartItems = new List<ShoppingCartItemViewModel> { newItem };
             }
 
-            Chaching.CacheManager.Add(basket, "Basket");
+            Chaching.CacheManager.Add(basket, "Basket" + Request.UserHostAddress);
 
             TempData["Success"] = "Product Added To Basket!";
 
@@ -205,7 +205,7 @@ namespace MeCommerce.Controllers
 
         public ActionResult DeleteProductFromCart(int productId)
         {
-            var oldBasket = Chaching.CacheManager.Get<ShoppingCartViewModel>("Basket");
+            var oldBasket = Chaching.CacheManager.Get<ShoppingCartViewModel>("Basket" + Request.UserHostAddress);
 
             ICollection<ShoppingCartItemViewModel> newBasketItems = new List<ShoppingCartItemViewModel>();
 
@@ -244,11 +244,11 @@ namespace MeCommerce.Controllers
                 ShoppingCartItems = newBasketItems
             };
 
-            Chaching.CacheManager.Delete("Basket");
+            Chaching.CacheManager.Delete("Basket" + Request.UserHostAddress);
 
             if (newBasket.ShoppingCartItems != null)
             {
-                Chaching.CacheManager.Add(newBasket, "Basket");
+                Chaching.CacheManager.Add(newBasket, "Basket" + Request.UserHostAddress);
             }
 
             TempData["Success"] = "Product Removed!";
@@ -259,7 +259,7 @@ namespace MeCommerce.Controllers
 
         public ActionResult AddOneToQuantity(int productId)
         {
-            var oldBasket = Chaching.CacheManager.Get<ShoppingCartViewModel>("Basket");
+            var oldBasket = Chaching.CacheManager.Get<ShoppingCartViewModel>("Basket" + Request.UserHostAddress);
 
             ICollection<ShoppingCartItemViewModel> newBasketItems = new List<ShoppingCartItemViewModel>();
 
@@ -286,11 +286,11 @@ namespace MeCommerce.Controllers
                 ShoppingCartItems = newBasketItems
             };
 
-            Chaching.CacheManager.Delete("Basket");
+            Chaching.CacheManager.Delete("Basket" + Request.UserHostAddress);
 
             if (newBasket.ShoppingCartItems != null)
             {
-                Chaching.CacheManager.Add(newBasket, "Basket");
+                Chaching.CacheManager.Add(newBasket, "Basket" + Request.UserHostAddress);
             }
 
             TempData["Success"] = "Basket Updated!";
@@ -301,9 +301,9 @@ namespace MeCommerce.Controllers
 
         public ActionResult ClearBasket()
         {
-            if (Chaching.CacheManager.Exists("Basket"))
+            if (Chaching.CacheManager.Exists("Basket" + Request.UserHostAddress))
             {
-                Chaching.CacheManager.Delete("Basket");
+                Chaching.CacheManager.Delete("Basket" + Request.UserHostAddress);
             }
 
             TempData["Success"] = "Basket Cleared!";

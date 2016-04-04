@@ -8,7 +8,7 @@
 <hr />
 
 @{
-    var basket = MeCommerce.Chaching.CacheManager.Get<ShoppingCartViewModel>("Basket");
+    var basket = MeCommerce.Chaching.CacheManager.Get<ShoppingCartViewModel>("Basket" + Request.UserHostAddress);
     decimal totalPrice = 0;
     totalPrice = basket.ShoppingCartItems.Aggregate(totalPrice, (current, i) => current + (decimal)i.Product.Price * i.Quantity / 100);
 
