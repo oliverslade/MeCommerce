@@ -1,4 +1,5 @@
-﻿using Interfaces.Services;
+﻿using DomainModels;
+using Interfaces.Services;
 using System.Web.Mvc;
 
 namespace MeCommerceAdmin.Controllers
@@ -20,76 +21,50 @@ namespace MeCommerceAdmin.Controllers
             return View(users);
         }
 
-        // GET: User/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
-        // GET: User/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: User/Create
-        [HttpPost]
-        public ActionResult Create(FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
         // GET: User/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var user = _adminService.GetUser(id);
+
+            return View(user);
         }
 
         // POST: User/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, AspNetUsers user)
         {
-            try
-            {
-                // TODO: Add update logic here
+            var oldUser = _adminService.GetUser(id);
 
-                return RedirectToAction("Index");
-            }
-            catch
+            AspNetUsers newUser = new AspNetUsers
             {
-                return View();
-            }
+                Id = id,
+                Email = user.Email,
+                UserName = user.UserName,
+                IsAdmin = user.IsAdmin,
+                AspNetRoles = oldUser.AspNetRoles,
+                Orders = oldUser.Orders,
+                AspNetUserClaims = oldUser.AspNetUserClaims,
+                PhoneNumber = oldUser.PhoneNumber,
+                AccessFailedCount = oldUser.AccessFailedCount,
+                LockoutEnabled = oldUser.LockoutEnabled,
+                TwoFactorEnabled = oldUser.LockoutEnabled,
+                EmailConfirmed = oldUser.EmailConfirmed,
+                LockoutEndDateUtc = oldUser.LockoutEndDateUtc,
+                PhoneNumberConfirmed = oldUser.PhoneNumberConfirmed,
+                SecurityStamp = oldUser.SecurityStamp,
+                PasswordHash = oldUser.PasswordHash
+            };
+
+            _adminService.UpdateUser(newUser);
+
+            return RedirectToAction("Index");
         }
 
         // GET: User/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
-        }
-
-        // POST: User/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            _adminService.DeleteUser(id);
+            return View("Index");
         }
     }
 }

@@ -3,9 +3,12 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - MeCommerce Admin Portal</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/Content/toastr.css")
+    <script src="~/Scripts/jquery-2.2.2.min.js"></script>
+    @Scripts.Render("~/Scripts/toastr.js")
 </head>
 <body>
     @if (Request.IsAuthenticated)
@@ -18,29 +21,50 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    @Html.ActionLink("MeCommerce Administrator Portal", "Index", "Home", new {area = ""}, new {@class = "navbar-brand"})
+                    @Html.ActionLink("MeCommerce Admin Portal", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                        <li>@Html.ActionLink("About", "About", "Home")</li>
-                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                        <li>@Html.ActionLink("Orders", "Index", "Order")</li>
+                        <li>@Html.ActionLink("Products", "Index", "Product")</li>
+                        <li>@Html.ActionLink("Categories", "Index", "Category")</li>
+                        <li>@Html.ActionLink("Brands", "Index", "Brand")</li>
+                        <li>@Html.ActionLink("Users", "Index", "User")</li>
                     </ul>
                     @Html.Partial("_LoginPartial")
                 </div>
             </div>
         </div>
     }
-        <div class="container body-content">
-            @RenderBody()
-            <hr />
-            <footer>
-                <p>&copy; @DateTime.Now.Year - MeCommerce, Oliver Slade</p>
-            </footer>
-        </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - MeCommerce, Oliver Slade</p>
+        </footer>
+    </div>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+
+    @if (TempData["Error"] != null)
+    {
+        <script type="text/javascript">
+            DisplayToastError('@(TempData["Error"])');
+            function DisplayToastError(message) {
+                toastr.error(message);
+            }
+        </script>
+    }
+    @if (TempData["Success"] != null)
+    {
+        <script type="text/javascript">
+            DisplayToastSuccess('@(TempData["Success"])');
+            function DisplayToastSuccess(message, title) {
+                toastr.success(message, title);
+            }
+        </script>
+    }
 </body>
 </html>

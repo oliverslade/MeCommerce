@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace MeCommerceAdmin.Controllers
 {
+    [Authorize]
     public class OrderController : Controller
     {
         private readonly IAdminService _adminService;

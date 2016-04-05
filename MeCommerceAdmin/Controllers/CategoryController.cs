@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace MeCommerceAdmin.Controllers
 {
+    [Authorize]
     public class CategoryController : Controller
     {
         private readonly IAdminService _adminService;

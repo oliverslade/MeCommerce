@@ -65,16 +65,15 @@ namespace Repository
 
         public void UpdateUser(AspNetUsers user)
         {
-            var existing = GetUser(user.Id);
-            _mapper.Map(user, existing);
-            //_context.SaveChanges();
+            _context.AspNetUsers.AddOrUpdate(user);
+            _context.SaveChanges();
         }
 
         public void DeleteUser(int userId)
         {
             var existing = GetUser(userId);
             _context.AspNetUsers.Remove(existing);
-            // _context.SaveChanges();
+            _context.SaveChanges();
         }
 
         #endregion User Repository

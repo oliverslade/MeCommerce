@@ -64,12 +64,56 @@ namespace Services
 
         public IEnumerable<AspNetUsers> GetAllUsers()
         {
-            return _userRepository.GetAllUsers().Select(p => _mapper.Map(p, new AspNetUsers()));
+            IEnumerable<DataModels.AspNetUsers> dataModelUsers = _userRepository.GetAllUsers();
+
+            ICollection<AspNetUsers> domainUsers = new List<AspNetUsers>();
+
+            foreach (var user in dataModelUsers)
+            {
+                var domainUser = new AspNetUsers
+                {
+                    Id = user.Id,
+                    Email = user.Email,
+                    EmailConfirmed = user.EmailConfirmed,
+                    PhoneNumber = user.PhoneNumber,
+                    AccessFailedCount = user.AccessFailedCount,
+                    PhoneNumberConfirmed = user.PhoneNumberConfirmed,
+                    UserName = user.UserName,
+                    LockoutEnabled = user.LockoutEnabled,
+                    LockoutEndDateUtc = user.LockoutEndDateUtc,
+                    TwoFactorEnabled = user.TwoFactorEnabled,
+                    SecurityStamp = user.SecurityStamp,
+                    PasswordHash = user.PasswordHash,
+                    IsAdmin = user.IsAdmin
+                };
+
+                domainUsers.Add(domainUser);
+            }
+            return domainUsers;
         }
 
         public AspNetUsers GetUser(int id)
         {
-            return _mapper.Map(_userRepository.GetUser(id), new AspNetUsers());
+            DataModels.AspNetUsers user = _userRepository.GetUser(id);
+
+            var doaminUser = new AspNetUsers
+            {
+                Id = user.Id,
+                Email = user.Email,
+                EmailConfirmed = user.EmailConfirmed,
+                PhoneNumber = user.PhoneNumber,
+                AccessFailedCount = user.AccessFailedCount,
+                PhoneNumberConfirmed = user.PhoneNumberConfirmed,
+                UserName = user.UserName,
+                LockoutEnabled = user.LockoutEnabled,
+                LockoutEndDateUtc = user.LockoutEndDateUtc,
+                TwoFactorEnabled = user.TwoFactorEnabled,
+                SecurityStamp = user.SecurityStamp,
+                PasswordHash = user.PasswordHash,
+                IsAdmin = user.IsAdmin
+            };
+
+            return doaminUser;
         }
 
         public AspNetUsers GetUserByUsername(string username)
@@ -168,7 +212,23 @@ namespace Services
 
         public void UpdateUser(AspNetUsers user)
         {
-            _userRepository.UpdateUser(_mapper.Map(user, new DataModels.AspNetUsers()));
+            var doaminUser = new DataModels.AspNetUsers
+            {
+                Id = user.Id,
+                Email = user.Email,
+                EmailConfirmed = user.EmailConfirmed,
+                PhoneNumber = user.PhoneNumber,
+                AccessFailedCount = user.AccessFailedCount,
+                PhoneNumberConfirmed = user.PhoneNumberConfirmed,
+                UserName = user.UserName,
+                LockoutEnabled = user.LockoutEnabled,
+                LockoutEndDateUtc = user.LockoutEndDateUtc,
+                TwoFactorEnabled = user.TwoFactorEnabled,
+                SecurityStamp = user.SecurityStamp,
+                PasswordHash = user.PasswordHash,
+                IsAdmin = user.IsAdmin
+            };
+            _userRepository.UpdateUser(doaminUser);
         }
 
         public void DeleteUser(int userId)

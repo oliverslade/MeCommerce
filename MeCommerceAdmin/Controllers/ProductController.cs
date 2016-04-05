@@ -4,6 +4,7 @@ using System.Web.Mvc;
 
 namespace MeCommerceAdmin.Controllers
 {
+    [Authorize]
     public class ProductController : Controller
     {
         private readonly IAdminService _adminService;
@@ -79,7 +80,7 @@ namespace MeCommerceAdmin.Controllers
 
             _adminService.UpdateProduct(newProduct);
 
-            TempData["Success"] = "Brand Updated";
+            TempData["Success"] = "Product Updated";
 
             return RedirectToAction("Index");
         }
@@ -90,13 +91,13 @@ namespace MeCommerceAdmin.Controllers
             {
                 _adminService.DeleteProductById(id);
 
-                TempData["Success"] = "Brand Deleted";
+                TempData["Success"] = "Product Deleted";
 
                 return RedirectToAction("Index");
             }
             catch
             {
-                TempData["Error"] = "Please make sure that this Brand hasn't got any products assigned to it before deleting";
+                TempData["Error"] = "Error Deleting Product";
             }
             return RedirectToAction("Index");
         }

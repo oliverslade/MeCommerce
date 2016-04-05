@@ -40,12 +40,18 @@ namespace Repository
 
         public IEnumerable<Product> GetAllProducts()
         {
-            return _context.Products.ToList();
+            return _context.Products.Where(x => x.IsActive).ToList();
         }
 
         public Product GetProductById(int id)
         {
-            return _context.Products.FirstOrDefault(p => p.ProductId == id);
+            var product = _context.Products.FirstOrDefault(p => p.ProductId == id);
+
+            if (product.IsActive)
+            {
+                return product;
+            }
+            return null;
         }
 
         public Product GetProductBySku(string sku)
@@ -55,12 +61,12 @@ namespace Repository
 
         public IEnumerable<Product> GetProductsByBrandId(int id)
         {
-            return _context.Products.Where(p => p.Brand.BrandId == id).ToList();
+            return _context.Products.Where(p => p.Brand.BrandId == id).Where(x => x.IsActive).ToList();
         }
 
         public IEnumerable<Product> GetProductsByCategoryId(int id)
         {
-            return _context.Products.Where(c => c.Category.CategoryId == id).ToList();
+            return _context.Products.Where(c => c.Category.CategoryId == id).Where(x => x.IsActive).ToList();
         }
 
         public void CreateProduct(Product product)
@@ -101,7 +107,7 @@ namespace Repository
 
         public IEnumerable<Category> GetAllCategories()
         {
-            return _context.Category.ToList();
+            return _context.Category.Where(x => x.IsActive).ToList();
         }
 
         public Category GetCategoryById(int id)
@@ -139,7 +145,7 @@ namespace Repository
 
         public IEnumerable<Brand> GetAllBrands()
         {
-            return _context.Brand.ToList();
+            return _context.Brand.ToList().Where(x => x.IsActive);
         }
 
         public Brand GetBrandById(int id)
