@@ -105,6 +105,8 @@ namespace MeCommerceAdmin.Controllers
 
             _adminService.UpdateOrder(newOrder);
 
+            TempData["Success"] = "Order Updated";
+
             return RedirectToAction("Index");
         }
 
@@ -112,6 +114,8 @@ namespace MeCommerceAdmin.Controllers
         public ActionResult Delete(int id)
         {
             _adminService.DeleteOrderById(id);
+
+            TempData["Success"] = "Order Deleted";
 
             return RedirectToAction("Index");
         }

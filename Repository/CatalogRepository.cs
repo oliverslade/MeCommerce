@@ -3,6 +3,7 @@ using DataModels;
 using Interfaces.Repositories;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Migrations;
 using System.Linq;
 
 namespace Repository
@@ -70,8 +71,7 @@ namespace Repository
 
         public void UpdateProduct(Product product)
         {
-            var existing = GetProductById(product.ProductId);
-            _mapper.Map(product, existing);
+            _context.Products.AddOrUpdate(product);
             _context.SaveChanges();
         }
 
@@ -116,8 +116,7 @@ namespace Repository
 
         public void UpdateCategory(Category category)
         {
-            var existing = GetCategoryByName(category.Name);
-            _mapper.Map(category, existing);
+            _context.Category.AddOrUpdate(category);
             _context.SaveChanges();
         }
 
@@ -155,8 +154,7 @@ namespace Repository
 
         public void UpdateBrand(Brand brand)
         {
-            var existing = GetBrandById(brand.BrandId);
-            _mapper.Map(brand, existing);
+            _context.Brand.AddOrUpdate(brand);
             _context.SaveChanges();
         }
 

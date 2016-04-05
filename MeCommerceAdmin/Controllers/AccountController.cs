@@ -53,7 +53,14 @@ namespace MeCommerceAdmin.Controllers
         [AllowAnonymous]
         public ActionResult Login()
         {
-            return View();
+            if (Request.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "Order");
+            }
+            else
+            {
+                return View();
+            }
         }
 
         //
@@ -68,8 +75,6 @@ namespace MeCommerceAdmin.Controllers
                 return View(model);
             }
 
-            // This doesn't count login failures towards account lockout
-            // To enable password failures to trigger account lockout, change to shouldLockout: true
             var user = _adminService.GetUserByEmailAddress(model.Email);
             if (user.IsAdmin != null && user.IsAdmin == true)
             {

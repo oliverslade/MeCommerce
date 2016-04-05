@@ -9,7 +9,7 @@ namespace MeCommerce.Controllers
 {
     public class CategoryController : Controller
     {
-        private ICatalogService _catalogService;
+        private readonly ICatalogService _catalogService;
 
         public CategoryController(ICatalogService catalogService)
         {

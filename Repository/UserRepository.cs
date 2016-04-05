@@ -151,8 +151,17 @@ namespace Repository
         public void DeleteOrderById(int orderId)
         {
             var order = GetOrderById(orderId);
+            foreach (var ol in order.OrderLines.ToList())
+            {
+                _context.OrderLines.Remove(ol);
+            }
             _context.Orders.Remove(order);
             _context.SaveChanges();
+        }
+
+        public void CreateOrderLine(OrderLine orderLine)
+        {
+            throw new System.NotImplementedException();
         }
 
         public OrderLine GetOrderLineById(int id)
