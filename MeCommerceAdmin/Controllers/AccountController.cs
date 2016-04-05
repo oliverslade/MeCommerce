@@ -55,7 +55,7 @@ namespace MeCommerceAdmin.Controllers
         {
             if (Request.IsAuthenticated)
             {
-                return RedirectToAction("Index", "Order");
+                return RedirectToAction("Index", "Home");
             }
             else
             {
@@ -88,7 +88,7 @@ namespace MeCommerceAdmin.Controllers
 
                         TempData["Success"] = "Signed In!";
 
-                        return RedirectToAction("Index", "Order");
+                        return RedirectToAction("Index", "Home");
 
                     case SignInStatus.LockedOut:
                         return View("Lockout");
