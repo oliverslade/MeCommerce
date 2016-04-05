@@ -30,15 +30,80 @@ namespace MeCommerce.Controllers
 
         public ActionResult CheckoutPost(FormCollection form)
         {
-            if (string.IsNullOrWhiteSpace(form["CardNumber"]))
+            if (string.IsNullOrWhiteSpace(form["CustomerTitle"]))
             {
-                TempData["Error"] = "Please insert your Card Number";
+                TempData["Error"] = "Please insert your Title";
+                return RedirectToAction("Index");
+            }
+
+            if (string.IsNullOrWhiteSpace(form["CustomerName"]))
+            {
+                TempData["Error"] = "Please insert your Full Name";
+                return RedirectToAction("Index");
+            }
+
+            if (string.IsNullOrWhiteSpace(form["HouseNameNumber"]))
+            {
+                TempData["Error"] = "Please insert your House Name or Number";
+                return RedirectToAction("Index");
+            }
+
+            if (string.IsNullOrWhiteSpace(form["AddressLine1"]))
+            {
+                TempData["Error"] = "Please insert the first line of your Address";
+                return RedirectToAction("Index");
+            }
+
+            if (string.IsNullOrWhiteSpace(form["AddressLine2"]))
+            {
+                TempData["Error"] = "Please insert the second line of your Address";
+                return RedirectToAction("Index");
+            }
+
+            if (string.IsNullOrWhiteSpace(form["AddressLine3"]))
+            {
+                form["AddressLine3"] = form["AddressLine2"];
+            }
+
+            if (string.IsNullOrWhiteSpace(form["County"]))
+            {
+                TempData["Error"] = "Please insert the County of your Address";
+                return RedirectToAction("Index");
+            }
+
+            if (string.IsNullOrWhiteSpace(form["Postcode"]))
+            {
+                TempData["Error"] = "Please insert the Postcode of your Address";
+                return RedirectToAction("Index");
+            }
+
+            if (string.IsNullOrWhiteSpace(form["ContactNumber"]))
+            {
+                TempData["Error"] = "Please insert a number we contact you on about your order";
+                return RedirectToAction("Index");
+            }
+
+            if (string.IsNullOrWhiteSpace(form["ContactEmail"]))
+            {
+                TempData["Error"] = "Please insert an email address we contact you on about your order";
+                return RedirectToAction("Index");
+            }
+
+            if (string.IsNullOrWhiteSpace(form["Town"]))
+            {
+                TempData["Error"] = "Please insert the Town of your Address";
                 return RedirectToAction("Index");
             }
 
             if (string.IsNullOrWhiteSpace(form["CardName"]))
             {
                 TempData["Error"] = "Please insert the name on your card";
+                return RedirectToAction("Index");
+            }
+
+            if (string.IsNullOrWhiteSpace(form["CarNumber"]))
+            {
+                TempData["Error"] = "Please insert the long number on your card";
                 return RedirectToAction("Index");
             }
 
