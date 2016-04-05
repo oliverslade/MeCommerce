@@ -2,12 +2,8 @@
 using DomainModels;
 using Interfaces.Repositories;
 using Interfaces.Services;
-using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
-using System.Runtime;
-using System.Security.Cryptography.X509Certificates;
 
 namespace Services
 {

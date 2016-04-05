@@ -41,7 +41,7 @@
     @Html.ActionLink("Add to Basket", "AddProductToBasket", "Order", new { productId = Model.Id, quantity = 1 }, new { @class = "button-style" })
 </p>
 
-<hr/>
+<hr />
 
 <p class="text-center">
     @Html.ActionLink("See more " + Model.Category.Name, "Details", "Category", new {id = Model.Category.Id}, new {@class = "button-style"})

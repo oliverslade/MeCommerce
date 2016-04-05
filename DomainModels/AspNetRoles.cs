@@ -1,5 +1,3 @@
-using System.ComponentModel.DataAnnotations.Schema;
-
 namespace DomainModels
 {
     using System.Collections.Generic;
