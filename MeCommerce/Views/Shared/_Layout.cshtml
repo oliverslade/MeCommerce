@@ -108,9 +108,9 @@
         <div id="basket-panel" class="cd-panel-container">
             <div class="cd-panel-content">
 
-                @if (MeCommerce.Chaching.CacheManager.Exists("Basket" + Request.UserHostAddress))
+                @if (MeCommerce.Caching.CacheManager.Exists("Basket" + Request.UserHostAddress))
                 {
-                    var basket = MeCommerce.Chaching.CacheManager.Get<ShoppingCartViewModel>("Basket" + Request.UserHostAddress);
+                    var basket = MeCommerce.Caching.CacheManager.Get<ShoppingCartViewModel>("Basket" + Request.UserHostAddress);
                     decimal totalPrice = 0;
                     totalPrice = basket.ShoppingCartItems.Aggregate(totalPrice, (current, i) => current + (decimal)i.Product.Price * i.Quantity / 100);
 

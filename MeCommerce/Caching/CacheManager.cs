@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Web;
 
-namespace MeCommerce.Chaching
+namespace MeCommerce.Caching
 {
     public static class CacheManager
     {
