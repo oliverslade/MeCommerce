@@ -16,19 +16,19 @@ namespace MeCommerce.Controllers
             _catalogService = catalogService;
         }
 
-        public ActionResult Details(int id)
-        {
-            CategoryViewModel finalCategory = ViewModelMapper.ToViewModel(_catalogService.GetCategoryById(id), _catalogService.GetProductsByCategoryId(id).Select(ViewModelMapper.ToViewModel));
-
-            return View(finalCategory);
-        }
-
         public ActionResult Index()
         {
             IEnumerable<CategoryViewModel> categories =
                 _catalogService.GetAllCategories().Select(ViewModelMapper.ToViewModel);
 
             return View(categories);
+        }
+
+        public ActionResult Details(int id)
+        {
+            CategoryViewModel finalCategory = ViewModelMapper.ToViewModel(_catalogService.GetCategoryById(id), _catalogService.GetProductsByCategoryId(id).Select(ViewModelMapper.ToViewModel));
+
+            return View(finalCategory);
         }
     }
 }
