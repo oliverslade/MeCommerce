@@ -110,6 +110,19 @@ namespace Repository
         {
             var existing = GetUser(userId);
             _context.AspNetUsers.Remove(existing);
+
+            var bh = _context.BrowsingHistory.Where(x => x.UserId == existing.Id);
+            foreach (var bhe in bh)
+            {
+                _context.BrowsingHistory.Remove(bhe);
+            }
+
+            var orders = _context.Orders.Where(x => x.UserId == existing.Id);
+            foreach (var o in orders)
+            {
+                _context.Orders.Remove(o);
+            }
+
             _context.SaveChanges();
         }
 

@@ -15,33 +15,36 @@
     <div class="col-md-3">
         <h2>Categories</h2>
         <p>From here you can create, read, edit and delete categories on the website. (Please ensure the category hasn't got any products assigned before deleting)</p>
-        <p><a class="button-style" href="http://go.microsoft.com/fwlink/?LinkId=301866">View Categories</a></p>
+        <p>@Html.ActionLink("View Categories", "Index", new { controller = "Category" }, new { @class = "button-style" })</p>
     </div>
     <div class="col-md-2">
         <h2>Users</h2>
         <p>
             From here you can edit users contact information and admin rights or delete them from the database.
         </p>
-        <p><a class="button-style" href="http://go.microsoft.com/fwlink/?LinkId=301865">View Users</a>
+        <p>
+            @Html.ActionLink("View Users", "Index", new { controller = "User" }, new { @class = "button-style" })
         </p>
     </div>
     <div class="col-md-2">
         <h2>Products</h2>
         <p>From here you can create, read, edit and delete products on the website.</p>
-        <p><a class="button-style" href="http://go.microsoft.com/fwlink/?LinkId=301867">View Products</a>
+        <p>
+            @Html.ActionLink("View Products", "Index", new { controller = "Product" }, new { @class = "button-style" })
         </p>
     </div>
     <div class="col-md-2">
         <h2>Orders</h2>
         <p>This section allows you to check on orders, edit any order information and delete orders if necessary.</p>
-        <p><a class="button-style" href="http://go.microsoft.com/fwlink/?LinkId=301867">View Orders</a>
+        <p>
+            @Html.ActionLink("View Orders", "Index", new { controller = "Order" }, new { @class = "button-style" })
         </p>
     </div>
     <div class="col-md-3">
         <h2>Brands</h2>
         <p>From here you can create, read, edit and delete categories on the website. (Please ensure the brand hasn't got any products assigned before deleting)</p>
         <p>
-            <a class="button-style" href="http://go.microsoft.com/fwlink/?LinkId=301867">View Brands</a>
+            @Html.ActionLink("View Brands", "Index", new { controller = "Brand" }, new { @class = "button-style" })
         </p>
     </div>
 </div>

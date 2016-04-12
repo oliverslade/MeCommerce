@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using DataModels;
+﻿using DataModels;
 using Interfaces.Repositories;
 using System;
 using System.Collections.Generic;
